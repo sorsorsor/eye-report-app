@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.1.css" />
+        <link rel="stylesheet" type="text/css" href="css/themes/eye-style.css" />
+        <title>Hello World</title>
+        <script type="text/javascript" charset="utf-8" src="js/eyereport.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+        <script type="text/javascript" charset="utf-8">
+         /******* Request access to Location Services *******/
+          
+            // Wait for PhoneGap to load
+            //
+            document.addEventListener("deviceready", onDeviceReady, false);
+            
+            // PhoneGap is ready
+            //
+            function onDeviceReady() {
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            }
+            
+            // onSuccess Geolocation
+            //
+            function onSuccess(position) {
+                var element = document.getElementById('geolocation');
+                element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                'Longitude: '          + position.coords.longitude             + '<br />' +
+                'Altitude: '           + position.coords.altitude              + '<br />' +
+                'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                'Heading: '            + position.coords.heading               + '<br />' +
+                'Speed: '              + position.coords.speed                 + '<br />' +
+                'Timestamp: '          + new Date(position.timestamp)          + '<br />';
+            }
+            
+            // onError Callback receives a PositionError object
+            //
+            function onError(error) {
+                alert('code: '    + error.code    + '\n' +
+                      'message: ' + error.message + '\n');
+            }
+        </script>
+    </head>
+    <body onload="initialize()">
+        
+        <!-- Home page -->
+        <div data-role="page" id="home" data-theme="d" data-content-theme="d">
+            <div data-role="panel" id="mypanel">
+                <ul data-role="listview">
+                    <li><a href="index.html">option 01</a></li>
+                    <li><a href="index.html">option 02</a></li>
+                    <li><a href="index.html">option 03</a></li>
+                    <li><a href="index.html">Emergency Call</a></li>
+                    <li><a href="index.html">Current Location</a></li>
+                    <li><a href="index.html">Contact access</a></li>
+                </ul>
+            </div><!-- /panel -->
+            <div data-role="header" data-position="inline">
+                <h1>EyeReport</h1>
+                <a href="#track_info" data-icon="gear" class="ui-btn-right">Options</a>
+                <a href="#mypanel" data-role="button" class="ui-btn-left">Reveal</a>
+            </div><!-- /header-->
+            <div data-role="content" id="one" class="ui-content" role="main">
+                <div data-role="collapsible-set">
+                    
+                    <div data-role="collapsible" data-corners="false" data-collapsed="false" data-theme="c" data-content-theme="c">
+                        <h3>Witness</h3>
+                        <p>Content for witness tab. Content for witness tab. Content for witness tab. Content for witness tab. Content for witness tab. Content for witness tab. </p>
+                    </div>
+                    
+                    <div data-role="collapsible" data-theme="b" data-content-theme="b">
+                        <h3>Victim</h3>
+                        <p>Content for Victim tab. Content for victim tab. Content for Victim tab. Content for victim tab. Content for Victim tab. Content for victim tab. </p>
+                    </div>
+                    <div data-role="collapsible" data-theme="a" data-content-theme="a">
+                        <h3>Information</h3>
+                        <p>25% of Chinese women have experienced domestic violence.</p>
+                    </div>
+                </div>
+            </div><!--content-->
+            <p id="geolocation">Finding geolocation...</p>
+        </div><!-- /page -->
+        
+        <!-- Track Info page -->
+        <div data-role="page" id="track_info"> 
+            <div data-role="header" data-position="inline">
+                <h1>EyeReport</h1>
+                <a href="#home" data-icon="gear" class="ui-btn-right">Options</a>
+                <a href="#mypanel" data-role="button" class="ui-btn-left">Reveal</a>
+            </div><!-- /header-->
+            
+            <div data-role="content">	
+                <p id="track_info_info"></p>
+                
+                <div id="map_canvas" style="position:absolute;bottom:0;left:0;width:100%;height:300px;"></div>
+                
+            </div>
+            
+            
+        </div><!-- /page -->
+
+        <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.3.1.js"></script>
+        <!--script type="text/javascript" src="cordova-2.5.0.js"></script-->
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>

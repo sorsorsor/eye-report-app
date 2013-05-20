@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <style type="text/css">
+            html { height: 100% }
+            body { height: 100%; margin: 0; padding: 0 }
+            #map_canvas { height: 100% }
+            </style>
+        <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlFl3vPEbgzrr-1KX5E20z_1DowB2ASus&sensor=true">
+            </script>
+        <script type="text/javascript">
+            function initialize() {
+                var mapOptions = {
+                    center: new google.maps.LatLng(-34.397, 150.644),
+                    zoom: 8,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("map_canvas"),
+                                              mapOptions);
+            }
+            </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <title>Hello World</title>
+        
+        <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+
+    </head>
+    <body onload="initialize()">
+    </body>
+</html>
