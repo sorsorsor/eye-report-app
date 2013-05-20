@@ -19,18 +19,39 @@
 -->
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.1.css" />
         <link rel="stylesheet" type="text/css" href="css/themes/eye-style.css" />
-        <title>Hello World</title>
+        <title>EyeReport</title>
         <script type="text/javascript" charset="utf-8" src="js/eyereport.js"></script>
-        <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
-        <script type="text/javascript" charset="utf-8">
-         /******* Request access to Location Services *******/
-          
+        <!--script type="text/javascript" charset="utf-8" src="js/SMSComposer.js"></script-->
+        <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
+        <script src="js/post.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/SQLitePlugin.js"></script>
+        <!--link rel="stylesheet" href="qunit-1.5.0.css" />
+         <script type="text/javascript" charset="utf-8" src="qunit-1.5.0.js"></script-->
+        
+        <!--script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="js/jquery.ui.map.js"></script>
+        <script type="text/javascript" src="js/jquery.ui.map.services.js"></script>
+        <script type="text/javascript" src="js/jquery.ui.map.extensions.js"></script>
+        <script src="js/min/markerwithlabel.v1.1.5.min.js" type="text/javascript"></script-->
+        
+        <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.3.1.js"></script>
+        <script type="text/javascript" src="cordova-2.7.0.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+            </script>
+        
+        <!-------------------------BEGIN REQUEST LOCATION SERVICES----------------------->
+        <!--script type="text/javascript" charset="utf-8">
+            /******* Request access to Location Services *******/
+            
             // Wait for PhoneGap to load
             //
             document.addEventListener("deviceready", onDeviceReady, false);
@@ -39,94 +60,333 @@
             //
             function onDeviceReady() {
                 navigator.geolocation.getCurrentPosition(onSuccess, onError);
-            }
-            
-            // onSuccess Geolocation
-            //
-            function onSuccess(position) {
-                var element = document.getElementById('geolocation');
-                element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                'Longitude: '          + position.coords.longitude             + '<br />' +
-                'Altitude: '           + position.coords.altitude              + '<br />' +
-                'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                'Heading: '            + position.coords.heading               + '<br />' +
-                'Speed: '              + position.coords.speed                 + '<br />' +
-                'Timestamp: '          + new Date(position.timestamp)          + '<br />';
-            }
-            
-            // onError Callback receives a PositionError object
-            //
-            function onError(error) {
-                alert('code: '    + error.code    + '\n' +
-                      'message: ' + error.message + '\n');
-            }
-        </script>
-    </head>
-    <body onload="initialize()">
-        
-        <!-- Home page -->
-        <div data-role="page" id="home" data-theme="d" data-content-theme="d">
-            <div data-role="panel" id="mypanel">
-                <ul data-role="listview">
-                    <li><a href="index.html">option 01</a></li>
-                    <li><a href="index.html">option 02</a></li>
-                    <li><a href="index.html">option 03</a></li>
-                    <li><a href="index.html">Emergency Call</a></li>
-                    <li><a href="index.html">Current Location</a></li>
-                    <li><a href="index.html">Contact access</a></li>
-                </ul>
-            </div><!-- /panel -->
-            <div data-role="header" data-position="inline">
-                <h1>EyeReport</h1>
-                <a href="#track_info" data-icon="gear" class="ui-btn-right">Options</a>
-                <a href="#mypanel" data-role="button" class="ui-btn-left">Reveal</a>
-            </div><!-- /header-->
-            <div data-role="content" id="one" class="ui-content" role="main">
-                <div data-role="collapsible-set">
-                    
-                    <div data-role="collapsible" data-corners="false" data-collapsed="false" data-theme="c" data-content-theme="c">
-                        <h3>Witness</h3>
-                        <p>Content for witness tab. Content for witness tab. Content for witness tab. Content for witness tab. Content for witness tab. Content for witness tab. </p>
-                    </div>
-                    
-                    <div data-role="collapsible" data-theme="b" data-content-theme="b">
-                        <h3>Victim</h3>
-                        <p>Content for Victim tab. Content for victim tab. Content for Victim tab. Content for victim tab. Content for Victim tab. Content for victim tab. </p>
-                    </div>
-                    <div data-role="collapsible" data-theme="a" data-content-theme="a">
-                        <h3>Information</h3>
-                        <p>25% of Chinese women have experienced domestic violence.</p>
-                    </div>
-                </div>
-            </div><!--content-->
-            <p id="geolocation">Finding geolocation...</p>
-        </div><!-- /page -->
-        
-        <!-- Track Info page -->
-        <div data-role="page" id="track_info"> 
-            <div data-role="header" data-position="inline">
-                <h1>EyeReport</h1>
-                <a href="#home" data-icon="gear" class="ui-btn-right">Options</a>
-                <a href="#mypanel" data-role="button" class="ui-btn-left">Reveal</a>
-            </div><!-- /header-->
-            
-            <div data-role="content">	
-                <p id="track_info_info"></p>
+                // onSuccess Geolocation
+                //
+                function onSuccess(position) {
+                    var element = document.getElementById('geolocation');
+                    element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                    'Longitude: '          + position.coords.longitude             + '<br />' +
+                    'Altitude: '           + position.coords.altitude              + '<br />' +
+                    'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                    'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                    'Heading: '            + position.coords.heading               + '<br />' +
+                    'Speed: '              + position.coords.speed                 + '<br />' +
+                    'Timestamp: '          + new Date(position.timestamp)          + '<br />';
+                }
                 
-                <div id="map_canvas" style="position:absolute;bottom:0;left:0;width:100%;height:300px;"></div>
-                
-            </div>
-            
-            
-        </div><!-- /page -->
+                // onError Callback receives a PositionError object
+                //
+                function onError(error) {
+                    alert('code: '    + error.code    + '\n' +
+                          'message: ' + error.message + '\n');
+                }
+            </script-->
+        <!-------------------------END REQUEST LOCATION SERVICES----------------------->
+        
+        <script>
+            function onBodyLoad() {
+                document.addEventListener("deviceready",onDeviceReady,false);
+            }
+            </script>
 
-        <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-        <script type="text/javascript" src="js/jquery.mobile-1.3.1.js"></script>
-        <!--script type="text/javascript" src="cordova-2.5.0.js"></script-->
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+    </head>
+        <!--body-->
+        <body onload="onBodyLoad() initialize()">
+            
+            <!-- Home page -->
+            <div data-role="page" id="home" data-theme="d" data-content-theme="d">
+                <div data-role="panel" id="rightpanel01" data-display="reveal" data-theme="d" data-content-theme="d" data-position:"right" swipe-close:"true" class="ui-panel-position-right">
+                    <ul data-role="listview">
+                        <!--li><a href="sms.html">Contact SMS</a></li>
+                        <li><a href="contacts.html">Contact SMS</a></li-->
+                        <!--li><a href="sql.html">sql test</a></li-->
+                        <li><a href="tel:3167378786">Emergency Call</a></li>
+                        <!--li onclick="pickContact();">Contacts</li>
+                        <li onclick="ComposeSMS();">SMS</li>
+                        <li><a href="sqlTest.html">DB test<</a></li-->
+                        
+                    </ul>
+                </div><!-- /panel -->
+                <div data-role="header" data-position="inline">
+                    <img name="eye_report_logo" src="img/eye_report_logo02.png" style="float:left; height: 3em;  margin-top:5px; margin-left:5px;">
+                        <h3><strong> </strong></h3>
+                        
+                        <a href="#rightpanel01" data-icon="bars" data-iconpos="notext" data-theme="d" data-position="right" class="ui-btn-right ui-icon-alt" style="margin-top:5px;"></a>
+                        <!--a href="#track_info" data-role="button" class="ui-btn-left">other</a-->
+                        </div><!-- /header-->
+                <div id="qunit"></div>
+                <div data-role="content" id="one" class="ui-content" role="main" style="border:0;">
+                    <div data-role="collapsible-set" data-inset="false" data-corners="false" class="no-border"><!-- DATA THEME C -->
+                        <div data-role="collapsible" data-collapsed="true" data-theme="c" data-content-theme="c" class="cornered1" id="landmark-2" data-landmark-id="2">
+                            <h3>Witness</h3>
+                            
+                            <form>
+                                <div data-role="fieldcontain">
+                                    <fieldset data-role="controlgroup" data-mini="true">
+                                        <legend><strong>Check all that apply:</strong></legend>
+                                        <input type="checkbox" name="entry.1406026652" id="group_1406026652_1" value="verbal violence" class="custom" />
+                                        <label for="group_1406026652_1">verbal violence</label>
+                                        <input type="checkbox" name="entry.1406026652" id="group_1406026652_2"value="psychological violence" class="custom" />
+                                        <label for="group_1406026652_2">psychological violence</label>
+                                        <input type="checkbox" name="entry.1406026652" id="group_1406026652_3"value="physical violence" class="custom" />
+                                        <label for="group_1406026652_3">physical violence</label>
+                                        <input type="checkbox" name="entry.1406026652" id="group_1406026652_4"value="sexual violence" class="custom" />
+                                        <label for="group_1406026652_4">sexual violence</label>
+                                        <!--label for="group_1406026652_5">* Other:</label>
+                                         <input type="text" name="entry.1406026652" id="group_1406026652_5"value="other" data-mini="true" data-theme="d" data-content-theme="d" /-->
+                                    </fieldset>
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+                                    
+                                    <!--input type="submit" value="Save" data-role="button"-->
+                                </div>
+                                <input type="submit" name="submit" value="Submit" id="submit" data-role="button">
+                                    <!--a href="index.html" data-theme="c" data-content-theme="c" data-role="button" class="ui-btn-right">Submit</a-->
+                                    </form>
+                        </div>
+                        
+                        <!--DATA THEME B -->
+                        <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2">
+                            <h3>Victim</h3>
+                            <h2><strong>I am a victim.</strong></h2>
+                            <h2><strong>I want to:</strong></h2>
+                            <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Report to Police</a>
+                            <!--div data-role="collapsible" data-theme="b" data-content-theme="b">
+                             <3>Report to Police</h3-->
+                            <!--div data-role="content" id="smsContact" class="ui-content" role="main"-->
+                            <!--h2>CHINA</h2>
+                             <h2>110</h2>
+                             <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Call now</a>
+                             </div-->
+                            <a href="tel:18710039964" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Report to hotline</a>
+                            <!--a href="index.html" data-role="button" data-inline="false" data-theme="b" data-content-theme="b"data-corners="false"> I need a friend’s assistance</a-->
+                            <input onclick="ComposeSMS();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="I need a friend's assistance" />
+                            
+                        </div>
+                        <!--DATA THEME A-->
+                        <div  id="landmark-1" data-landmark-id="1" data-inset="false" data-role="collapsible" data-collapsed="false" data-theme="a" data-content-theme="a" class="cornered3">
+                            <h3>Information</h3>
+                            <form>
+                                <fieldset data-role="controlgroup" data-mini="true">
+                                    <legend><strong>How did you find out about gender based violence?</strong></legend>
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_1" value="It happened to a friend">
+                                    <label for="group_1756293355_1">It happened to a friend</label>
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_2" value="It happened to a family member">
+                                    <label for="group_1756293355_2">It happened to a family member</label>
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_3" value="It happened to me">
+                                    <label for="group_1756293355_3">It happened to me</label>
+                                                
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_4" value="I was a witness to it">
+                                    <label for="group_1756293355_4">I was a witness to it</label>
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_5" value="I read about it">
+                                    <label for="group_1756293355_5">I read about it</label>
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_6" value="I attended a class/event about it">
+                                    <label for="group_1756293355_6">I attended a class/event about it</label>
+                                                            <!--label for="basic">* Other:</label>
+                                                             <input type="text" name="entry.1756293355" id="group_1756293355_7" value="__other_option__" data-mini="true" data-theme="d" data-content-theme="d" /-->
+                                </fieldset>
+                                &nbsp;
+                                <fieldset data-role="controlgroup" data-mini="true" name="myOption" id="myOption">
+                                    <legend><strong>Why do you think it is not reported enough?</strong></legend>
+                                    <input type="radio" name="entry.802736113" id="group_802736113_1" value="Victims are too traumatized">
+                                    <label for="group_802736113_1">Victims are too traumatized</label>
+                                    <input type="radio" name="entry.802736113" id="group_802736113_2" value="I don&#39;t know where to report it">
+                                    <label for="group_802736113_2">I don’t know where to report it</label>
+                                    <!--label for="group_802736113_3">* Other:</label>
+                                    <input type="text" name="entry.802736113" id="group_802736113_3" value="__other_option__" data-mini="true" data-theme="d" data-content-theme="d" /-->
+                                </fieldset>
+                                <!--input type="submit" name="submit" value="Submit" id="submit" data-role="button"-->
+                                &nbsp;
+                                &nbsp;
+                                <input type="submit" value="Save" data-role="button">
+                                    </form>
+                            <!--p>25% of Chinese women have experienced domestic violence.</p-->
+                        </div>
+                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="a" data-content-theme="a">
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                        </div>
+                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="a" data-content-theme="a">
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                        </div>
+                    </div>
+                    
+                    <!--script type="text/javascript">
+                        var ComposeSMS = function(){
+                            
+                            var contactno = document.test.phonenumber.value;
+                            var messagetext=document.test.message.value;
+                            
+                            //window.location.href = "sms:contactno?body=messagetext";
+                            window.location = "sms:"+contactno+"?body="+messagetext;
+                           // window.location = "sms:contactno?body=messagetext";
+                        }
+                        </script>
+                    <form name="test">
+                        <input type="text" name="phonenumber"  /></br>
+                        <input type="text" name="message"/></br>
+                        <input onclick="ComposeSMS();" type="button" value="Compose SMS text with number and body" />
+                    </form-->
+                    
+                    <!--p id="geolocation">Finding geolocation...</p-->
+                    
+                    
+                    <!------------------------- CONTACTS ------------------------->
+                    <!--input onclick="pickContact();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="PickContact" />
+                    <script type="text/javascript" charset="utf-8">
+                        
+                        function pickContact()
+                        {
+                            
+                            var options = {};
+                            navigator.contacts.chooseContact(onContactSelected, options);
+                        }
+                        
+                        
+                        function onContactSelected(id)
+                        {
+                            console.log("Contact ID =" +id);
+                            console.log("Works! However only the contact's id is received, not the full contact object.");
+                            //console.log("Contact ID = " + id);  //ex. John Appleseed, ID=3
+                            
+                            /*
+                             alert("Contact ID =" +contacts[i].name.formatted);
+                             alert("a=" +contacts[i].name);
+                             */
+                            alert(id);
+                            
+                            /*
+                             if (contacts[i].phoneNumbers){
+                             for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
+                             alert("Type: " + contacts[i].phoneNumbers[j].type + "\n" +
+                             "Value: "  + contacts[i].phoneNumbers[j].value + "\n" +
+                             "Preferred: "  + contacts[i].phoneNumbers[j].pref);
+                             }
+                             }
+                             */
+                            //TODO: How to look up the contact object by ID???
+                            var options = new ContactFindOptions();
+                            options.filter = "" +id;
+                            // var filter = ["id","phoneNumbers","name.formatted", "displayName"];
+                            var fields = ["id","displayName", "addresses"];//"name.formatted" "phoneNumbers"];
+                            //navigator.contacts.find(fields, onContactFound, onContactFailure, options);
+                            navigator.contacts.find(filter, onContactFound, onContactFailure, options);
+                        }
+                        
+                        
+                        function onContactFound(contacts) {
+                            console.log(JSON.stringify(contacts));
+                            console.log(contacts.length + " contact(s) found");  //ex. 1 contact(s) found
+                            //console.log("ID = " + contacts[0].id + ", Name = " + contacts[0].displayName);
+                        }
+                        </script-->
+                    <!------------------------- /CONTACTS ------------------------->
+                    
+                    <!------------------------- STORE CONTACTS ------------------------->
+                    <!--script>
+                     function testAsSeperateFunctionDB(contact)
+                     {
+                     
+                     
+                     for(i = 0; i < contactFullObjArray.length; i++) {
+                     transaction.executeSql();
+                     //Parse the ContactFull object
+                     var contact=ContactFull.parse(contactFullObjArray[i]);
+                     testAsSeperateFunctionDB(contact);
+                     
+                     }
+                     
+                     database.transaction(
+                     function( transaction ){
+                     alert("enteringIntoTransaction");
+                     transaction.executeSql(
+                     'INSERT INTO testTableThree (contactId, mrMrs, firstName,
+                     lastName, jobTitle, bActive, homePhone, contactType, accountId,
+                     workPhone, cellularPhone, workFax, contactEmail, owner,
+                     alternateCountry, alternateAddress1, alternateAddress2,
+                     alternateZipCode, alternateCity, alternateProvince)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
+                     
+                     [contact.contactId, contact.mrMrs,
+                     contact.firstName, contact.lastName,
+                     contact.jobTitle, contact.bActive,
+                     contact.homePhone, contact.contactType,
+                     contact.accountId, contact.workPhone,
+                     contact.cellularPhone, contact.workFax,
+                     contact.contactEmail, contact.owner,
+                     contact.alternateCountry, contact.alternateAddress1,
+                     contact.alternateAddress2, contact.alternateZipCode,
+                     contact.alternateCity, contact.alternateProvince],
+                     
+                     //Callback after successful transaction
+                     function( transaction, results ) {
+                     alert("added");
+                     },
+                     
+                     //Callback after error in transaction
+                     function( transaction, error ) {
+                     alert("Error" + error.code);
+                     }
+                     );
+                     }
+                     );
+                     }
+                     </script>
+                     
+                     <script></script-->
+                    
+                    
+                    <!------------------------- /STORE CONTACTS ------------------------->
+                    
+                </div><!--content-->
+                
+            </div><!-- /page -->
+            
+            <!-- Track Info page -->
+            <!--div data-role="page" id="track_info">
+                <div data-role="header" data-position="inline">
+                    <h1><strong>EyeReport</strong></h1>
+                    <a href="#home" class="ui-btn-right">home</a>
+                    <a href="#mypanel" data-role="button" class="ui-btn-left">Reveal</a>
+                </div>
+                
+                <div data-role="content">
+                    <p id="track_info_info"></p>
+                    
+                    <div id="map_canvas" style="position:absolute;bottom:0;left:0;width:100%;height:300px;"></div>
+                    
+                </div>
+                
+                
+            </div-->
+            <!------------------- /page ------------------------------>
+            
+            <!--------------------- ComposeSMS ------------------------------->
+            <!--script>
+                var ComposeSMS = function(){
+                    
+                    window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
+                }
+                
+                var myCallback = function(result){
+                    
+                    if(result == 0)
+                    alert("Cancelled");
+                    else if(result == 1)
+                    alert("Sent");
+                    else if(result == 2)
+                    alert("Failed.");
+                    else if(result == 3)
+                    alert("Not Sent.");
+                }
+                </script-->
+            
+            <!--------------------- /ComposeSMS ------------------------------->
+        
     </body>
 </html>

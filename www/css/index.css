@@ -41,7 +41,7 @@ body {
     height:100%;
     margin:0px;
     padding:0px;
-    text-transform:uppercase;
+    text-transform:none;
     width:100%;
 }
 
@@ -112,4 +112,122 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+.outer {
+    background-color: #ffffff;
+    padding: 10px;
+    font-size: x-small;
+}
+
+.cornered1 {
+  /*  width: 176px;
+    height:0px;
+    border-bottom: 40px solid #44b5e4; blue
+    border-left: 40px solid transparent;*/
+}
+
+.cornered1 .ui-collapsible-heading
+{
+    height:0px;
+    border-bottom: 40px solid #44b5e4;
+    border-left: 40px solid transparent;
+}
+
+.cornered2 {
+  /*  width: 176px;
+    height:0px;
+    border-bottom: 40px solid #c8382d; red
+    border-left: 40px solid transparent;*/
+}
+
+.cornered2 .ui-collapsible-heading
+{
+    height:0px;
+    border-bottom: 40px solid #c8382d;
+    border-left: 40px solid #44b5e4;
+}
+
+.cornered3 {
+  /*  width: 176px;
+    height:0px;
+    border-bottom: 40px solid #eba91b; yellow
+    border-left: 40px solid transparent;*/
+}
+
+.cornered3 .ui-collapsible-heading
+{
+    height:0px;
+    border-bottom: 40px solid #eba91b;
+    border-left: 40px solid #c8382d;
+}
+
+
+.main {
+  /*  width: 200px;*/
+    height: 200px;
+    background-color: red;
+    padding: 0 8px;
+}
+
+.ui-collapsible-heading .ui-icon {
+    display: none;
+}
+
+
+.ui-collapsible-inset .ui-collapsible-heading .ui-btn {
+border-right-width: 0px; border-left-width: 0px;
+ border: 0;
+ height:40px;
+}
+
+.custom-collapsible {
+    margin: 0 !important;   
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-width:0 !important;
+    text-align: left;
+    padding-left:0px;
+}
+
+
+.no-border {
+    border-bottom: 0px;
+    border-left: 0px;
+    border:0;
+}
+
+.ui-collapsible-heading-toggle .ui-btn .ui-btn-inner {
+border:0;
+}
+
+.ui-collapsible-inset .ui-collapsible-content {
+border: 0;
+}
+
+.ui-collapsible-heading .ui-btn-inner {
+font-size: 18px;
+}
+
+/* portrait mode */
+@media screen and (max-width: 640px)
+{
+}
+/* landscape mode */
+@media screen and (min-width: 641px)
+{
+}
+
+.no-corner {
+    height:0px;
+    border-bottom: 0px;
+    border-left: 0px;
+}
+
+.ui-collapsible-content .ui-body-a {
+border:0;
+}
+
+.btm-fill {
+margin:0;
 }

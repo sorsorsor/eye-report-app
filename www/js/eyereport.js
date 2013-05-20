@@ -30,8 +30,27 @@
             // Cordova is ready
             //
             function onSuccess(position) {
+           /****** routes current location to specified coordinate... pops up onDevicce ready need to fix
+            
                 var ref = window.open('https://maps.google.com/maps?saddr='+position.coords.latitude+','+position.coords.longitude+'&daddr=45.404232,11.926511', '_blank', 'location=yes');
                 ref.addEventListener('loadstart', function() { alert('start: ' + event.url); });
                 ref.addEventListener('loadstop', function() { alert('stop: ' + event.url); });
                 ref.addEventListener('exit', function() { alert(event.type); });
+            
+            **********/
             }
+
+
+$("#getinfo").click(function() {
+                    
+                    $("input[name*=radio-choice-]:checked").each(function() {
+                                                                 alert($(this).val());
+                                                                 });
+                    
+                    });
+
+$('input[name=capture_type]').change(function() {
+                                     var radio_val = $('input[name=capture_type]:checked').val();
+                                     alert('Radio Value: '+radio_val);
+                                     });
+
