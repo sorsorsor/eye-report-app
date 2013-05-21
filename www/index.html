@@ -95,6 +95,7 @@
             
             <!-- Home page -->
             <div data-role="page" id="home" data-theme="d" data-content-theme="d">
+               <!-- panel -->
                 <div data-role="panel" id="rightpanel01" data-display="reveal" data-theme="d" data-content-theme="d" data-position:"right" swipe-close:"true" class="ui-panel-position-right">
                     <ul data-role="listview">
                         <!--li><a href="sms.html">Contact SMS</a></li>
@@ -106,7 +107,8 @@
                         <li><a href="sqlTest.html">DB test<</a></li-->
                         
                     </ul>
-                </div><!-- /panel -->
+                </div>
+                <!-- /panel -->
                 <div data-role="header" data-position="inline">
                     <img name="eye_report_logo" src="img/eye_report_logo02.png" style="float:left; height: 3em;  margin-top:5px; margin-left:5px;">
                         <h3><strong> </strong></h3>
@@ -132,8 +134,10 @@
                                         <label for="group_1406026652_3">physical violence</label>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_4"value="sexual violence" class="custom" />
                                         <label for="group_1406026652_4">sexual violence</label>
-                                        <!--label for="group_1406026652_5">* Other:</label>
-                                         <input type="text" name="entry.1406026652" id="group_1406026652_5"value="other" data-mini="true" data-theme="d" data-content-theme="d" /-->
+                                        <label for="group_1406026652_5">* Other:</label>
+                                        <span id="camera_status">
+                                        <input type="text" name="entry.1406026652" id="group_1406026652_5"value="other" data-mini="true" data-theme="d" data-content-theme="d" />
+                                    </span>
                                     </fieldset>
                                     &nbsp;
                                     &nbsp;
@@ -144,7 +148,7 @@
                                 </div>
                                 <input type="submit" name="submit" value="Submit" id="submit" data-role="button">
                                     <!--a href="index.html" data-theme="c" data-content-theme="c" data-role="button" class="ui-btn-right">Submit</a-->
-                                    </form>
+                            </form>
                         </div>
                         
                         <!--DATA THEME B -->
@@ -184,8 +188,8 @@
                                     <label for="group_1756293355_5">I read about it</label>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_6" value="I attended a class/event about it">
                                     <label for="group_1756293355_6">I attended a class/event about it</label>
-                                                            <!--label for="basic">* Other:</label>
-                                                             <input type="text" name="entry.1756293355" id="group_1756293355_7" value="__other_option__" data-mini="true" data-theme="d" data-content-theme="d" /-->
+                                                            <label for="basic">* Other:</label>
+                                                             <input type="text" name="entry.1756293355" id="group_1756293355_7" value="other" data-mini="true" data-theme="d" data-content-theme="d" />
                                 </fieldset>
                                 &nbsp;
                                 <fieldset data-role="controlgroup" data-mini="true" name="myOption" id="myOption">
@@ -194,8 +198,10 @@
                                     <label for="group_802736113_1">Victims are too traumatized</label>
                                     <input type="radio" name="entry.802736113" id="group_802736113_2" value="I don&#39;t know where to report it">
                                     <label for="group_802736113_2">I don’t know where to report it</label>
-                                    <!--label for="group_802736113_3">* Other:</label>
-                                    <input type="text" name="entry.802736113" id="group_802736113_3" value="__other_option__" data-mini="true" data-theme="d" data-content-theme="d" /-->
+                                    
+                                    <label for="group_802736113_3">* Other:</label>
+                                    <input type="text" name="entry.802736113" id="group_802736113_3" value="other" data-mini="true" data-theme="d" data-content-theme="d" />
+                                     
                                 </fieldset>
                                 <!--input type="submit" name="submit" value="Submit" id="submit" data-role="button"-->
                                 &nbsp;
@@ -387,6 +393,6 @@
                 </script-->
             
             <!--------------------- /ComposeSMS ------------------------------->
-        
-    </body>
+            
+            </body>
 </html>
