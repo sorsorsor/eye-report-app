@@ -31,6 +31,7 @@
         <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
         <script src="js/post.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/SQLitePlugin.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/localize.js"></script>
         <!--link rel="stylesheet" href="qunit-1.5.0.css" />
          <script type="text/javascript" charset="utf-8" src="qunit-1.5.0.js"></script-->
         
@@ -46,7 +47,7 @@
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
             app.initialize();
-            </script>
+        </script>
         
         <!-------------------------BEGIN REQUEST LOCATION SERVICES----------------------->
         <!--script type="text/javascript" charset="utf-8">
@@ -83,15 +84,27 @@
             </script-->
         <!-------------------------END REQUEST LOCATION SERVICES----------------------->
         
+        <script type="text/javascript" charset="utf-8">
+            
+            function checkLanguage() {
+                navigator.globalization.getPreferredLanguage(
+                                                             function (language) {alert('language: ' + language.value + '\n');
+                                                             document.getElementById("witness").innerHTML="目击者";},
+                                                             function () {alert('Error getting language\n');}
+                                                             );
+            }
+            </script>
+        
         <script>
             function onBodyLoad() {
                 document.addEventListener("deviceready",onDeviceReady,false);
+                document.getElementById("witness").innerHTML="目击者";
             }
             </script>
 
     </head>
         <!--body-->
-        <body onload="onBodyLoad() initialize()">
+        <body onload="checkLanguage()"><!--onBodyLoad() initialize()-->
             
             <!-- Home page -->
             <div data-role="page" id="home" data-theme="d" data-content-theme="d">
@@ -115,26 +128,26 @@
                         
                         <a href="#rightpanel01" data-icon="bars" data-iconpos="notext" data-theme="d" data-position="right" class="ui-btn-right ui-icon-alt" style="margin-top:5px;"></a>
                         <!--a href="#track_info" data-role="button" class="ui-btn-left">other</a-->
-                        </div><!-- /header-->
+                </div><!-- /header-->
                 <div id="qunit"></div>
                 <div data-role="content" id="one" class="ui-content" role="main" style="border:0;">
                     <div data-role="collapsible-set" data-inset="false" data-corners="false" class="no-border"><!-- DATA THEME C -->
                         <div data-role="collapsible" data-collapsed="true" data-theme="c" data-content-theme="c" class="cornered1" id="landmark-2" data-landmark-id="2">
-                            <h3>Witness</h3>
+                            <h3 id="witness">Witness</h3>
                             
                             <form>
                                 <div data-role="fieldcontain">
                                     <fieldset data-role="controlgroup" data-mini="true">
-                                        <legend><strong>Check all that apply:</strong></legend>
+                                        <legend id="checkHeader"><strong>Check all that apply:</strong></legend>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_1" value="verbal violence" class="custom" />
-                                        <label for="group_1406026652_1">verbal violence</label>
+                                        <label for="group_1406026652_1" id="verbVio">verbal violence</label>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_2"value="psychological violence" class="custom" />
-                                        <label for="group_1406026652_2">psychological violence</label>
+                                        <label for="group_1406026652_2" id="psychVio">psychological violence</label>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_3"value="physical violence" class="custom" />
-                                        <label for="group_1406026652_3">physical violence</label>
+                                        <label for="group_1406026652_3"id="physVio">physical violence</label>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_4"value="sexual violence" class="custom" />
-                                        <label for="group_1406026652_4">sexual violence</label>
-                                        <label for="group_1406026652_5">* Other:</label>
+                                        <label for="group_1406026652_4" id="sexVio">sexual violence</label>
+                                        <label for="group_1406026652_5"id="other01">* Other:</label>
                                         <span id="camera_status">
                                         <input type="text" name="entry.1406026652" id="group_1406026652_5"value="other" data-mini="true" data-theme="d" data-content-theme="d" />
                                     </span>

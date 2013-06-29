@@ -47,6 +47,7 @@
 		9AD57F6F1741B5C900EFC459 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57F6E1741B5C900EFC459 /* MessageUI.framework */; };
 		9AD57F711741B7D500EFC459 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57F701741B7D500EFC459 /* MessageUI.framework */; };
 		9AD57FE41741D25200EFC459 /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57FE31741D25200EFC459 /* libCordova.a */; };
+		9AE478D5177E45ED0096F116 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AE478D4177E45ED0096F116 /* Localizable.strings */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,8 @@
 		9AD57F6E1741B5C900EFC459 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9AD57F701741B7D500EFC459 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9AD57FE31741D25200EFC459 /* libCordova.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCordova.a; path = "../../../../Library/Developer/Xcode/DerivedData/EyeReport-hcbihatwcbdbmqgdclbeuseyrlzb/Build/Products/Debug-iphoneos/libCordova.a"; sourceTree = "<group>"; };
+		9AE478D4177E45ED0096F116 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = EyeReport/Resources/Localizable.strings; sourceTree = "<group>"; };
+		9AE478D6177E4AA50096F116 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = EyeReport/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +188,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				9AE478D4177E45ED0096F116 /* Localizable.strings */,
 				9AD57FE31741D25200EFC459 /* libCordova.a */,
 				9AD57F6E1741B5C900EFC459 /* MessageUI.framework */,
 				9AD57F6617417D3A00EFC459 /* libsqlite3.0.dylib */,
@@ -353,6 +357,7 @@
 				es,
 				de,
 				se,
+				"zh-Hans",
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -402,6 +407,7 @@
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */,
 				30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */,
+				9AE478D5177E45ED0096F116 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +450,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1F766FDD13BBADB100FB74C0 /* en */,
+				9AE478D6177E4AA50096F116 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
