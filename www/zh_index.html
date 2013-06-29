@@ -91,7 +91,7 @@
                 navigator.globalization.getPreferredLanguage(
                                                              function (language)
                                                              {
-                                                             
+                                                             //alert('language: ' + language.value + '\n');
                                                              if(language.value == "zh-Hans")
                                                              {
                                                              //alert('language: ' + language.value + '\n');
@@ -104,7 +104,16 @@
                                                              }
                                                              );
             }
-                        
+             /*
+            function checkLanguage() {
+                navigator.globalization.getPreferredLanguage(
+                                                             function (language) {alert('language: ' + language.value + '\n');
+                                                           //  document.getElementById("witness").innerHTML="目击者";},
+                                                             function () {alert('Error getting language\n');}
+                                                             );
+            }
+             */
+            
             </script>
         
         <script>
@@ -136,7 +145,7 @@
                         <!--li><a href="sms.html">Contact SMS</a></li>
                         <li><a href="contacts.html">Contact SMS</a></li-->
                         <!--li><a href="sql.html">sql test</a></li-->
-                        <li><a href="tel:110">Emergency Call</a></li>
+                        <li><a href="tel:110">急诊</a></li>
                         <!--li onclick="pickContact();">Contacts</li>
                         <li onclick="ComposeSMS();">SMS</li>
                         <li><a href="sqlTest.html">DB test<</a></li-->
@@ -155,23 +164,23 @@
                 <div data-role="content" id="one" class="ui-content" role="main" style="border:0;">
                     <div data-role="collapsible-set" data-inset="false" data-corners="false" class="no-border"><!-- DATA THEME C -->
                         <div data-role="collapsible" data-collapsed="true" data-theme="c" data-content-theme="c" class="cornered1" id="landmark-2" data-landmark-id="2">
-                            <h3 id="witness">Witness</h3>
+                            <h3 id="witness">目击者</h3>
                             
                             <form>
                                 <div data-role="fieldcontain">
                                     <fieldset data-role="controlgroup" data-mini="true">
-                                        <legend id="checkHeader"><strong>Check all that apply:</strong></legend>
+                                        <legend id="checkHeader"><strong>检查所有申请:</strong></legend>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_1" value="verbal violence" class="custom" />
-                                        <label for="group_1406026652_1" id="verbVio">verbal violence</label>
+                                        <label for="group_1406026652_1" id="verbVio">语言暴力</label>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_2"value="psychological violence" class="custom" />
-                                        <label for="group_1406026652_2" id="psychVio">psychological violence</label>
+                                        <label for="group_1406026652_2" id="psychVio">精神暴力</label>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_3"value="physical violence" class="custom" />
-                                        <label for="group_1406026652_3"id="physVio">physical violence</label>
+                                        <label for="group_1406026652_3"id="physVio">肉体暴力</label>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_4"value="sexual violence" class="custom" />
-                                        <label for="group_1406026652_4" id="sexVio">sexual violence</label>
-                                        <label for="group_1406026652_5"id="other01">* Other:</label>
+                                        <label for="group_1406026652_4" id="sexVio">性暴力</label>
+                                        <label for="group_1406026652_5"id="other01">* 其他:</label>
                                         <span id="camera_status">
-                                        <input type="text" name="entry.1406026652" id="group_1406026652_5"value="other" data-mini="true" data-theme="d" data-content-theme="d" />
+                                        <input type="text" name="entry.1406026652" id="group_1406026652_5"value="其他" data-mini="true" data-theme="d" data-content-theme="d" />
                                     </span>
                                     </fieldset>
                                   
@@ -180,7 +189,7 @@
                                 </div>
                                 &nbsp;
                                 <div>
-                                <input type="submit" name="submit" value="Submit" id="submit" data-role="button">
+                                <input type="submit" name="submit" value="递交" id="submit" data-role="button">
                                     <!--a href="index.html" data-theme="c" data-content-theme="c" data-role="button" class="ui-btn-right">Submit</a-->
                                 </div>
                             </form>
@@ -188,62 +197,55 @@
                         
                         <!--DATA THEME B -->
                         <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2">
-                            <h3>Victim</h3>
-                            <h2><strong>I am a victim.</strong></h2>
-                            <h2><strong>I want to:</strong></h2>
-                            <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Report to Police</a>
-                            <!--div data-role="collapsible" data-theme="b" data-content-theme="b">
-                             <3>Report to Police</h3-->
-                            <!--div data-role="content" id="smsContact" class="ui-content" role="main"-->
-                            <!--h2>CHINA</h2>
-                             <h2>110</h2>
-                             <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Call now</a>
-                             </div-->
-                            <a href="tel:18710039964" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Report to hotline</a>
-                            <!--a href="index.html" data-role="button" data-inline="false" data-theme="b" data-content-theme="b"data-corners="false"> I need a friend’s assistance</a-->
-                            <!--input onclick="ComposeSMS();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="I need a friend's assistance" /-->
+                            <h3 id="victim">幸存者</h3>
+                            <h2><strong>我是一个受害者。</strong></h2>
+                            <h2><strong>我想：</strong></h2>
+                            <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">报警</a>
+                       
+                            <a href="tel:18710039964" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">拨打热线</a>
+                          
+                            <!--input onclick="ComposeSMS();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="寻求朋友帮助" /-->
                             
                         </div>
                         <!--DATA THEME A-->
                         <div  id="landmark-1" data-landmark-id="1" data-inset="false" data-role="collapsible" data-collapsed="false" data-theme="a" data-content-theme="a" class="cornered3">
-                            <h3>Information</h3>
+                            <h3>你了解吗</h3>
                             <form>
                                 <fieldset data-role="controlgroup" data-mini="true">
-                                    <legend><strong>How did you find out about gender based violence?</strong></legend>
+                                    <legend><strong>你怎样了解到性别暴力？</strong></legend>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_1" value="It happened to a friend">
-                                    <label for="group_1756293355_1">It happened to a friend</label>
+                                    <label for="group_1756293355_1"> 有朋友遭受暴力</label>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_2" value="It happened to a family member">
-                                    <label for="group_1756293355_2">It happened to a family member</label>
+                                    <label for="group_1756293355_2">有家庭成员遭受暴力</label>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_3" value="It happened to me">
-                                    <label for="group_1756293355_3">It happened to me</label>
+                                    <label for="group_1756293355_3">我遭受过暴力</label>
                                                 
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_4" value="I was a witness to it">
-                                    <label for="group_1756293355_4">I was a witness to it</label>
+                                    <label for="group_1756293355_4">我曾目睹暴力</label>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_5" value="I read about it">
-                                    <label for="group_1756293355_5">I read about it</label>
+                                    <label for="group_1756293355_5">我曾阅读过类似案例</label>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_6" value="I attended a class/event about it">
-                                    <label for="group_1756293355_6">I attended a class/event about it</label>
-                                                            <label for="basic">* Other:</label>
-                                                             <input type="text" name="entry.1756293355" id="group_1756293355_7" value="other" data-mini="true" data-theme="d" data-content-theme="d" />
+                                    <label for="group_1756293355_6">我参加过相关培训课程/活动</label>
+                                                            <label for="basic">* 其他:</label>
+                                                             <input type="text" name="entry.1756293355" id="group_1756293355_7" value="其他" data-mini="true" data-theme="d" data-content-theme="d" />
                                 </fieldset>
                                 &nbsp;
                                 <fieldset data-role="controlgroup" data-mini="true" name="myOption" id="myOption">
-                                    <legend><strong>Why do you think it is not reported enough?</strong></legend>
+                                    <legend><strong>为什么你认为它没有足够的报道？</strong></legend>
                                     <input type="radio" name="entry.802736113" id="group_802736113_1" value="Victims are too traumatized">
-                                    <label for="group_802736113_1">Victims are too traumatized</label>
+                                    <label for="group_802736113_1">太创伤受害者</label>
                                     <input type="radio" name="entry.802736113" id="group_802736113_2" value="I don&#39;t know where to report it">
-                                    <label for="group_802736113_2">I don’t know where to report it</label>
+                                    <label for="group_802736113_2">我不知道去哪里报告</label>
                                     
-                                    <label for="group_802736113_3">* Other:</label>
-                                    <input type="text" name="entry.802736113" id="group_802736113_3" value="other" data-mini="true" data-theme="d" data-content-theme="d" />
+                                    <label for="group_802736113_3">* 其他:</label>
+                                    <input type="text" name="entry.802736113" id="group_802736113_3" value="其他" data-mini="true" data-theme="d" data-content-theme="d" />
                                      
                                 </fieldset>
                                 <!--input type="submit" name="submit" value="Submit" id="submit" data-role="button"-->
                                 &nbsp;
                                 &nbsp;
-                                <input type="submit" value="Save" data-role="button">
+                                <input type="submit" value="递交" data-role="button">
                                     </form>
-                            <!--p>25% of Chinese women have experienced domestic violence.</p-->
                         </div>
                         <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="a" data-content-theme="a">
                             &nbsp;
@@ -256,178 +258,6 @@
                             &nbsp;
                         </div>
                     </div>
-                    
-                    <!--script type="text/javascript">
-                        var ComposeSMS = function(){
-                            
-                            var contactno = document.test.phonenumber.value;
-                            var messagetext=document.test.message.value;
-                            
-                            //window.location.href = "sms:contactno?body=messagetext";
-                            window.location = "sms:"+contactno+"?body="+messagetext;
-                           // window.location = "sms:contactno?body=messagetext";
-                        }
-                        </script>
-                    <form name="test">
-                        <input type="text" name="phonenumber"  /></br>
-                        <input type="text" name="message"/></br>
-                        <input onclick="ComposeSMS();" type="button" value="Compose SMS text with number and body" />
-                    </form-->
-                    
-                    <!--p id="geolocation">Finding geolocation...</p-->
-                    
-                    
-                    <!------------------------- CONTACTS ------------------------->
-                    <!--input onclick="pickContact();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="PickContact" />
-                    <script type="text/javascript" charset="utf-8">
-                        
-                        function pickContact()
-                        {
-                            
-                            var options = {};
-                            navigator.contacts.chooseContact(onContactSelected, options);
-                        }
-                        
-                        
-                        function onContactSelected(id)
-                        {
-                            console.log("Contact ID =" +id);
-                            console.log("Works! However only the contact's id is received, not the full contact object.");
-                            //console.log("Contact ID = " + id);  //ex. John Appleseed, ID=3
-                            
-                            /*
-                             alert("Contact ID =" +contacts[i].name.formatted);
-                             alert("a=" +contacts[i].name);
-                             */
-                            alert(id);
-                            
-                            /*
-                             if (contacts[i].phoneNumbers){
-                             for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
-                             alert("Type: " + contacts[i].phoneNumbers[j].type + "\n" +
-                             "Value: "  + contacts[i].phoneNumbers[j].value + "\n" +
-                             "Preferred: "  + contacts[i].phoneNumbers[j].pref);
-                             }
-                             }
-                             */
-                            //TODO: How to look up the contact object by ID???
-                            var options = new ContactFindOptions();
-                            options.filter = "" +id;
-                            // var filter = ["id","phoneNumbers","name.formatted", "displayName"];
-                            var fields = ["id","displayName", "addresses"];//"name.formatted" "phoneNumbers"];
-                            //navigator.contacts.find(fields, onContactFound, onContactFailure, options);
-                            navigator.contacts.find(filter, onContactFound, onContactFailure, options);
-                        }
-                        
-                        
-                        function onContactFound(contacts) {
-                            console.log(JSON.stringify(contacts));
-                            console.log(contacts.length + " contact(s) found");  //ex. 1 contact(s) found
-                            //console.log("ID = " + contacts[0].id + ", Name = " + contacts[0].displayName);
-                        }
-                        </script-->
-                    <!------------------------- /CONTACTS ------------------------->
-                    
-                    <!------------------------- STORE CONTACTS ------------------------->
-                    <!--script>
-                     function testAsSeperateFunctionDB(contact)
-                     {
-                     
-                     
-                     for(i = 0; i < contactFullObjArray.length; i++) {
-                     transaction.executeSql();
-                     //Parse the ContactFull object
-                     var contact=ContactFull.parse(contactFullObjArray[i]);
-                     testAsSeperateFunctionDB(contact);
-                     
-                     }
-                     
-                     database.transaction(
-                     function( transaction ){
-                     alert("enteringIntoTransaction");
-                     transaction.executeSql(
-                     'INSERT INTO testTableThree (contactId, mrMrs, firstName,
-                     lastName, jobTitle, bActive, homePhone, contactType, accountId,
-                     workPhone, cellularPhone, workFax, contactEmail, owner,
-                     alternateCountry, alternateAddress1, alternateAddress2,
-                     alternateZipCode, alternateCity, alternateProvince)
-                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
-                     
-                     [contact.contactId, contact.mrMrs,
-                     contact.firstName, contact.lastName,
-                     contact.jobTitle, contact.bActive,
-                     contact.homePhone, contact.contactType,
-                     contact.accountId, contact.workPhone,
-                     contact.cellularPhone, contact.workFax,
-                     contact.contactEmail, contact.owner,
-                     contact.alternateCountry, contact.alternateAddress1,
-                     contact.alternateAddress2, contact.alternateZipCode,
-                     contact.alternateCity, contact.alternateProvince],
-                     
-                     //Callback after successful transaction
-                     function( transaction, results ) {
-                     alert("added");
-                     },
-                     
-                     //Callback after error in transaction
-                     function( transaction, error ) {
-                     alert("Error" + error.code);
-                     }
-                     );
-                     }
-                     );
-                     }
-                     </script>
-                     
-                     <script></script-->
-                    
-                    
-                    <!------------------------- /STORE CONTACTS ------------------------->
-                    
-                </div><!--content-->
-                
             </div><!-- /page -->
-            
-            <!-- Track Info page -->
-            <!--div data-role="page" id="track_info">
-                <div data-role="header" data-position="inline">
-                    <h1><strong>EyeReport</strong></h1>
-                    <a href="#home" class="ui-btn-right">home</a>
-                    <a href="#mypanel" data-role="button" class="ui-btn-left">Reveal</a>
-                </div>
-                
-                <div data-role="content">
-                    <p id="track_info_info"></p>
-                    
-                    <div id="map_canvas" style="position:absolute;bottom:0;left:0;width:100%;height:300px;"></div>
-                    
-                </div>
-                
-                
-            </div-->
-            <!------------------- /page ------------------------------>
-            
-            <!--------------------- ComposeSMS ------------------------------->
-            <!--script>
-                var ComposeSMS = function(){
-                    
-                    window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
-                }
-                
-                var myCallback = function(result){
-                    
-                    if(result == 0)
-                    alert("Cancelled");
-                    else if(result == 1)
-                    alert("Sent");
-                    else if(result == 2)
-                    alert("Failed.");
-                    else if(result == 3)
-                    alert("Not Sent.");
-                }
-                </script-->
-            
-            <!--------------------- /ComposeSMS ------------------------------->
-            
-            </body>
+        </body>
 </html>
