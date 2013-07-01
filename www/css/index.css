@@ -231,3 +231,23 @@ border:0;
 .btm-fill {
 margin:0;
 }
+
+.custom-btn {
+background-color:#000000;
+}
+/*
+.ui-li {
+    color:#4d4d4d;
+    background-color:#4d4d4d;
+    text-color:#ffffff;
+}
+*/
+.ui-link-inherit {
+    color:#4d4d4d;
+    background-color:#4d4d4d;
+}
+
+.ui-li .ui-btn-text a.ui-link-inherit {
+color:#ffffff;
+text-shadow:none;
+}
