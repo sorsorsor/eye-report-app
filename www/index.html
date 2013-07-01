@@ -26,12 +26,8 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.1.css" />
         <link rel="stylesheet" type="text/css" href="css/themes/eye-style.css" />
         <title>EyeReport</title>
-        <script type="text/javascript" charset="utf-8" src="js/eyereport.js"></script>
-        <!--script type="text/javascript" charset="utf-8" src="js/SMSComposer.js"></script-->
-        <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
-        <script src="js/post.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/SQLitePlugin.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/localize.js"></script>
+       
+        <!--script type="text/javascript" charset="utf-8" src="js/localize.js"></script-->
         <!--link rel="stylesheet" href="qunit-1.5.0.css" />
          <script type="text/javascript" charset="utf-8" src="qunit-1.5.0.js"></script-->
         
@@ -45,6 +41,11 @@
         <script type="text/javascript" src="js/jquery.mobile-1.3.1.js"></script>
         <script type="text/javascript" src="cordova-2.7.0.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/eyereport.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/SMSComposer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
+        <script src="js/post.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/SQLitePlugin.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
@@ -124,10 +125,30 @@
         */
         </script>
 
+
+
     </head>
         <!--body-->
         <body onload="checkLanguage()"><!--onBodyLoad() initialize()-->
             
+                  <script> 
+     // $(document).bind("pageinit", function(){
+
+       $('#home').live('pagebeforeshow',function(e,data){    
+    $('#test-button').live('click', function(e) {
+        $('#confirmDialog').css('overflow-y', 'scroll');        
+        $('#confirmDialog').popup('open');
+    });    
+});
+
+$('#confirmDialog').on({
+  popupbeforeposition: function() {
+    var maxHeight = $(window).height() - 30;
+    $('#confirmDialog').css('max-height', maxHeight + 'px');
+  }
+})
+
+</script>
             <!-- Home page -->
             <div data-role="page" id="home" data-theme="d" data-content-theme="d">
                <!-- panel -->
@@ -137,8 +158,9 @@
                         <li><a href="contacts.html">Contact SMS</a></li-->
                         <!--li><a href="sql.html">sql test</a></li-->
                         <li><a href="tel:110">Emergency Call</a></li>
+                        <li onclick="ComposeSMS()"><a href="">SMS</a></li>
                         <!--li onclick="pickContact();">Contacts</li>
-                        <li onclick="ComposeSMS();">SMS</li>
+                        
                         <li><a href="sqlTest.html">DB test<</a></li-->
                         
                     </ul>
@@ -155,8 +177,17 @@
                 <div data-role="content" id="one" class="ui-content" role="main" style="border:0;">
                     <div data-role="collapsible-set" data-inset="false" data-corners="false" class="no-border"><!-- DATA THEME C -->
                         <div data-role="collapsible" data-collapsed="true" data-theme="c" data-content-theme="c" class="cornered1" id="landmark-2" data-landmark-id="2">
-                            <h3 id="witness">Witness</h3>
-                            
+                            <h3 id="witness">I take action </h3>
+                            <!-- INFO BUTTON >
+                            <a href="#infoNested" data-rel="popup" data-role="button" data-inline="true" data-icon="info" data-iconpos="notext" data-transition="pop" data-position-to="window"></a>
+                            <div id="infoNested" data-role="popup" data-theme="c" data-overlay-theme="c" class="ui-content" style="text-transform: none;">
+                             <a href="#" data-rel="back" data-role="button" data-theme="c" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                                <h1><strong> INFO </strong></h1>
+                                <h3> This is text and info about the section you just tapped on. This is text and info about the section you just tapped on. This is text and info about the section you just tapped on. This is text and info about the section you just tapped on. This is text and info about the section you just tapped on. This is text and info about the section you just tapped on. <br><br> Contact Us:<br><br>                
+                                <a href="http://aiflowers.org" onclick="window.open(this.href,'_system'); return false;" id="aiflowersWeb" target="_blank"  class="external" style="margin:auto;" data-role="button" data-inline="true" data-mini="true"> View online</a>
+                            </div>
+                            < /INFO BUTTON -->
+                           
                             <form>
                                 <div data-role="fieldcontain">
                                     <fieldset data-role="controlgroup" data-mini="true">
@@ -169,10 +200,41 @@
                                         <label for="group_1406026652_3"id="physVio">physical violence</label>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_4"value="sexual violence" class="custom" />
                                         <label for="group_1406026652_4" id="sexVio">sexual violence</label>
-                                        <label for="group_1406026652_5"id="other01">* Other:</label>
+                                        <!--label for="group_1406026652_5"id="other01">* Other:</label>
                                         <span id="camera_status">
-                                        <input type="text" name="entry.1406026652" id="group_1406026652_5"value="other" data-mini="true" data-theme="d" data-content-theme="d" />
-                                    </span>
+                                        <input type="text" name="entry.1406026652" id="group_1406026652_5"value="other" data-mini="true" data-theme="d" data-content-theme="d" /-->
+                                        </span>
+                                    </fieldset>
+                                    <br>
+                                    <br>
+                                    <fieldset data-role="controlgroup" data-mini="true">
+                                    <legend id="checkHeader2"><strong>Where did you witness the violence?</strong></legend>
+                                    <input type="checkbox" name="entry.1406026652" id="group_1406026652_6" value="street" class="custom" />
+                                    <label for="group_1406026652_6" id="street">Street</label>
+
+                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_7" value="home" class="custom" />
+                                    <label for="group_1406026652_7" id="home">Home</label>
+
+                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_8" value="work" class="custom" />
+                                    <label for="group_1406026652_8" id="work">Work</label>
+
+                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_9" value="openSpace" class="custom" />
+                                    <label for="group_1406026652_9" id="openSpace">Open Space</label>
+
+                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_10" value="closedSpace" class="custom" />
+                                    <label for="group_1406026652_10" id="closedSpace">Closed Space</label>
+
+                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_11" value="privateVehicle" class="custom" />
+                                    <label for="group_1406026652_11" id="privateVehicle">Private Vehicle</label>
+
+                                    <input type="checkbox" name="entry.1406026652" id="group_1406026652_12" value="publicTransit" class="custom" />
+                                    <label for="group_1406026652_12" id="publicTransit">Public Transportation</label>
+
+                                    <label for="group_1406026652_13"id="other03">* Other:</label>
+                                        <span id="camera_status">
+                                        <input type="text" name="entry.1406026652" id="group_1406026652_13"value="other" data-mini="true" data-theme="d" data-content-theme="d" />
+                                        </span>
+
                                     </fieldset>
                                   
                                     
@@ -184,14 +246,32 @@
                                     <!--a href="index.html" data-theme="c" data-content-theme="c" data-role="button" class="ui-btn-right">Submit</a-->
                                 </div>
                             </form>
+                            <!-- INFO BUTTON -->
+                            <a href="#infoNested01" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="c" data-content-theme="c">More Info</a>
+                            <div id="infoNested01" data-role="popup" data-theme="d" data-overlay-theme="d" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
+                            <div>
+                             <a href="#" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                            </div>    
+                                <h1><strong> More Info: </strong></h1>
+                                <h3> 
+                                    <ul>
+                                        <li>The law on protection of women’s rights clearly provides that “Women’s personal freedom is not to be violated. It is forbidden to unlawfully detain and deprive or limit women’s personal freedom in an unlawful means, and bans unlawful search of the body of women.</li>
+                                        <li>It’s illegal to trafficker and kidnap women, buy the trafficked and kidnapped women, prevent others from rescuing the trafficked and kidnapped women.</li>
+                                        <li>Sexual harassment on women is banned by Law on Protection of Women's Rights. A victimized woman has the right to complain to her employer and related authorities.</li>
+                                        <li>On April 28, 2001, The Marriage Law (Revised) clearly provides that “Domestic violence is prohibited”. It is the first time for China to give a clear definition of domestic violence in the national legislation.</li>
+                                        <li>A woman who suffers sexual harassment has the right to complain to her own employer, the perpetrator’s employer, women’s federation and other related authorities, or directly file a lawsuit to the People’s Court.</li>
+                                </h3>
+                                <a href="#" data-rel="back" data-role="button" data-theme="e">Close</a>
+                            </div>
+                            <!-- /INFO BUTTON -->
                         </div>
                         
                         <!--DATA THEME B -->
                         <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2">
-                            <h3>Victim</h3>
+                            <h3 id="survivor">I need help</h3>
                             <h2><strong>I am a victim.</strong></h2>
                             <h2><strong>I want to:</strong></h2>
-                            <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Report to Police</a>
+                          
                             <!--div data-role="collapsible" data-theme="b" data-content-theme="b">
                              <3>Report to Police</h3-->
                             <!--div data-role="content" id="smsContact" class="ui-content" role="main"-->
@@ -199,14 +279,35 @@
                              <h2>110</h2>
                              <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Call now</a>
                              </div-->
-                            <a href="tel:18710039964" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Report to hotline</a>
+                             <input onclick="ComposeSMS()" type="button" data-role="button" data-theme="b" data-content="b" value="I need a friend's assistance" />
+                            <a href="tel:18710039964" data-role="button" data-inline="false" data-theme="b" data-content-theme="b">Report to hotline</a>
+                            <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" >Report to Police</a>
                             <!--a href="index.html" data-role="button" data-inline="false" data-theme="b" data-content-theme="b"data-corners="false"> I need a friend’s assistance</a-->
                             <!--input onclick="ComposeSMS();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="I need a friend's assistance" /-->
                             
-                        </div>
+                            <!-- INFO BUTTON -->
+                            <a href="#infoNested02" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="b" data-content-theme="b">More Info</a>
+                            <div id="infoNested02" data-role="popup" data-theme="d" data-overlay-theme="d" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
+                            <div>
+                             <a href="#" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                            </div>    
+                                <h1><strong> More Info: </strong></h1>
+                                <h3> 
+                                    <ul>
+                                        <li>A woman who suffers domestic violence has the right to appeal for rescue from public security organ, civil administration, judicial or administrative department, women’s federation, neighborhood committee, villagers’ committee and her employer, and these related departments and organizations should provide rescue, and when necessary, provide legal assistance.</li>
+                                        <li>A victim of domestic violence can make 110 police hotline. Police officers will make a timely solution to the complaints according to laws and regulations.</li>
+                                        <li>Young women should try not go the plaices where rape is more likely to happen.</li>
+                                        <li>Try to tell your family member or your friend the man you are going to date with, the time, place and the time you are scheduled to get back home.</li>
+                                        <li>Speak out your opinions and say “No” bravely if you do not want or accept his unreasonable demand.</li>
+                                </h3>
+                                <a href="#" data-rel="back" data-role="button" data-theme="e">Close</a>
+                            </div>
+                            <!-- /INFO BUTTON -->
+
+                        </div><!--/SURVIVOR-->
                         <!--DATA THEME A-->
                         <div  id="landmark-1" data-landmark-id="1" data-inset="false" data-role="collapsible" data-collapsed="false" data-theme="a" data-content-theme="a" class="cornered3">
-                            <h3>Information</h3>
+                            <h3 id="information">I want to know</h3>
                             <form>
                                 <fieldset data-role="controlgroup" data-mini="true">
                                     <legend><strong>How did you find out about gender based violence?</strong></legend>
@@ -242,9 +343,38 @@
                                 &nbsp;
                                 &nbsp;
                                 <input type="submit" value="Save" data-role="button">
-                                    </form>
+                                </form>
+                                 
+                                 
+                                 
+                               <!-- INFO BUTTON -->
+                            <a href="#infoNested03" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="a" data-content-theme="a">More Info</a>
+                            <div id="infoNested03" data-role="popup" data-theme="d" data-overlay-theme="d" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
+                            <div>
+                             <a href="#" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                            </div>    
+                                <h1><strong> More Info: </strong></h1>
+                                <h3> 
+                                    <ul>
+                                        <li>In 1993, the United Nations adopted the Declaration on the Elimination of Violence against Women in which it defines“violence against women”, meaning “any gender-based violence which causes or is likely to cause physical, mental or sexual harms or pains to women, including threatening to impose such behaviors, coercing or willfully depriving women’s freedom, both in public life and in private life.</li>
+                                        <li>A survey conducted  by China Women’s College in 2011on domestic violence showed that 78.8% of respondents said domestic violence had happened around them.</li>
+                                        <li>The main victims of domestic violence are women and children, yet any family member may suffer from domestic violence.</li>
+                                        <li>Domestic violence not only infringes upon the victim’s physical health and life security, brings misfortunes to marriage and family, but also liable to trigger serious crimes and endanger the stability and harmony of our society.</li>
+                                </h3>
+                                <a href="#" data-rel="back" data-role="button" data-theme="e">Close</a>
+                            </div>
+                            <!-- /INFO BUTTON -->
                             <!--p>25% of Chinese women have experienced domestic violence.</p-->
-                        </div>
+                        </div> <!-- /INFORMATION -->
+                        <!-- ABOUT -->
+                        <!--div data-role="collapsible" data-theme="d" data-content-theme="d" class="cornered2">
+                            <h3 id="about">About</h3>
+                            <h2><strong>I am a victim.</strong></h2>
+                            <h2><strong>I want to:</strong></h2>
+                            <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Report to Police</a>
+                            <a href="tel:18710039964" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Report to hotline</a>
+                        </div-->
+                        <!-- /ABOUT -->
                         <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="a" data-content-theme="a">
                             &nbsp;
                             &nbsp;
@@ -267,8 +397,31 @@
                             window.location = "sms:"+contactno+"?body="+messagetext;
                            // window.location = "sms:contactno?body=messagetext";
                         }
-                        </script>
-                    <form name="test">
+                    </script-->
+
+                     <!--ComposeSMS -->
+                    <script>
+                        var ComposeSMS = function(){
+                    
+                            window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
+                            //window.plugins.smsComposer.showSMSComposerWithCB(myCallback,'3424221122,2134463330', 'hello');
+                        }
+                
+                        var myCallback = function(result){
+                    
+                            if(result == 0)
+                            alert("Cancelled");
+                            else if(result == 1)
+                            alert("Sent");
+                            else if(result == 2)
+                            alert("Failed.");
+                            else if(result == 3)
+                            alert("Not Sent.");
+                        }
+                    </script>
+            
+            <!-- /ComposeSMS --->
+                    <!--form name="test">
                         <input type="text" name="phonenumber"  /></br>
                         <input type="text" name="message"/></br>
                         <input onclick="ComposeSMS();" type="button" value="Compose SMS text with number and body" />
@@ -407,27 +560,7 @@
             </div-->
             <!------------------- /page ------------------------------>
             
-            <!--------------------- ComposeSMS ------------------------------->
-            <!--script>
-                var ComposeSMS = function(){
-                    
-                    window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
-                }
-                
-                var myCallback = function(result){
-                    
-                    if(result == 0)
-                    alert("Cancelled");
-                    else if(result == 1)
-                    alert("Sent");
-                    else if(result == 2)
-                    alert("Failed.");
-                    else if(result == 3)
-                    alert("Not Sent.");
-                }
-                </script-->
-            
-            <!--------------------- /ComposeSMS ------------------------------->
+           
             
             </body>
 </html>

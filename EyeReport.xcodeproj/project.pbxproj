@@ -41,12 +41,12 @@
 		30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E5649113A7FCAF007403D8 /* CoreMedia.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		30FC414916E50CA1004E6F35 /* icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30FC414816E50CA1004E6F35 /* icon-72@2x.png */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
-		9AD57F6417417CBE00EFC459 /* SMSComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57F6017417CBE00EFC459 /* SMSComposer.m */; };
 		9AD57F6517417CBE00EFC459 /* SQLitePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57F6217417CBE00EFC459 /* SQLitePlugin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9AD57F6717417D3A00EFC459 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57F6617417D3A00EFC459 /* libsqlite3.0.dylib */; };
 		9AD57F6F1741B5C900EFC459 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57F6E1741B5C900EFC459 /* MessageUI.framework */; };
 		9AD57F711741B7D500EFC459 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57F701741B7D500EFC459 /* MessageUI.framework */; };
 		9AD57FE41741D25200EFC459 /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57FE31741D25200EFC459 /* libCordova.a */; };
+		9ADDB4DC17822FB600250C2F /* SMSComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADDB4DB17822FB600250C2F /* SMSComposer.m */; };
 		9AE478D5177E45ED0096F116 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AE478D4177E45ED0096F116 /* Localizable.strings */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
@@ -105,13 +105,14 @@
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* EyeReport-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "EyeReport-Info.plist"; path = "../EyeReport-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		9AD57F5F17417CBE00EFC459 /* SMSComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSComposer.h; path = EyeReport/Plugins/SMSComposer.h; sourceTree = "<group>"; };
-		9AD57F6017417CBE00EFC459 /* SMSComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSComposer.m; sourceTree = "<group>"; };
 		9AD57F6117417CBE00EFC459 /* SQLitePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLitePlugin.h; sourceTree = "<group>"; };
 		9AD57F6217417CBE00EFC459 /* SQLitePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLitePlugin.m; sourceTree = "<group>"; };
 		9AD57F6617417D3A00EFC459 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		9AD57F6E1741B5C900EFC459 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9AD57F701741B7D500EFC459 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9AD57FE31741D25200EFC459 /* libCordova.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCordova.a; path = "../../../../Library/Developer/Xcode/DerivedData/EyeReport-hcbihatwcbdbmqgdclbeuseyrlzb/Build/Products/Debug-iphoneos/libCordova.a"; sourceTree = "<group>"; };
+		9ADDB4DA17822FB600250C2F /* SMSComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSComposer.h; sourceTree = "<group>"; };
+		9ADDB4DB17822FB600250C2F /* SMSComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSComposer.m; sourceTree = "<group>"; };
 		9AE478D4177E45ED0096F116 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = EyeReport/Resources/Localizable.strings; sourceTree = "<group>"; };
 		9AE478D6177E4AA50096F116 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
@@ -258,7 +259,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				9AD57F6017417CBE00EFC459 /* SMSComposer.m */,
+				9ADDB4DA17822FB600250C2F /* SMSComposer.h */,
+				9ADDB4DB17822FB600250C2F /* SMSComposer.m */,
 				9AD57F6117417CBE00EFC459 /* SQLitePlugin.h */,
 				9AD57F6217417CBE00EFC459 /* SQLitePlugin.m */,
 			);
@@ -438,8 +440,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				9AD57F6417417CBE00EFC459 /* SMSComposer.m in Sources */,
 				9AD57F6517417CBE00EFC459 /* SQLitePlugin.m in Sources */,
+				9ADDB4DC17822FB600250C2F /* SMSComposer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
