@@ -162,6 +162,19 @@ h1 {
     border-left: 40px solid #c8382d;
 }
 
+.cornered4 {
+  /*  width: 176px;
+    height:0px;
+    border-bottom: 40px solid #eba91b; yellow
+    border-left: 40px solid transparent;*/
+}
+
+.cornered4 .ui-collapsible-heading
+{
+    height:0px;
+    border-bottom: 40px solid #262626;
+    border-left: 40px solid #eba91b;
+}
 
 .main {
   /*  width: 200px;*/
