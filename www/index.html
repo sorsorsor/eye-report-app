@@ -50,8 +50,8 @@
             app.initialize();
         </script>
         
-        <!-------------------------BEGIN REQUEST LOCATION SERVICES----------------------->
-        <!--script type="text/javascript" charset="utf-8">
+        <!--BEGIN REQUEST LOCATION SERVICES-->
+        <script type="text/javascript" charset="utf-8">
             /******* Request access to Location Services *******/
             
             // Wait for PhoneGap to load
@@ -82,8 +82,8 @@
                     alert('code: '    + error.code    + '\n' +
                           'message: ' + error.message + '\n');
                 }
-            </script-->
-        <!-------------------------END REQUEST LOCATION SERVICES----------------------->
+            </script> 
+        <!-- END REQUEST LOCATION SERVICES -->
         
         <script type="text/javascript" charset="utf-8">
            
@@ -178,15 +178,6 @@ $('#confirmDialog').on({
                     <div data-role="collapsible-set" data-inset="false" data-corners="false" class="no-border"><!-- DATA THEME C -->
                         <div data-role="collapsible" data-collapsed="true" data-theme="c" data-content-theme="c" class="cornered1" id="landmark-2" data-landmark-id="2">
                             <h3 id="witness">I take action </h3>
-                            <!-- INFO BUTTON >
-                            <a href="#infoNested" data-rel="popup" data-role="button" data-inline="true" data-icon="info" data-iconpos="notext" data-transition="pop" data-position-to="window"></a>
-                            <div id="infoNested" data-role="popup" data-theme="c" data-overlay-theme="c" class="ui-content" style="text-transform: none;">
-                             <a href="#" data-rel="back" data-role="button" data-theme="c" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-                                <h1><strong> INFO </strong></h1>
-                                <h3> This is text and info about the section you just tapped on. This is text and info about the section you just tapped on. This is text and info about the section you just tapped on. This is text and info about the section you just tapped on. This is text and info about the section you just tapped on. This is text and info about the section you just tapped on. <br><br> Contact Us:<br><br>                
-                                <a href="http://aiflowers.org" onclick="window.open(this.href,'_system'); return false;" id="aiflowersWeb" target="_blank"  class="external" style="margin:auto;" data-role="button" data-inline="true" data-mini="true"> View online</a>
-                            </div>
-                            < /INFO BUTTON -->
                            
                             <form>
                                 <div data-role="fieldcontain">
@@ -433,7 +424,7 @@ $('#confirmDialog').on({
                         }
                     </script>
             
-            <!-- /ComposeSMS --->
+            <!-- /ComposeSMS -->
                     <!--form name="test">
                         <input type="text" name="phonenumber"  /></br>
                         <input type="text" name="message"/></br>
@@ -444,57 +435,57 @@ $('#confirmDialog').on({
                     
                     
                     <!------------------------- CONTACTS ------------------------->
-                    <!--input onclick="pickContact();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="PickContact" />
-                    <script type="text/javascript" charset="utf-8">
-                        
-                        function pickContact()
-                        {
-                            
-                            var options = {};
-                            navigator.contacts.chooseContact(onContactSelected, options);
-                        }
-                        
-                        
-                        function onContactSelected(id)
-                        {
-                            console.log("Contact ID =" +id);
-                            console.log("Works! However only the contact's id is received, not the full contact object.");
-                            //console.log("Contact ID = " + id);  //ex. John Appleseed, ID=3
-                            
-                            /*
-                             alert("Contact ID =" +contacts[i].name.formatted);
-                             alert("a=" +contacts[i].name);
-                             */
-                            alert(id);
-                            
-                            /*
-                             if (contacts[i].phoneNumbers){
-                             for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
-                             alert("Type: " + contacts[i].phoneNumbers[j].type + "\n" +
-                             "Value: "  + contacts[i].phoneNumbers[j].value + "\n" +
-                             "Preferred: "  + contacts[i].phoneNumbers[j].pref);
-                             }
-                             }
-                             */
-                            //TODO: How to look up the contact object by ID???
-                            var options = new ContactFindOptions();
-                            options.filter = "" +id;
-                            // var filter = ["id","phoneNumbers","name.formatted", "displayName"];
-                            var fields = ["id","displayName", "addresses"];//"name.formatted" "phoneNumbers"];
-                            //navigator.contacts.find(fields, onContactFound, onContactFailure, options);
-                            navigator.contacts.find(filter, onContactFound, onContactFailure, options);
-                        }
-                        
-                        
-                        function onContactFound(contacts) {
-                            console.log(JSON.stringify(contacts));
-                            console.log(contacts.length + " contact(s) found");  //ex. 1 contact(s) found
-                            //console.log("ID = " + contacts[0].id + ", Name = " + contacts[0].displayName);
-                        }
-                        </script-->
-                    <!------------------------- /CONTACTS ------------------------->
+                <input onclick="pickContact();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="PickContact" />
+                <script type="text/javascript" charset="utf-8">
                     
-                    <!------------------------- STORE CONTACTS ------------------------->
+                    function pickContact()
+                    {
+                        
+                        var options = {};
+                        navigator.contacts.chooseContact(onContactSelected, options);
+                    }
+                    
+                                        
+                    function onContactSelected(id)
+                    {
+                        console.log("Contact ID =" +id);
+                        console.log("Works! However only the contact's id is received, not the full contact object.");
+                        //console.log("Contact ID = " + id);  //ex. John Appleseed, ID=3
+                        
+                        /*
+                         alert("Contact ID =" +contacts[i].name.formatted);
+                         alert("a=" +contacts[i].name);
+                       */ 
+                       alert(id);
+                        
+                        /*
+                        if (contacts[i].phoneNumbers){
+                        for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
+                            alert("Type: " + contacts[i].phoneNumbers[j].type + "\n" +
+                                  "Value: "  + contacts[i].phoneNumbers[j].value + "\n" +
+                                  "Preferred: "  + contacts[i].phoneNumbers[j].pref);
+                        }
+                        }
+                        */
+                        //TODO: How to look up the contact object by ID???
+                        var options = new ContactFindOptions();
+                        options.filter = "" +id;
+                       // var filter = ["id","phoneNumbers","name.formatted", "displayName"];
+                        var fields = ["id","displayName", "addresses"];//"name.formatted" "phoneNumbers"];
+                        //navigator.contacts.find(fields, onContactFound, onContactFailure, options);
+                        navigator.contacts.find(filter, onContactFound, onContactFailure, options);
+                    }
+                    
+                                    
+                    function onContactFound(contacts) {
+                        console.log(JSON.stringify(contacts));
+                        console.log(contacts.length + " contact(s) found");  //ex. 1 contact(s) found
+                        //console.log("ID = " + contacts[0].id + ", Name = " + contacts[0].displayName);
+                    }
+                    </script>
+     <!------------------------- /CONTACTS ------------------------->
+                    
+                    <!--STORE CONTACTS -->
                     <!--script>
                      function testAsSeperateFunctionDB(contact)
                      {
