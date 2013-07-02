@@ -44,7 +44,6 @@
 		9AD57F6517417CBE00EFC459 /* SQLitePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AD57F6217417CBE00EFC459 /* SQLitePlugin.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		9AD57F6717417D3A00EFC459 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57F6617417D3A00EFC459 /* libsqlite3.0.dylib */; };
 		9AD57F6F1741B5C900EFC459 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57F6E1741B5C900EFC459 /* MessageUI.framework */; };
-		9AD57F711741B7D500EFC459 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57F701741B7D500EFC459 /* MessageUI.framework */; };
 		9AD57FE41741D25200EFC459 /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57FE31741D25200EFC459 /* libCordova.a */; };
 		9ADDB4DC17822FB600250C2F /* SMSComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ADDB4DB17822FB600250C2F /* SMSComposer.m */; };
 		9AE478D5177E45ED0096F116 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AE478D4177E45ED0096F116 /* Localizable.strings */; };
@@ -104,12 +103,10 @@
 		32CA4F630368D1EE00C91783 /* EyeReport-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EyeReport-Prefix.pch"; sourceTree = "<group>"; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* EyeReport-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "EyeReport-Info.plist"; path = "../EyeReport-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		9AD57F5F17417CBE00EFC459 /* SMSComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMSComposer.h; path = EyeReport/Plugins/SMSComposer.h; sourceTree = "<group>"; };
 		9AD57F6117417CBE00EFC459 /* SQLitePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLitePlugin.h; sourceTree = "<group>"; };
 		9AD57F6217417CBE00EFC459 /* SQLitePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLitePlugin.m; sourceTree = "<group>"; };
 		9AD57F6617417D3A00EFC459 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		9AD57F6E1741B5C900EFC459 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		9AD57F701741B7D500EFC459 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9AD57FE31741D25200EFC459 /* libCordova.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCordova.a; path = "../../../../Library/Developer/Xcode/DerivedData/EyeReport-hcbihatwcbdbmqgdclbeuseyrlzb/Build/Products/Debug-iphoneos/libCordova.a"; sourceTree = "<group>"; };
 		9ADDB4DA17822FB600250C2F /* SMSComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSComposer.h; sourceTree = "<group>"; };
 		9ADDB4DB17822FB600250C2F /* SMSComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSComposer.m; sourceTree = "<group>"; };
@@ -142,7 +139,6 @@
 				301BF5C5109A6A2B0062928A /* SystemConfiguration.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
 				30E5649213A7FCAF007403D8 /* CoreMedia.framework in Frameworks */,
-				9AD57F711741B7D500EFC459 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +190,6 @@
 				9AD57F6E1741B5C900EFC459 /* MessageUI.framework */,
 				9AD57F6617417D3A00EFC459 /* libsqlite3.0.dylib */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
-				9AD57F5F17417CBE00EFC459 /* SMSComposer.h */,
 				301BF56E109A69640062928A /* www */,
 				301BF52D109A57CC0062928A /* CordovaLib.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
@@ -236,7 +231,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9AD57F701741B7D500EFC459 /* MessageUI.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,

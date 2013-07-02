@@ -38,17 +38,16 @@
         <script src="js/min/markerwithlabel.v1.1.5.min.js" type="text/javascript"></script-->
         
         <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
-        <script type="text/javascript" src="js/jquery.mobile-1.3.1.js"></script>
-        <script type="text/javascript" src="cordova-2.7.0.js"></script>
+        
+       
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/eyereport.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/SMSComposer.js"></script>
-        <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
+        
         <script src="js/post.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/SQLitePlugin.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
+      
         
         <!--BEGIN REQUEST LOCATION SERVICES-->
         <script type="text/javascript" charset="utf-8">
@@ -94,9 +93,12 @@
                                                              {
                                                              
                                                              if(language.value == "zh-Hans")
+                                                             //if(language.value == "en")
                                                              {
                                                              //alert('language: ' + language.value + '\n');
                                                              window.location.replace("zh_index.html");
+
+                                                             alert('Error getting language\n');
                                                              }
                                                              },
                                                              function ()
@@ -107,7 +109,8 @@
             }
                         
             </script>
-        
+
+            
         <script>
             function onBodyLoad() {
                 document.addEventListener("deviceready",onDeviceReady,false);
@@ -129,7 +132,7 @@
 
     </head>
         <!--body-->
-        <body onload="checkLanguage()"><!--onBodyLoad() initialize()-->
+        <body onload="ComposeSMS()"><!--onBodyLoad() initialize() checkLanguage()-->
             
                   <script> 
      // $(document).bind("pageinit", function(){
@@ -158,7 +161,7 @@ $('#confirmDialog').on({
                         <li><a href="contacts.html">Contact SMS</a></li-->
                         <!--li><a href="sql.html">sql test</a></li-->
                         <li><a href="tel:110">Emergency Call</a></li>
-                        <li onclick="ComposeSMS()"><a href="">SMS</a></li>
+                        <li onclick="smsCompose()"><a href="">SMS</a></li>
                         <!--li onclick="pickContact();">Contacts</li>
                         
                         <li><a href="sqlTest.html">DB test<</a></li-->
@@ -270,7 +273,7 @@ $('#confirmDialog').on({
                              <h2>110</h2>
                              <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Call now</a>
                              </div-->
-                             <input onclick="ComposeSMS()" type="button" data-role="button" data-theme="b" data-content="b" value="I need a friend's assistance" />
+                              <input onclick="ComposeSMS();" type="button" data-role="button" data-theme="b" data-content="b" value="I need a friend's assistance" />
                             <a href="tel:18710039964" data-role="button" data-inline="false" data-theme="b" data-content-theme="b">Report to hotline</a>
                             <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" >Report to Police</a>
                             <!--a href="index.html" data-role="button" data-inline="false" data-theme="b" data-content-theme="b"data-corners="false"> I need a friend’s assistance</a-->
@@ -403,38 +406,51 @@ $('#confirmDialog').on({
                         }
                     </script-->
 
+
+
                      <!--ComposeSMS -->
-                    <script>
-                        var ComposeSMS = function(){
-                    
-                            window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
-                            //window.plugins.smsComposer.showSMSComposerWithCB(myCallback,'3424221122,2134463330', 'hello');
-                        }
-                
-                        var myCallback = function(result){
-                    
-                            if(result == 0)
-                            alert("Cancelled");
-                            else if(result == 1)
-                            alert("Sent");
-                            else if(result == 2)
-                            alert("Failed.");
-                            else if(result == 3)
-                            alert("Not Sent.");
-                        }
-                    </script>
+                     <script>
             
-            <!-- /ComposeSMS -->
-                    <!--form name="test">
-                        <input type="text" name="phonenumber"  /></br>
-                        <input type="text" name="message"/></br>
-                        <input onclick="ComposeSMS();" type="button" value="Compose SMS text with number and body" />
-                    </form-->
+            var ComposeSMS = function(){
+                
+                window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
+            }
+        
+            var myCallback = function(result){
+                
+                if(result == 0)
+                alert("Cancelled");
+                else if(result == 1)
+                alert("Sent");
+                else if(result == 2)
+                alert("Failed.");
+                else if(result == 3)
+                alert("Not Sent.");
+            }
+            
+                      </script>
+
+            
+            <!--script type="text/javascript">
+            var ComposeSMS01 = function(){
+                
+                var contactno = document.test.phonenumber.value;
+                var messagetext=document.test.message.value;
+                
+                //window.location.href = "sms:contactno?body=messagetext";
+                window.location.href = "sms:"+contactno+"?body="+messagetext;
+            }
+            </script>
+            <form name="test">
+            <input type="text" name="phonenumber"  /></br>
+            <input type="text" name="message"/></br>
+            <input onclick="ComposeSMS01();" type="button" value="Compose SMS text with number and body" />
+            </form-->
+        
+
                     
-                    <!--p id="geolocation">Finding geolocation...</p-->
                     
-                    
-                    <!------------------------- CONTACTS ------------------------->
+                    <!-- CONTACTS -->
                 <input onclick="pickContact();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="PickContact" />
                 <script type="text/javascript" charset="utf-8">
                     
@@ -483,7 +499,7 @@ $('#confirmDialog').on({
                         //console.log("ID = " + contacts[0].id + ", Name = " + contacts[0].displayName);
                     }
                     </script>
-     <!------------------------- /CONTACTS ------------------------->
+                    <!--/CONTACTS -->
                     
                     <!--STORE CONTACTS -->
                     <!--script>
@@ -539,7 +555,7 @@ $('#confirmDialog').on({
                      <script></script-->
                     
                     
-                    <!------------------------- /STORE CONTACTS ------------------------->
+                    <!--/STORE CONTACTS -->
                     
                 </div><!--content-->
                 
@@ -562,9 +578,12 @@ $('#confirmDialog').on({
                 
                 
             </div-->
-            <!------------------- /page ------------------------------>
+            <!--/page -->
             
-           
-            
+            <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
+            <script type="text/javascript" src="js/jquery.mobile-1.3.1.js"></script>
+            <script type="text/javascript">
+                    app.initialize();
+            </script>
             </body>
 </html>

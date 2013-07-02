@@ -73,7 +73,7 @@
 		8887FDA01090FBE7009987E8 /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 8887FD611090FBE7009987E8 /* CDVSound.m */; };
 		88BA573D109BB46F00FB5E78 /* CDVAccelerometer.h in Headers */ = {isa = PBXBuildFile; fileRef = 88BA573B109BB46F00FB5E78 /* CDVAccelerometer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88BA573E109BB46F00FB5E78 /* CDVAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = 88BA573C109BB46F00FB5E78 /* CDVAccelerometer.m */; };
-		9AD57F731741B80900EFC459 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57F721741B80900EFC459 /* MessageUI.framework */; };
+		9A3E00BC17837DEF0048AFB4 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD57F721741B80900EFC459 /* MessageUI.framework */; };
 		9D76CF3C1625A4C50008A0F6 /* CDVGlobalization.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D76CF3A1625A4C50008A0F6 /* CDVGlobalization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D76CF3D1625A4C50008A0F6 /* CDVGlobalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D76CF3B1625A4C50008A0F6 /* CDVGlobalization.m */; };
 		C937A4561337599E002C4C79 /* CDVFileTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = C937A4541337599E002C4C79 /* CDVFileTransfer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -202,7 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AD57F731741B80900EFC459 /* MessageUI.framework in Frameworks */,
+				9A3E00BC17837DEF0048AFB4 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
