@@ -264,3 +264,11 @@ background-color:#000000;
 color:#ffffff;
 text-shadow:none;
 }
+
+.img-logo {
+
+    left:50%;
+    top:50%;
+    /* height:50px; */                  /* text area height */
+   /* width:225px;  */
+}
