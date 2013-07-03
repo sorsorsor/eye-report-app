@@ -187,7 +187,6 @@
 			children = (
 				9AE478D4177E45ED0096F116 /* Localizable.strings */,
 				9AD57FE31741D25200EFC459 /* libCordova.a */,
-				9AD57F6E1741B5C900EFC459 /* MessageUI.framework */,
 				9AD57F6617417D3A00EFC459 /* libsqlite3.0.dylib */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
@@ -231,6 +230,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9AD57F6E1741B5C900EFC459 /* MessageUI.framework */,
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -498,6 +498,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/EyeReport-hcbihatwcbdbmqgdclbeuseyrlzb/Build/Products/Debug-iphoneos\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = EyeReport;
 				PROVISIONING_PROFILE = "056998CE-6899-4976-A7C7-209A0D1C99A4";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -523,6 +524,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/EyeReport-hcbihatwcbdbmqgdclbeuseyrlzb/Build/Products/Debug-iphoneos\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = EyeReport;
 				PROVISIONING_PROFILE = "4106DC31-CFAF-46D3-A8E2-4381FFB0016F";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4106DC31-CFAF-46D3-A8E2-4381FFB0016F";

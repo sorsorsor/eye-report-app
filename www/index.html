@@ -44,6 +44,8 @@
         <script type="text/javascript" charset="utf-8" src="js/eyereport.js"></script>
         <script type="text/javascript" charset="utf-8" src="cordova-2.7.0.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/SMSComposer.js"></script>
+         <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.3.1.js"></script>
         
         <script src="js/post.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/SQLitePlugin.js"></script>
@@ -114,25 +116,185 @@
         <script>
             function onBodyLoad() {
                 document.addEventListener("deviceready",onDeviceReady,false);
-               // document.getElementById("witness").text="目击者";
+              //  document.getElementById("witness").text="目击者";
             }
             </script>
         <script>
-          /*
+          
             $(document).bind("pageinit", function(){
-                             
-                             if (language.value==zh){
-                             $("#witness span span").text("目击者");
-                             }
-                             });
-        */
-        </script>
+                              $('#english').click(function(){
+                                    $("#eCall span span").text("Emergency Call");
+                                    $("#sms span span").text("SMS");
+                                    $("#chinese span span").text("Chinese");
+                                    $("#english span span").text("English");
+                                    $("#action span span").text("I take action");
+                                    $("#checkHeader span span").text("Check all that apply:");
+                                    $("#verbVio span span").text("verbal violence");
+                                    $("#psychVio span span").text("psychological violence");
+                                    $("#physVio span span").text("physical violence");
+                                    $("#sexVio span span").text("sexual violence");
+                                    $("#checkHeader2 span span").text("Where did you witness the violence?");
+                                    $("#street span span").text("Street");
+                                    $("#home span span").text("Home");
+                                    $("#work span span").text("Work");
+                                    $("#openSpace span span").text("Open Space");
+                                    $("#closedSpace span span").text("Closed Space");
+                                    $("#privateVehicle span span").text("Private Vehicle");
+                                    $("#publicTransit span span").text("Public Transportation");
+                                    $("#other03 span span").text("* Other:");
+                                    $("#submit01 span span").text("Submit");
+                                    $("#moreInfoBtn01 span span").text("More Info");
+                                    $("#close01 span span").text("Close");
+                                    $("#moreInfo01 span span").text("More Info");
+                                    $("#info01-01 span span").text("The law on protection of women’s rights clearly provides that “Women’s personal freedom is not to be violated. It is forbidden to unlawfully detain and deprive or limit women’s personal freedom in an unlawful means, and bans unlawful search of the body of women.");
+                                    $("#info01-02 span span").text("It’s illegal to trafficker and kidnap women, buy the trafficked and kidnapped women, prevent others from rescuing the trafficked and kidnapped women.");
+                                    $("#info01-03 span span").text("Sexual harassment on women is banned by Law on Protection of Women's Rights. A victimized woman has the right to complain to her employer and related authorities.");
+                                    $("#info01-04 span span").text("On April 28, 2001, The Marriage Law (Revised) clearly provides that “Domestic violence is prohibited”. It is the first time for China to give a clear definition of domestic violence in the national legislation.");
+                                    $("#info01-05 span span").text("A woman who suffers sexual harassment has the right to complain to her own employer, the perpetrator’s employer, women’s federation and other related authorities, or directly file a lawsuit to the People’s Court.");
+                                    $("#close02 span span").text("Close");
+                                    $("#help span span").text("I need help");
+                                    $("#iVictim span span").text("I am a victim.");
+                                    $("#iWant span span").text("I want to:");
+                                    $("#friendAssist span span").text("I need a friend's assistance");
+                                    $("#reportHotline span span").text("Report to hotline");
+                                    $("#reportPolice span span").text("Report to Police");
+                                    
 
+                                    $("#moreInfoBtn02 span span").text("More Info");
+                                    $("#close03 span span").text("Close");
+                                    $("#moreInfo02 span span").text("More Info");
+                                    $("#info02-01 span span").text("A woman who suffers domestic violence has the right to appeal for rescue from public security organ, civil administration, judicial or administrative department, women’s federation, neighborhood committee, villagers’ committee and her employer, and these related departments and organizations should provide rescue, and when necessary, provide legal assistance.");
+                                    $("#info02-02 span span").text("A victim of domestic violence can make 110 police hotline. Police officers will make a timely solution to the complaints according to laws and regulations.");
+                                    $("#info02-03 span span").text("Young women should try not go the plaices where rape is more likely to happen.");
+                                    $("#info02-04 span span").text("Try to tell your family member or your friend the man you are going to date with, the time, place and the time you are scheduled to get back home.");
+                                    $("#info02-05 span span").text("Speak out your opinions and say “No” bravely if you do not want or accept his unreasonable demand.");
+                                    $("#close04 span span").text("Close");
+
+                                    $("#know span span").text("I want to know");
+                                    $("#genderVio span span").text("How did you find out about gender based violence?");
+                                    $("#genderVio01 span span").text("It happened to a friend");
+                                    $("#genderVio02 span span").text("It happened to a family member");
+                                    $("#genderVio03 span span").text("It happened to me");
+                                    $("#genderVio04 span span").text("I was a witness to it");
+                                    $("#genderVio05 span span").text("I read about it");
+                                    $("#genderVio06 span span").text("I attended a class/event about it");
+                                    $("#other04 span span").text("Other");
+
+                                    $("#whyReport span span").text("Why do you think it is not reported enough?");
+                                    $("#whyReport01 span span").text("Victims are too traumatized");
+                                    $("#whyReport02 span span").text("I don’t know where to report it");
+                                    $("#whyReport03 span span").text("* Other:");
+                                    $("#submit02 span span").text("Submit");
+
+                                    $("#moreInfoBtn03 span span").text("More Info");
+                                    $("#close05 span span").text("Close");
+                                    $("#moreInfo03 span span").text("More Info");
+                                    $("#info03-01 span span").text("In 1993, the United Nations adopted the Declaration on the Elimination of Violence against Women in which it defines“violence against women”, meaning “any gender-based violence which causes or is likely to cause physical, mental or sexual harms or pains to women, including threatening to impose such behaviors, coercing or willfully depriving women’s freedom, both in public life and in private life.");
+                                    $("#info03-02 span span").text("A survey conducted  by China Women’s College in 2011on domestic violence showed that 78.8% of respondents said domestic violence had happened around them.");
+                                    $("#info03-03 span span").text("The main victims of domestic violence are women and children, yet any family member may suffer from domestic violence.");
+                                    $("#info03-04 span span").text("Domestic violence not only infringes upon the victim’s physical health and life security, brings misfortunes to marriage and family, but also liable to trigger serious crimes and endanger the stability and harmony of our society.");
+                                    $("#close06 span span").text("Close");
+
+
+                                    $("#about span span").text("About");
+                                    $("#aboutCon span span").text("This is content for the about section.");
+                                    $("#interested span span").text("Interested in EyeReport? Send us your feedback or inquiries:");
+                                    $("#email span span").text("Email");
+                                    $("#yide span span").text("Powered by YiDe");
+                                    
+                            });
+
+                            $('#chinese').click(function(){
+                                    $("#eCall span span").text("急诊");
+                                    $("#sms span span").text("SMS");
+                                    $("#chinese span span").text("中国的");
+                                    $("#english span span").text("英语");
+                                    $("#action span span").text("我行动");
+                                    $("#checkHeader span span").text("检查所有申请:");
+                                    $("#verbVio span span").text("语言暴力");
+                                    $("#psychVio span span").text("精神暴力");
+                                    $("#physVio span span").text("肉体暴力");
+                                    $("#sexVio span span").text("性暴力");
+                                    $("#checkHeader2 span span").text("你在哪里目睹暴力发生？");
+                                    $("#street span span").text("街头");
+                                    $("#home span span").text("家");
+                                    $("#work span span").text("工作");
+                                    $("#openSpace span span").text("开放空间");
+                                    $("#closedSpace span span").text("封闭空间");
+                                    $("#privateVehicle span span").text("私家车");
+                                    $("#publicTransit span span").text("公共交通");
+                                    $("#other03 span span").text("* 其他:");
+                                    $("#submit01 span span").text("递交");
+                                    $("#moreInfoBtn01 span span").text("更多信息");
+                                    $("#close01 span span").text("关闭");
+                                    $("#moreInfo01 span span").text("更多信息");
+                                    $("#info01-01 span span").text("中国《妇女权益保障法》明确规定：“妇女的人身自由不受侵犯。禁止非法拘禁和以其他非法手段剥夺或者限制妇女的人身自由；禁止非法搜查妇女的身体。");
+                                    $("#info01-02 span span").text("中国《妇女权益保障法》明确规定：“禁止拐卖、绑架妇女；禁止收买被拐卖、绑架的妇女；禁止阻碍解救被拐卖、绑架的妇女。");
+                                    $("#info01-03 span span").text("禁止对妇女实施性骚扰。受害妇女有权向单位和有关机关投诉");
+                                    $("#info01-04 span span").text("2001年4月28日，《婚姻法》（修正案）明确规定“禁止家庭暴力”，这是中国第一次在国家立法中对家庭暴力问题作出明确规定。");
+                                    $("#info01-05 span span").text("2009年北京市颁布《北京市实施〈中华人民共和国妇女权益保障法〉办法》。该办法明确规定“遭受性骚扰的妇女，可以向本人所在单位、行为人所在单位、本市各级妇女联合会和有关机关投诉，也可以直接向人民法院起诉。");
+                                    $("#close02 span span").text("关闭");
+                                    $("#help span span").text("我需要");
+                                    $("#iVictim span span").text("我是一个受害者。");
+                                    $("#iWant span span").text("我想：");
+                                    $("#friendAssist span span").text("寻求朋友帮助");
+                                    $("#reportHotline span span").text("拨打热线");
+                                    $("#reportPolice span span").text("报警");
+                                    
+
+                                    $("#moreInfoBtn02 span span").text("更多信息");
+                                    $("#close03 span span").text("关闭");
+                                    $("#moreInfo02 span span").text("更多信息");
+                                    $("#info02-01 span span").text("遭受家庭暴力的妇女，有权向公安机关、民政部门、司法行政部门、妇女联合会、居民委员会、村民委员会及其所在单位提出救助请求，有关部门和单位应当提供救助，必要时依法提供法律援助。");
+                                    $("#info02-02 span span").text("遭受家庭暴力的受害者，可随时拨打110 报警电话。公安机关对构成违反治安管理规定或构成刑事犯罪的，将依法受理或立案，及时查处。");
+                                    $("#info02-03 span span").text("青年女性应尽量避免在危险时段前往强暴案件较易发生的地方。");
+                                    $("#info02-04 span span").text("约会前尽可能将约会对象、时间、地点及预定回家时间告诉家人或朋友。");
+                                    $("#info02-05 span span").text("要明确表达自己的意见，不想或不同意对方不合理的要求时，要勇敢的说「不」");
+                                    $("#close04 span span").text("关闭");
+
+                                    $("#know span span").text("我关注");
+                                    $("#genderVio span span").text("你怎样了解到性别暴力？");
+                                    $("#genderVio01 span span").text("有朋友遭受暴力");
+                                    $("#genderVio02 span span").text("有家庭成员遭受暴力");
+                                    $("#genderVio03 span span").text("我遭受过暴力");
+                                    $("#genderVio04 span span").text("我曾目睹暴力");
+                                    $("#genderVio05 span span").text("我曾阅读过类似案例");
+                                    $("#genderVio06 span span").text("我参加过相关培训课程/活动");
+                                    $("#other04 span span").text("其他");
+
+                                    $("#whyReport span span").text("为什么你认为它没有足够的报道？");
+                                    $("#whyReport01 span span").text("太创伤受害者");
+                                    $("#whyReport02 span span").text("我不知道去哪里报告");
+                                    $("#whyReport03 span span").text("* 其他:");
+                                    $("#submit02 span span").text("递交");
+
+                                    $("#moreInfoBtn03 span span").text("更多信息");
+                                    $("#close05 span span").text("关闭");
+                                    $("#moreInfo03 span span").text("更多信息");
+                                    $("#info03-01 span span").text("联合国妇女发展基金的调查显示，全世界每三名妇女中，至少有一名在她一生中经历过基于性别的暴力. ");
+                                    $("#info03-02 span span").text("联合国1993年通过的《消除对妇女的暴力行为宣言》中定义了“对妇女的暴力行为”是指“对妇女造成或可能造成身心上或性行为上的伤害或痛苦的任何基于性别的暴力行为，包括威胁进行这类行为，强迫或任意剥夺自由，无论其发生在公共生活还是私人生活中");
+                                    $("#info03-03 span span").text("2011年全国人大法工委和全国妇联委托中华女子学院开展的家庭暴力公众调查中，有78.8%的被调查者表示身边存在家庭暴力.");
+                                    $("#info03-04 span span").text("家庭暴力的主要受害者是妇女和儿童，但各类家庭成员都可能遭受家庭暴力.");
+                                    $("#close06 span span").text("关闭");
+
+
+                                    $("#about span span").text("关于");
+                                    $("#aboutCon span span").text("这是有关部分的内容。");
+                                    $("#interested span span").text("感兴趣EyeReport？向我们发送您的意见或查询：");
+                                    $("#email span span").text("电子邮件");
+                                    $("#yide span span").text("Powered by 义德");
+                                    
+                    });
+                });
+                          
+        
+        </script>
+        
 
 
     </head>
         <!--body-->
-        <body onload="ComposeSMS()"><!--onBodyLoad() initialize() checkLanguage()-->
+        <body onload="initialize()"><!--onBodyLoad() initialize() checkLanguage()-->
             
                   <script> 
      // $(document).bind("pageinit", function(){
@@ -160,8 +322,10 @@ $('#confirmDialog').on({
                         <!--li><a href="sms.html">Contact SMS</a></li>
                         <li><a href="contacts.html">Contact SMS</a></li-->
                         <!--li><a href="sql.html">sql test</a></li-->
-                        <li><a href="tel:110">Emergency Call</a></li>
-                        <li onclick="smsCompose()"><a href="">SMS</a></li>
+                        <li id="eCall"><a href="tel:110">Emergency Call</a></li>
+                        <li id="sms" onclick="ComposeSMS()"><a href="">SMS</a></li>
+                        <li id="chinese"><a href="">Chinese</a><li>
+                        <li id="english"><a href="">English</a><li>
                         <!--li onclick="pickContact();">Contacts</li>
                         
                         <li><a href="sqlTest.html">DB test<</a></li-->
@@ -180,7 +344,7 @@ $('#confirmDialog').on({
                 <div data-role="content" id="one" class="ui-content" role="main" style="border:0;">
                     <div data-role="collapsible-set" data-inset="false" data-corners="false" class="no-border"><!-- DATA THEME C -->
                         <div data-role="collapsible" data-collapsed="true" data-theme="c" data-content-theme="c" class="cornered1" id="landmark-2" data-landmark-id="2">
-                            <h3 id="witness">I take action </h3>
+                            <h3 id="action">I take action </h3>
                            
                             <form>
                                 <div data-role="fieldcontain">
@@ -202,7 +366,7 @@ $('#confirmDialog').on({
                                     <br>
                                     <br>
                                     <fieldset data-role="controlgroup" data-mini="true">
-                                    <legend id="checkHeader2"><strong>Where did you witness the violence?</strong></legend>
+                                    <legend><strong><div id="checkHeader2">Where did you witness the violence?</div></strong></legend>
                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_6" value="street" class="custom" />
                                     <label for="group_1406026652_6" id="street">Street</label>
 
@@ -236,35 +400,35 @@ $('#confirmDialog').on({
                                 </div>
                                 &nbsp;
                                 <div>
-                                <input type="submit" name="submit" value="Submit" id="submit" data-role="button">
+                                <input type="submit" name="submit" value="Submit" id="submit01" data-role="button">
                                     <!--a href="index.html" data-theme="c" data-content-theme="c" data-role="button" class="ui-btn-right">Submit</a-->
                                 </div>
                             </form>
                             <!-- INFO BUTTON -->
-                            <a href="#infoNested01" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="c" data-content-theme="c">More Info</a>
+                            <a href="#infoNested01" id="moreInfoBtn01" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="c" data-content-theme="c">More Info</a>
                             <div id="infoNested01" data-role="popup" data-theme="d" data-overlay-theme="d" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
                             <div>
-                             <a href="#" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                             <a href="#" id="close01" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                             </div>    
-                                <h1><strong> More Info: </strong></h1>
+                                <h1 id="moreInfo01"><strong> More Info: </strong></h1>
                                 <h3> 
                                     <ul>
-                                        <li>The law on protection of women’s rights clearly provides that “Women’s personal freedom is not to be violated. It is forbidden to unlawfully detain and deprive or limit women’s personal freedom in an unlawful means, and bans unlawful search of the body of women.</li>
-                                        <li>It’s illegal to trafficker and kidnap women, buy the trafficked and kidnapped women, prevent others from rescuing the trafficked and kidnapped women.</li>
-                                        <li>Sexual harassment on women is banned by Law on Protection of Women's Rights. A victimized woman has the right to complain to her employer and related authorities.</li>
-                                        <li>On April 28, 2001, The Marriage Law (Revised) clearly provides that “Domestic violence is prohibited”. It is the first time for China to give a clear definition of domestic violence in the national legislation.</li>
-                                        <li>A woman who suffers sexual harassment has the right to complain to her own employer, the perpetrator’s employer, women’s federation and other related authorities, or directly file a lawsuit to the People’s Court.</li>
+                                        <li id="info01-01">The law on protection of women’s rights clearly provides that “Women’s personal freedom is not to be violated. It is forbidden to unlawfully detain and deprive or limit women’s personal freedom in an unlawful means, and bans unlawful search of the body of women.</li>
+                                        <li id="info01-02">It’s illegal to trafficker and kidnap women, buy the trafficked and kidnapped women, prevent others from rescuing the trafficked and kidnapped women.</li>
+                                        <li id="info01-03">Sexual harassment on women is banned by Law on Protection of Women's Rights. A victimized woman has the right to complain to her employer and related authorities.</li>
+                                        <li id="info01-04">On April 28, 2001, The Marriage Law (Revised) clearly provides that “Domestic violence is prohibited”. It is the first time for China to give a clear definition of domestic violence in the national legislation.</li>
+                                        <li id="info01-05">A woman who suffers sexual harassment has the right to complain to her own employer, the perpetrator’s employer, women’s federation and other related authorities, or directly file a lawsuit to the People’s Court.</li>
                                 </h3>
-                                <a href="#" data-rel="back" data-role="button" data-theme="e">Close</a>
+                                <a href="#" id="close02" data-rel="back" data-role="button" data-theme="e">Close</a>
                             </div>
                             <!-- /INFO BUTTON -->
                         </div>
                         
                         <!--DATA THEME B -->
                         <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2">
-                            <h3 id="survivor">I need help</h3>
-                            <h2><strong>I am a victim.</strong></h2>
-                            <h2><strong>I want to:</strong></h2>
+                            <h3 id="help">I need help</h3>
+                            <h2 id="iVictim"><strong>I am a victim.</strong></h2>
+                            <h2 id="iWant"><strong>I want to:</strong></h2>
                           
                             <!--div data-role="collapsible" data-theme="b" data-content-theme="b">
                              <3>Report to Police</h3-->
@@ -273,89 +437,89 @@ $('#confirmDialog').on({
                              <h2>110</h2>
                              <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Call now</a>
                              </div-->
-                              <input onclick="ComposeSMS();" type="button" data-role="button" data-theme="b" data-content="b" value="I need a friend's assistance" />
-                            <a href="tel:18710039964" data-role="button" data-inline="false" data-theme="b" data-content-theme="b">Report to hotline</a>
-                            <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" >Report to Police</a>
+                              <input onclick="ComposeSMS();" id="friendAssist" type="button" data-role="button" data-theme="b" data-content="b" value="I need a friend's assistance" />
+                            <a href="tel:18710039964" id="reportHotline" data-role="button" data-inline="false" data-theme="b" data-content-theme="b">Report to hotline</a>
+                            <a href="tel:110" id="reportPolice" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" >Report to Police</a>
                             <!--a href="index.html" data-role="button" data-inline="false" data-theme="b" data-content-theme="b"data-corners="false"> I need a friend’s assistance</a-->
                             <!--input onclick="ComposeSMS();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="I need a friend's assistance" /-->
                             
                             <!-- INFO BUTTON -->
-                            <a href="#infoNested02" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="b" data-content-theme="b">More Info</a>
+                            <a href="#infoNested02" id="moreInfoBtn02" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="b" data-content-theme="b">More Info</a>
                             <div id="infoNested02" data-role="popup" data-theme="d" data-overlay-theme="d" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
                             <div>
-                             <a href="#" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                             <a href="#" id="close03" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                             </div>    
-                                <h1><strong> More Info: </strong></h1>
+                                <h1 id="moreInfo02"><strong> More Info: </strong></h1>
                                 <h3> 
                                     <ul>
-                                        <li>A woman who suffers domestic violence has the right to appeal for rescue from public security organ, civil administration, judicial or administrative department, women’s federation, neighborhood committee, villagers’ committee and her employer, and these related departments and organizations should provide rescue, and when necessary, provide legal assistance.</li>
-                                        <li>A victim of domestic violence can make 110 police hotline. Police officers will make a timely solution to the complaints according to laws and regulations.</li>
-                                        <li>Young women should try not go the plaices where rape is more likely to happen.</li>
-                                        <li>Try to tell your family member or your friend the man you are going to date with, the time, place and the time you are scheduled to get back home.</li>
-                                        <li>Speak out your opinions and say “No” bravely if you do not want or accept his unreasonable demand.</li>
+                                        <li id="moreInfo02-01">A woman who suffers domestic violence has the right to appeal for rescue from public security organ, civil administration, judicial or administrative department, women’s federation, neighborhood committee, villagers’ committee and her employer, and these related departments and organizations should provide rescue, and when necessary, provide legal assistance.</li>
+                                        <li id="moreInfo02-02">A victim of domestic violence can make 110 police hotline. Police officers will make a timely solution to the complaints according to laws and regulations.</li>
+                                        <li id="moreInfo02-03">Young women should try not go the plaices where rape is more likely to happen.</li>
+                                        <li id="moreInfo02-04">Try to tell your family member or your friend the man you are going to date with, the time, place and the time you are scheduled to get back home.</li>
+                                        <li id="moreInfo02-05">Speak out your opinions and say “No” bravely if you do not want or accept his unreasonable demand.</li>
                                 </h3>
-                                <a href="#" data-rel="back" data-role="button" data-theme="e">Close</a>
+                                <a href="#" id="close04" data-rel="back" data-role="button" data-theme="e">Close</a>
                             </div>
                             <!-- /INFO BUTTON -->
 
                         </div><!--/SURVIVOR-->
                         <!--DATA THEME A-->
                         <div  id="landmark-1" data-landmark-id="1" data-inset="false" data-role="collapsible" data-collapsed="false" data-theme="a" data-content-theme="a" class="cornered3">
-                            <h3 id="information">I want to know</h3>
+                            <h3 id="know">I want to know</h3>
                             <form>
                                 <fieldset data-role="controlgroup" data-mini="true">
-                                    <legend><strong>How did you find out about gender based violence?</strong></legend>
+                                    <legend id="genderVio"><strong>How did you find out about gender based violence?</strong></legend>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_1" value="It happened to a friend">
-                                    <label for="group_1756293355_1">It happened to a friend</label>
+                                    <label for="group_1756293355_1" id="genderVio01">It happened to a friend</label>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_2" value="It happened to a family member">
-                                    <label for="group_1756293355_2">It happened to a family member</label>
+                                    <label for="group_1756293355_2" id="genderVio02">It happened to a family member</label>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_3" value="It happened to me">
-                                    <label for="group_1756293355_3">It happened to me</label>
+                                    <label for="group_1756293355_3" id="genderVio03">It happened to me</label>
                                                 
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_4" value="I was a witness to it">
-                                    <label for="group_1756293355_4">I was a witness to it</label>
+                                    <label for="group_1756293355_4" id="genderVio04">I was a witness to it</label>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_5" value="I read about it">
-                                    <label for="group_1756293355_5">I read about it</label>
+                                    <label for="group_1756293355_5" id="genderVio05">I read about it</label>
                                     <input type="radio" name="entry.1756293355" id="group_1756293355_6" value="I attended a class/event about it">
-                                    <label for="group_1756293355_6">I attended a class/event about it</label>
+                                    <label for="group_1756293355_6" id="genderVio06">I attended a class/event about it</label>
                                                             <label for="basic">* Other:</label>
                                                              <input type="text" name="entry.1756293355" id="group_1756293355_7" value="other" data-mini="true" data-theme="d" data-content-theme="d" />
                                 </fieldset>
                                 &nbsp;
                                 <fieldset data-role="controlgroup" data-mini="true" name="myOption" id="myOption">
-                                    <legend><strong>Why do you think it is not reported enough?</strong></legend>
+                                    <legend id="whyReport"><strong>Why do you think it is not reported enough?</strong></legend>
                                     <input type="radio" name="entry.802736113" id="group_802736113_1" value="Victims are too traumatized">
-                                    <label for="group_802736113_1">Victims are too traumatized</label>
+                                    <label for="group_802736113_1" id="whyReport01">Victims are too traumatized</label>
                                     <input type="radio" name="entry.802736113" id="group_802736113_2" value="I don&#39;t know where to report it">
-                                    <label for="group_802736113_2">I don’t know where to report it</label>
+                                    <label for="group_802736113_2" id="whyReport02">I don’t know where to report it</label>
                                     
-                                    <label for="group_802736113_3">* Other:</label>
+                                    <label for="group_802736113_3" id="whyReport03">* Other:</label>
                                     <input type="text" name="entry.802736113" id="group_802736113_3" value="other" data-mini="true" data-theme="d" data-content-theme="d" />
                                      
                                 </fieldset>
                                 <!--input type="submit" name="submit" value="Submit" id="submit" data-role="button"-->
                                 &nbsp;
                                 &nbsp;
-                                <input type="submit" value="Save" data-role="button">
+                                <input type="submit" id="submit02" value="Submit" data-role="button">
                                 </form>
                                  
                                  
                                  
                                <!-- INFO BUTTON -->
-                            <a href="#infoNested03" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="a" data-content-theme="a">More Info</a>
+                            <a href="#infoNested03" id="moreInfoBtn03" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="a" data-content-theme="a">More Info</a>
                             <div id="infoNested03" data-role="popup" data-theme="d" data-overlay-theme="d" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
                             <div>
-                             <a href="#" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                             <a href="#" id="close05"data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
                             </div>    
-                                <h1><strong> More Info: </strong></h1>
+                                <h1 id="moreInfo03"><strong> More Info: </strong></h1>
                                 <h3> 
                                     <ul>
-                                        <li>In 1993, the United Nations adopted the Declaration on the Elimination of Violence against Women in which it defines“violence against women”, meaning “any gender-based violence which causes or is likely to cause physical, mental or sexual harms or pains to women, including threatening to impose such behaviors, coercing or willfully depriving women’s freedom, both in public life and in private life.</li>
-                                        <li>A survey conducted  by China Women’s College in 2011on domestic violence showed that 78.8% of respondents said domestic violence had happened around them.</li>
-                                        <li>The main victims of domestic violence are women and children, yet any family member may suffer from domestic violence.</li>
-                                        <li>Domestic violence not only infringes upon the victim’s physical health and life security, brings misfortunes to marriage and family, but also liable to trigger serious crimes and endanger the stability and harmony of our society.</li>
+                                        <li id="moreInfo03-01">In 1993, the United Nations adopted the Declaration on the Elimination of Violence against Women in which it defines“violence against women”, meaning “any gender-based violence which causes or is likely to cause physical, mental or sexual harms or pains to women, including threatening to impose such behaviors, coercing or willfully depriving women’s freedom, both in public life and in private life.</li>
+                                        <li id="moreInfo03-02">A survey conducted  by China Women’s College in 2011on domestic violence showed that 78.8% of respondents said domestic violence had happened around them.</li>
+                                        <li id="moreInfo03-03">The main victims of domestic violence are women and children, yet any family member may suffer from domestic violence.</li>
+                                        <li id="moreInfo03-04">Domestic violence not only infringes upon the victim’s physical health and life security, brings misfortunes to marriage and family, but also liable to trigger serious crimes and endanger the stability and harmony of our society.</li>
                                 </h3>
-                                <a href="#" data-rel="back" data-role="button" data-theme="e">Close</a>
+                                <a href="#" id="close06" data-rel="back" data-role="button" data-theme="e">Close</a>
                             </div>
                             <!-- /INFO BUTTON -->
                             <!--p>25% of Chinese women have experienced domestic violence.</p-->
@@ -378,10 +542,10 @@ $('#confirmDialog').on({
                             <h2>This is content for the about section.</h2>
                             <img src="img/unesco_logo_150.png" alt="" class="img-logo" />
                             <img src="img/yide_logo_200.png" alt="" class="img-logo" />
-                            <h2>Interested in EyeReport? Send us your feedback or inquiries:</h2>
-                            <a href="mailto:support@eye-report.org" data-role="button" data-inline="false" data-theme="e" data-content-theme="e" data-corners="false">Email</a>
+                            <h2 id="interested">Interested in EyeReport? Send us your feedback or inquiries:</h2>
+                            <a href="mailto:support@eye-report.org" id="email"data-role="button" data-inline="false" data-theme="e" data-content-theme="e" data-corners="false">Email</a>
                             
-                            <div>
+                            <div id="yide">
                                 Powered by YiDe
                             </div>
                         </div>
@@ -410,7 +574,11 @@ $('#confirmDialog').on({
 
                      <!--ComposeSMS -->
                      <script>
-            
+                         function ComposeSMS(){
+                             
+                             window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
+                         };
+            /*
             var ComposeSMS = function(){
                 
                 window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
@@ -427,7 +595,7 @@ $('#confirmDialog').on({
                 else if(result == 3)
                 alert("Not Sent.");
             }
-            
+            */
                       </script>
 
             
@@ -580,8 +748,7 @@ $('#confirmDialog').on({
             </div-->
             <!--/page -->
             
-            <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
-            <script type="text/javascript" src="js/jquery.mobile-1.3.1.js"></script>
+           
             <script type="text/javascript">
                     app.initialize();
             </script>
