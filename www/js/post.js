@@ -14,7 +14,7 @@
                 url: 'https://docs.google.com/forms/d/1Ngovqo8yr-SoJ93XaGOGFibmWhxUOVklztHz8IYhh_g/formResponse',
                 success: function(data){
                     console.log(data);
-                    alert('Your comment was successfully added');
+                   // alert('Your comment was successfully added');
                 },
                 error: function(){
                     console.log(data);
