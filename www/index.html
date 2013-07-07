@@ -206,7 +206,7 @@
                                     $("#aboutCon").text("This is content for the about section.");
                                     $("#interested").text("Interested in EyeReport? Send us your feedback or inquiries:");
                                     $("#email .ui-btn-text").text("Email");
-                                    $("#yide").text("Powered by YiDe");
+                                    $("#yide").text("Powered by Yi De Media");
                                     
                             });
 
@@ -297,13 +297,28 @@
                                     $("#aboutCon").text("这是有关部分的内容。");
                                     $("#interested").text("感兴趣EyeReport？向我们发送您的意见或查询：");
                                     $("#email .ui-btn-text").text("电子邮件");
-                                    $("#yide").text("Powered by 义德");
+                                    $("#yide").text("Powered by 懿德多媒体实验室");
                                     
                     });
                 });
                           
         
         </script>
+        <script>
+            function alertDismissed() {
+                //null
+            }
+            
+            function showAlert() {
+                navigator.notification.confirm(
+                                               'Your comment was successfully added.',  // message
+                                               alertDismissed,         // callback
+                                               'Success!',            // title
+                                               'Dismiss'                  // buttonName
+                                               );
+            }
+            </script>
+
         
 
 
@@ -422,7 +437,7 @@ $('#confirmDialog').on({
                                 </div>
                                 &nbsp;
                                 <div>
-                                <input type="submit" name="submit" value="Submit" id="submit01" data-role="button">
+                                <input type="submit" onclick="showAlert()" name="submit" value="Submit" id="submit01" data-role="button">
                                     <!--a href="index.html" data-theme="c" data-content-theme="c" data-role="button" class="ui-btn-right">Submit</a-->
                                 </div>
                             </form>
@@ -459,7 +474,7 @@ $('#confirmDialog').on({
                              <h2>110</h2>
                              <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Call now</a>
                              </div-->
-                              <input onclick="ComposeSMS();" id="friendAssist" type="button" data-role="button" data-theme="b" data-content="b" value="I need a friend's assistance" />
+                              <input onclick="pickContact();" id="friendAssist" type="button" data-role="button" data-theme="b" data-content="b" value="I need a friend's assistance" />
                             <a href="tel:18710039964" id="reportHotline" data-role="button" data-inline="false" data-theme="b" data-content-theme="b">Report to hotline</a>
                             <a href="tel:110" id="reportPolice" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" >Report to Police</a>
                             <!--a href="index.html" data-role="button" data-inline="false" data-theme="b" data-content-theme="b"data-corners="false"> I need a friend’s assistance</a-->
@@ -522,7 +537,7 @@ $('#confirmDialog').on({
                                 <!--input type="submit" name="submit" value="Submit" id="submit" data-role="button"-->
                                 &nbsp;
                                 &nbsp;
-                                <input type="submit" id="submit02" value="Submit" data-role="button">
+                                <input type="submit" onclick="showAlert()" id="submit02" value="Submit" data-role="button">
                                 </form>
                                  
                                  

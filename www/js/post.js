@@ -15,14 +15,19 @@
                 success: function(data){
                     console.log(data);
                    // alert('Your comment was successfully added');
+                    
                 },
                 error: function(){
                     console.log(data);
-                    alert('There was an error adding your comment');
+                 //   alert('There was an error adding your comment');
                 }
+
             });
             
             return false;
         });
     });
 });
+
+
+ 
