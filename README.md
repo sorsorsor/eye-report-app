@@ -1,4 +1,6 @@
-This is the source code repository for Eye-Report APP.
+This is the source code repository for Eye-Report APP. 
+
+The primary website for Eye Report is http://eye-report.org
 
 This source code is for generating the iOS APP and Website.
 
