@@ -1,0 +1,23 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="org.cordova.plugins.SMSComposer"
+        version="1.0.0">
+
+	<name>SMS Composer</name>
+
+    <engines>
+        <engine name="cordova" version=">=2.7.0"/>
+    </engines>
+
+    <asset src="www/js/SMSComposer.js" target="lib/cordova/SMSComposer.js"/>
+
+    <platform name="ios">
+	    <config-file target="config.xml" parent="plugins">
+	    	<plugin name="SMSComposer" value="SMSComposer"/>
+	    </config-file>
+
+	    <header-file src="EyeReport/Plugins/SMSComposer.h"/>
+
+	    <source-file src="EyeReport/Plugins/SMSComposer.m"/>
+	</platform>
+
+</plugin>

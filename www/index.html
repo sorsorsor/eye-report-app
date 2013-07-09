@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.1.css" />
+        <link rel="stylesheet" type="text/css" href="css/themes/eye-style.css" />
+        <title>EyeReport</title>
+       
+        <!--script type="text/javascript" charset="utf-8" src="js/localize.js"></script-->
+        <!--link rel="stylesheet" href="qunit-1.5.0.css" />
+         <script type="text/javascript" charset="utf-8" src="qunit-1.5.0.js"></script-->
+        
+        <!--script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="js/jquery.ui.map.js"></script>
+        <script type="text/javascript" src="js/jquery.ui.map.services.js"></script>
+        <script type="text/javascript" src="js/jquery.ui.map.extensions.js"></script>
+        <script src="js/min/markerwithlabel.v1.1.5.min.js" type="text/javascript"></script-->
+        
+        <script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.3.1.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="js/eyereport.js"></script>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/SMSComposer.js"></script>
+         
+        
+        <script src="js/post.js"></script>
+        
+        <!--BEGIN REQUEST LOCATION SERVICES-->
+        <script type="text/javascript" charset="utf-8">
+            /******* Request access to Location Services *******/
+            
+            // Wait for PhoneGap to load
+            //
+            document.addEventListener("deviceready", onDeviceReady, false);
+            
+            // PhoneGap is ready
+            //
+            function onDeviceReady() {
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                // onSuccess Geolocation
+                //
+                function onSuccess(position) {
+                    var element = document.getElementById('geolocation');
+                    element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                    'Longitude: '          + position.coords.longitude             + '<br />' +
+                    'Altitude: '           + position.coords.altitude              + '<br />' +
+                    'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                    'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                    'Heading: '            + position.coords.heading               + '<br />' +
+                    'Speed: '              + position.coords.speed                 + '<br />' +
+                    'Timestamp: '          + new Date(position.timestamp)          + '<br />';
+                }
+                
+                // onError Callback receives a PositionError object
+                //
+                function onError(error) {
+                    alert('code: '    + error.code    + '\n' +
+                          'message: ' + error.message + '\n');
+                }
+            </script> 
+        <!-- END REQUEST LOCATION SERVICES -->
+        <!-- GLOBALIZATION CHECK -->
+        <script type="text/javascript" charset="utf-8">
+           
+            
+            function checkLanguage() {
+                navigator.globalization.getPreferredLanguage(
+                                                             function (language)
+                                                             {
+                                                             
+                                                             if(language.value == "zh-Hans")
+                                                             //if(language.value == "en")
+                                                             {
+                                                             //alert('language: ' + language.value + '\n');
+                                                             window.location.replace("zh_index.html");
+
+                                                             alert('Error getting language\n');
+                                                             }
+                                                             },
+                                                             function ()
+                                                             {
+                                                             alert('Error getting language\n');
+                                                             }
+                                                             );
+            }
+                        
+            </script>
+        <!-- END GLOBALIZATION CHECK -->
+
+        <script>
+            function onBodyLoad() {
+                document.addEventListener("deviceready",onDeviceReady,false);
+              //  document.getElementById("witness").text="目击者";
+            }
+            </script>
+        <script>
+          
+            $(document).bind("pageinit", function(){
+                              $('#english').click(function(){
+                                    $("#eCall a.ui-link-inherit").text("Emergency Call");
+                                   // $("#sms a.ui-link-inherit").text("SMS");
+                                    $("#chinese a.ui-link-inherit").text("Chinese");
+                                    $("#english a.ui-link-inherit").text("English");
+                                    $("#pickContact a.ui-link-inherit").text("Pick Contact");
+
+                                    $("#action .ui-btn-text").text("I take action"); 
+                                    $("#checkHeader").text("Check all that apply:");
+                                    $("#verbVio .ui-btn-text").text("verbal violence");
+                                    $("#psychVio .ui-btn-text").text("psychological violence");
+                                    $("#physVio .ui-btn-text").text("physical violence");
+                                    $("#sexVio .ui-btn-text").text("sexual violence");
+                                    $("#checkHeader2").text("Where did you witness the violence?");
+                                    $("#street .ui-btn-text").text("Street");
+                                    $("#home  .ui-btn-text").text("Home");
+                                    // $('#home .ui-btn-inner').children('.ui-btn-text').text("Home");
+
+                                    $("#work .ui-btn-text").text("Work");
+                                    $("#openSpace .ui-btn-text").text("Open Space");
+                                    $("#closedSpace .ui-btn-text").text("Closed Space");
+                                    $("#privateVehicle .ui-btn-text").text("Private Vehicle");
+                                    $("#publicTransit .ui-btn-text").text("Public Transportation");
+                                    $("#other03").text("* Other:");
+                                    $('#submit01').prev('.ui-btn-inner').children('.ui-btn-text').html('Submit');
+                                    $("#moreInfoBtn01 .ui-btn-text").text("More Info");
+                                    $("#close01 .ui-btn-text").text("Close");
+                                    $("#moreInfo01").text("More Info");
+                                    $("#info01-01").text("The law on protection of women’s rights clearly provides that “Women’s personal freedom is not to be violated. It is forbidden to unlawfully detain and deprive or limit women’s personal freedom in an unlawful means, and bans unlawful search of the body of women.");
+                                    $("#info01-02").text("It’s illegal to trafficker and kidnap women, buy the trafficked and kidnapped women, prevent others from rescuing the trafficked and kidnapped women.");
+                                    $("#info01-03").text("Sexual harassment on women is banned by Law on Protection of Women's Rights. A victimized woman has the right to complain to her employer and related authorities.");
+                                    $("#info01-04").text("On April 28, 2001, The Marriage Law (Revised) clearly provides that “Domestic violence is prohibited”. It is the first time for China to give a clear definition of domestic violence in the national legislation.");
+                                    $("#info01-05").text("A woman who suffers sexual harassment has the right to complain to her own employer, the perpetrator’s employer, women’s federation and other related authorities, or directly file a lawsuit to the People’s Court.");
+                                    $("#close02 .ui-btn-text").text("Close");
+                                    $("#help .ui-btn-text").text("I need help");
+                                    $("#iVictim").text("I am a victim.");
+                                    $("#iWant").text("I want to:");
+                                    //$("#friendAssist .ui-btn-text").text("I need a friend's assistance");
+                                    $('#friendAssist').prev('.ui-btn-inner').children('.ui-btn-text').html('I need a friends assistance');
+                                    $("#reportHotline .ui-btn-text").text("Report to hotline");
+                                    $("#reportPolice .ui-btn-text").text("Report to Police");
+                                    
+
+                                    $("#moreInfoBtn02 .ui-btn-text").text("More Info");
+                                    $("#close03 .ui-btn-text").text("Close");
+                                    $("#moreInfo02").text("More Info");
+                                    $("#info02-01").text("A woman who suffers domestic violence has the right to appeal for rescue from public security organ, civil administration, judicial or administrative department, women’s federation, neighborhood committee, villagers’ committee and her employer, and these related departments and organizations should provide rescue, and when necessary, provide legal assistance.");
+                                    $("#info02-02").text("A victim of domestic violence can make 110 police hotline. Police officers will make a timely solution to the complaints according to laws and regulations.");
+                                    $("#info02-03").text("Young women should try not go the plaices where rape is more likely to happen.");
+                                    $("#info02-04").text("Try to tell your family member or your friend the man you are going to date with, the time, place and the time you are scheduled to get back home.");
+                                    $("#info02-05").text("Speak out your opinions and say “No” bravely if you do not want or accept his unreasonable demand.");
+                                    $("#close04 .ui-btn-text").text("Close");
+
+                                   //$("#landmark-1 #know").text("I want to know");
+                                    $("#know .ui-btn-text").text("I want to know");
+                                    $("#genderVio").text("How did you find out about gender based violence?");
+                                    $("#genderVio01 .ui-btn-text").text("It happened to a friend");
+                                    $("#genderVio02 .ui-btn-text").text("It happened to a family member");
+                                    $("#genderVio03 .ui-btn-text").text("It happened to me");
+                                    $("#genderVio04 .ui-btn-text").text("I was a witness to it");
+                                    $("#genderVio05 .ui-btn-text").text("I read about it");
+                                    $("#genderVio06 .ui-btn-text").text("I attended a class/event about it");
+                                    $("#other04").text("Other");
+
+                                    $("#whyReport").text("Why do you think it is not reported enough?");
+                                    $("#whyReport01 .ui-btn-text").text("Victims are too traumatized");
+                                    $("#whyReport02 .ui-btn-text").text("I don’t know where to report it");
+                                    $("#whyReport03").text("*Other:");
+                                    $('#submit02').prev('.ui-btn-inner').children('.ui-btn-text').html('Submit');
+
+                                    $("#moreInfoBtn03 .ui-btn-text").text("More Info");
+                                    $("#close05 .ui-btn-text").text("Close");
+                                    $("#moreInfo03").text("More Info");
+                                    $("#info03-01").text("In 1993, the United Nations adopted the Declaration on the Elimination of Violence against Women in which it defines“violence against women”, meaning “any gender-based violence which causes or is likely to cause physical, mental or sexual harms or pains to women, including threatening to impose such behaviors, coercing or willfully depriving women’s freedom, both in public life and in private life.");
+                                    $("#info03-02").text("A survey conducted  by China Women’s College in 2011on domestic violence showed that 78.8% of respondents said domestic violence had happened around them.");
+                                    $("#info03-03").text("The main victims of domestic violence are women and children, yet any family member may suffer from domestic violence.");
+                                    $("#info03-04").text("Domestic violence not only infringes upon the victim’s physical health and life security, brings misfortunes to marriage and family, but also liable to trigger serious crimes and endanger the stability and harmony of our society.");
+                                    $("#close06 .ui-btn-text").text("Close");
+
+
+                                    $("#about .ui-btn-text").text("About");
+                                    $("#aboutCon").text("Eyereport is an educational initiative to raise awareness about domestic violence and where to seek help. While aiming to inform the public, incidentally Eyereport is an effort to collect data regarding domestic violence cases so we can all gain insight on how to progressively reduce domestic violence globally.");
+                                    $("#interested").text("Interested in EyeReport? Send us your feedback or inquiries:");
+                                    $("#email .ui-btn-text").text("Email");
+                                    $("#yide").text("Powered by Yi De Media");
+                                    
+                            });
+
+                            $('#chinese').click(function(){
+                                    $("#eCall a.ui-link-inherit").text("急诊");
+                                   // $("#sms a.ui-link-inherit").text("SMS");
+                                    $("#chinese a.ui-link-inherit").text("中国的");
+                                    $("#english a.ui-link-inherit").text("英语");
+                                    $("#pickContact a.ui-link-inherit").text("选择联系");
+
+                                   // $('#action').children('.ui-btn-inner').children('.ui-btn-text').text("我行动");
+                                    $("#action .ui-btn-text").text("我行动");
+                                    $("#checkHeader").text("检查所有申请:");
+                                    $("#verbVio .ui-btn-text").text("语言暴力");
+                                    $("#psychVio .ui-btn-text").text("精神暴力");
+                                    $("#physVio .ui-btn-text").text("肉体暴力");
+                                    $("#sexVio .ui-btn-text").text("性暴力");
+                                    $("#checkHeader2").text("你在哪里目睹暴力发生？");
+                                    $("#street .ui-btn-text").text("街头");
+                                    $("#home .ui-btn-text").text("家");
+                                    //$('#home .ui-btn-inner').children('.ui-btn-text').text("家");
+
+                                    $("#work .ui-btn-text").text("工作");
+                                    $("#openSpace .ui-btn-text").text("开放空间");
+                                    $("#closedSpace .ui-btn-text").text("封闭空间");
+                                    $("#privateVehicle .ui-btn-text").text("私家车");
+                                    $("#publicTransit .ui-btn-text").text("公共交通");
+                                    $("#other03").text("* 其他:");
+                                    //$("#submit01 .ui-btn-text").text("递交");
+                                   $('#submit01').prev('.ui-btn-inner').children('.ui-btn-text').html('递交');
+
+                                    $("#moreInfoBtn01 .ui-btn-text").text("更多信息");
+                                    $("#close01 .ui-btn-text").text("关闭");
+                                    $("#moreInfo01").text("更多信息");
+                                    $("#info01-01").text("中国《妇女权益保障法》明确规定：“妇女的人身自由不受侵犯。禁止非法拘禁和以其他非法手段剥夺或者限制妇女的人身自由；禁止非法搜查妇女的身体。");
+                                    $("#info01-02").text("中国《妇女权益保障法》明确规定：“禁止拐卖、绑架妇女；禁止收买被拐卖、绑架的妇女；禁止阻碍解救被拐卖、绑架的妇女。");
+                                    $("#info01-03").text("禁止对妇女实施性骚扰。受害妇女有权向单位和有关机关投诉");
+                                    $("#info01-04").text("2001年4月28日，《婚姻法》（修正案）明确规定“禁止家庭暴力”，这是中国第一次在国家立法中对家庭暴力问题作出明确规定。");
+                                    $("#info01-05").text("2009年北京市颁布《北京市实施〈中华人民共和国妇女权益保障法〉办法》。该办法明确规定“遭受性骚扰的妇女，可以向本人所在单位、行为人所在单位、本市各级妇女联合会和有关机关投诉，也可以直接向人民法院起诉。");
+                                    $("#close02 .ui-btn-text").text("关闭");
+                                    $("#help .ui-btn-text").text("我需要");
+                                    $("#iVictim").text("我是一个受害者。");
+                                    $("#iWant").text("我想：");
+                                    //$("#friendAssist .ui-btn-text").text("寻求朋友帮助");
+                                    $('#friendAssist').prev('.ui-btn-inner').children('.ui-btn-text').html('寻求朋友帮助');
+                                    $("#reportHotline .ui-btn-text").text("拨打热线");
+                                    $("#reportPolice .ui-btn-text").text("报警");
+                                    
+
+                                    $("#moreInfoBtn02 .ui-btn-text").text("更多信息");
+                                    $("#close03 .ui-btn-text").text("关闭");
+                                    $("#moreInfo02").text("更多信息");
+                                    $("#info02-01").text("遭受家庭暴力的妇女，有权向公安机关、民政部门、司法行政部门、妇女联合会、居民委员会、村民委员会及其所在单位提出救助请求，有关部门和单位应当提供救助，必要时依法提供法律援助。");
+                                    $("#info02-02").text("遭受家庭暴力的受害者，可随时拨打110 报警电话。公安机关对构成违反治安管理规定或构成刑事犯罪的，将依法受理或立案，及时查处。");
+                                    $("#info02-03").text("青年女性应尽量避免在危险时段前往强暴案件较易发生的地方。");
+                                    $("#info02-04").text("约会前尽可能将约会对象、时间、地点及预定回家时间告诉家人或朋友。");
+                                    $("#info02-05").text("要明确表达自己的意见，不想或不同意对方不合理的要求时，要勇敢的说「不」");
+                                    $("#close04").text("关闭");
+
+                                   // $("#landmark-1 #know").text("我关注");
+                                    $("#know .ui-btn-text").text("我关注");
+                                    $("#genderVio").text("你怎样了解到性别暴力？");
+                                    $("#genderVio01 .ui-btn-text").text("有朋友遭受暴力");
+                                    $("#genderVio02 .ui-btn-text").text("有家庭成员遭受暴力");
+                                    $("#genderVio03 .ui-btn-text").text("我遭受过暴力");
+                                    $("#genderVio04 .ui-btn-text").text("我曾目睹暴力");
+                                    $("#genderVio05 .ui-btn-text").text("我曾阅读过类似案例");
+                                    $("#genderVio06 .ui-btn-text").text("我参加过相关培训课程/活动");
+                                    $("#other04").text("其他");
+
+                                    $("#whyReport").text("为什么你认为它没有足够的报道？");
+                                    $("#whyReport01 .ui-btn-text").text("太创伤受害者");
+                                    $("#whyReport02 .ui-btn-text").text("我不知道去哪里报告");
+                                    $("#whyReport03 .ui-btn-text").text("* 其他:");
+                                    //$("#submit02 span span").text("递交");
+                                    $('#submit02').prev('.ui-btn-inner').children('.ui-btn-text').html('递交');
+                                    $("#moreInfoBtn03 .ui-btn-text").text("更多信息");
+                                    $("#close05 .ui-btn-text").text("关闭");
+                                    $("#moreInfo03").text("更多信息");
+                                    $("#info03-01").text("联合国妇女发展基金的调查显示，全世界每三名妇女中，至少有一名在她一生中经历过基于性别的暴力. ");
+                                    $("#info03-02").text("联合国1993年通过的《消除对妇女的暴力行为宣言》中定义了“对妇女的暴力行为”是指“对妇女造成或可能造成身心上或性行为上的伤害或痛苦的任何基于性别的暴力行为，包括威胁进行这类行为，强迫或任意剥夺自由，无论其发生在公共生活还是私人生活中");
+                                    $("#info03-03").text("2011年全国人大法工委和全国妇联委托中华女子学院开展的家庭暴力公众调查中，有78.8%的被调查者表示身边存在家庭暴力.");
+                                    $("#info03-04").text("家庭暴力的主要受害者是妇女和儿童，但各类家庭成员都可能遭受家庭暴力.");
+                                    $("#close06 .ui-btn-text").text("关闭");
+
+
+                                    $("#about .ui-btn-text").text("关于");
+                                    $("#aboutCon").text("Eyereport是一个教育的主动性，以提高人们对家庭暴力和到哪里寻求帮助。虽然旨在告知公众，顺带Eyereport的努力，收集有关家庭暴力案件的数据，所以我们都可以了解如何逐步在全球范围内减少家庭暴力。");
+                                    $("#interested").text("感兴趣EyeReport？向我们发送您的意见或查询：");
+                                    $("#email .ui-btn-text").text("电子邮件");
+                                    $("#yide").text("Powered by 懿德多媒体实验室");
+                                    
+                    });
+                });
+                          
+        
+        </script>
+        <script>
+            function alertDismissed() {
+                //null
+            }
+            
+            function showAlert() {
+                navigator.notification.confirm(
+                                               'Your comment was successfully added.',  // message
+                                               alertDismissed,         // callback
+                                               'Success!',            // title
+                                               'Dismiss'                  // buttonName
+                                               );
+            }
+            </script>
+
+        
+
+
+    </head>
+        <!--body-->
+        <body onload="initialize()"><!--onBodyLoad() initialize() checkLanguage()-->
+            
+                  <!--script> 
+     // $(document).bind("pageinit", function(){
+
+       $('#home').live('pagebeforeshow',function(e,data){    
+    $('#test-button').live('click', function(e) {
+        $('#confirmDialog').css('overflow-y', 'scroll');        
+        $('#confirmDialog').popup('open');
+    });    
+});
+
+$('#confirmDialog').on({
+  popupbeforeposition: function() {
+    var maxHeight = $(window).height() - 30;
+    $('#confirmDialog').css('max-height', maxHeight + 'px');
+  }
+})
+
+</script-->
+            <!-- Home page -->
+            <div data-role="page" id="homepage" data-theme="d" data-content-theme="d">
+               <!-- panel -->
+                <div data-role="panel" id="rightpanel01" data-display="reveal" data-theme="f" data-content-theme="f" data-position:"right" swipe-close:"true" class="ui-panel-position-right">
+                    <ul data-role="listview">
+                        <!--li><a href="sms.html">Contact SMS</a></li>
+                        <li><a href="contacts.html">Contact SMS</a></li-->
+                        <!--li><a href="sql.html">sql test</a></li-->
+                        <li id="eCall"><a href="tel:110">Emergency Call</a></li>
+                        <li id="sms" onclick="ComposeSMS()"><a href="">SMS</a></li>
+                        <li id="chinese"><a href="">Chinese</a></li>
+                        <li id="english"><a href="">English</a></li>
+                        <li id="pickContact" onclick="pickContact();"><a href="">Pick Contact</a></li>
+
+                            
+                        <!--li onclick="pickContact();">Contacts</li>
+                        
+                        <li><a href="sqlTest.html">DB test<</a></li-->
+                        
+                    </ul>
+                </div>
+                <!-- /panel -->
+                <div data-role="header" data-position="inline">
+                    <img name="eye_report_logo" src="img/eye_report_logo02.png" style="float:left; height: 3em;  margin-top:5px; margin-left:5px;">
+                        <h3><strong> </strong></h3>
+                        
+                        <a href="#rightpanel01" data-icon="bars" data-iconpos="notext" data-theme="d" data-position="right" class="ui-btn-right ui-icon-alt" style="margin-top:5px;"></a>
+
+                        <!--button data-role="button" id="chinese">Chinese</button>
+                        <button data-role="button" id="english">English</button-->
+                        
+                        <!--a href="#track_info" data-role="button" class="ui-btn-left">other</a-->
+                </div><!-- /header-->
+                <div id="qunit"></div>
+                <div data-role="content" id="one" class="ui-content" role="main" style="border:0;">
+                    <div data-role="collapsible-set" data-inset="false" data-corners="false" class="no-border"><!-- DATA THEME C -->
+                        <div data-role="collapsible" data-collapsed="true" data-theme="c" data-content-theme="c" class="cornered1" id="landmark-2" data-landmark-id="2">
+                            <h3 id="action">I take action </h3>
+                           
+                            <form>
+                                <div data-role="fieldcontain">
+                                    <fieldset data-role="controlgroup" data-mini="true">
+                                        <legend id="checkHeader"><strong>Check all that apply:</strong></legend>
+                                        <input type="checkbox" name="entry.1406026652" id="group_1406026652_1" value="verbal violence" class="custom" />
+                                        <label for="group_1406026652_1" id="verbVio">verbal violence</label>
+                                        <input type="checkbox" name="entry.1406026652" id="group_1406026652_2"value="psychological violence" class="custom" />
+                                        <label for="group_1406026652_2" id="psychVio">psychological violence</label>
+                                        <input type="checkbox" name="entry.1406026652" id="group_1406026652_3"value="physical violence" class="custom" />
+                                        <label for="group_1406026652_3"id="physVio">physical violence</label>
+                                        <input type="checkbox" name="entry.1406026652" id="group_1406026652_4"value="sexual violence" class="custom" />
+                                        <label for="group_1406026652_4" id="sexVio">sexual violence</label>
+                                        <label for="group_1406026652_5"id="other01">* Other:</label>
+                                        <span id="camera_status">
+                                        <input type="text" name="entry.1406026652" id="group_1406026652_5"value="other" data-mini="true" data-theme="d" data-content-theme="d" />
+                                        </span>
+                                    </fieldset>
+                                    <br>
+                                    <br>
+                                    <fieldset data-role="controlgroup" data-mini="true">
+                                    <legend><strong><div id="checkHeader2">Where did you witness the violence?</div></strong></legend>
+                                    <input type="checkbox" name="entry.1406026652" id="group_1406026652_6" value="street" class="custom" />
+                                    <label for="group_1406026652_6" id="street">Street</label>
+
+                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_7" value="home" class="custom" />
+                                    <label for="group_1406026652_7" id="home">Home</label>
+
+                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_8" value="work" class="custom" />
+                                    <label for="group_1406026652_8" id="work">Work</label>
+
+                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_9" value="openSpace" class="custom" />
+                                    <label for="group_1406026652_9" id="openSpace">Open Space</label>
+
+                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_10" value="closedSpace" class="custom" />
+                                    <label for="group_1406026652_10" id="closedSpace">Closed Space</label>
+
+                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_11" value="privateVehicle" class="custom" />
+                                    <label for="group_1406026652_11" id="privateVehicle">Private Vehicle</label>
+
+                                    <input type="checkbox" name="entry.1406026652" id="group_1406026652_12" value="publicTransit" class="custom" />
+                                    <label for="group_1406026652_12" id="publicTransit">Public Transportation</label>
+
+                                    <label for="group_1406026652_13"id="other03">* Other:</label>
+                                        <span id="camera_status">
+                                        <input type="text" name="entry.1406026652" id="group_1406026652_13"value="other" data-mini="true" data-theme="d" data-content-theme="d" />
+                                        </span>
+
+                                    </fieldset>
+                                  
+                                    
+                                    <!--input type="submit" value="Save" data-role="button"-->
+                                </div>
+                                &nbsp;
+                                <div>
+                                <input type="submit" onclick="showAlert()" name="submit" value="Submit" id="submit01" data-role="button">
+                                    <!--a href="index.html" data-theme="c" data-content-theme="c" data-role="button" class="ui-btn-right">Submit</a-->
+                                </div>
+                            </form>
+                            <!-- INFO BUTTON -->
+                            <a href="#infoNested01" id="moreInfoBtn01" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="c" data-content-theme="c">More Info</a>
+                            <div id="infoNested01" data-role="popup" data-theme="d" data-overlay-theme="d" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
+                            <div>
+                             <a href="#" id="close01" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                            </div>    
+                                <h1 id="moreInfo01"><strong> More Info: </strong></h1>
+                                <h3> 
+                                    <ul>
+                                        <li id="info01-01">The law on protection of women’s rights clearly provides that “Women’s personal freedom is not to be violated. It is forbidden to unlawfully detain and deprive or limit women’s personal freedom in an unlawful means, and bans unlawful search of the body of women.</li>
+                                        <li id="info01-02">It’s illegal to trafficker and kidnap women, buy the trafficked and kidnapped women, prevent others from rescuing the trafficked and kidnapped women.</li>
+                                        <li id="info01-03">Sexual harassment on women is banned by Law on Protection of Women's Rights. A victimized woman has the right to complain to her employer and related authorities.</li>
+                                        <li id="info01-04">On April 28, 2001, The Marriage Law (Revised) clearly provides that “Domestic violence is prohibited”. It is the first time for China to give a clear definition of domestic violence in the national legislation.</li>
+                                        <li id="info01-05">A woman who suffers sexual harassment has the right to complain to her own employer, the perpetrator’s employer, women’s federation and other related authorities, or directly file a lawsuit to the People’s Court.</li>
+                                </h3>
+                                <a href="#" id="close02" data-rel="back" data-role="button" data-theme="e">Close</a>
+                            </div>
+                            <!-- /INFO BUTTON -->
+                        </div>
+                        
+                        <!--DATA THEME B -->
+                        <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2">
+                            <h3 id="help">I need help</h3>
+                            <h2 id="iVictim"><strong>I am a victim.</strong></h2>
+                            <h2 id="iWant"><strong>I want to:</strong></h2>
+                          
+                            <!--div data-role="collapsible" data-theme="b" data-content-theme="b">
+                             <3>Report to Police</h3-->
+                            <!--div data-role="content" id="smsContact" class="ui-content" role="main"-->
+                            <!--h2>CHINA</h2>
+                             <h2>110</h2>
+                             <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Call now</a>
+                             </div-->
+                              <input onclick="ComposeSMS();" id="friendAssist" type="button" data-role="button" data-theme="b" data-content="b" value="I need a friend's assistance" />
+                            <a href="tel:18710039964" id="reportHotline" data-role="button" data-inline="false" data-theme="b" data-content-theme="b">Report to hotline</a>
+                            <a href="tel:110" id="reportPolice" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" >Report to Police</a>
+                            <!--a href="index.html" data-role="button" data-inline="false" data-theme="b" data-content-theme="b"data-corners="false"> I need a friend’s assistance</a-->
+                            <!--input onclick="ComposeSMS();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="I need a friend's assistance" /-->
+                            
+                            <!-- INFO BUTTON -->
+                            <a href="#infoNested02" id="moreInfoBtn02" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="b" data-content-theme="b">More Info</a>
+                            <div id="infoNested02" data-role="popup" data-theme="d" data-overlay-theme="d" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
+                            <div>
+                             <a href="#" id="close03" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                            </div>    
+                                <h1 id="moreInfo02"><strong> More Info: </strong></h1>
+                                <h3> 
+                                    <ul>
+                                        <li id="info02-01">A woman who suffers domestic violence has the right to appeal for rescue from public security organ, civil administration, judicial or administrative department, women’s federation, neighborhood committee, villagers’ committee and her employer, and these related departments and organizations should provide rescue, and when necessary, provide legal assistance.</li>
+                                        <li id="info02-02">A victim of domestic violence can make 110 police hotline. Police officers will make a timely solution to the complaints according to laws and regulations.</li>
+                                        <li id="info02-03">Young women should try not go the plaices where rape is more likely to happen.</li>
+                                        <li id="info02-04">Try to tell your family member or your friend the man you are going to date with, the time, place and the time you are scheduled to get back home.</li>
+                                        <li id="info02-05">Speak out your opinions and say “No” bravely if you do not want or accept his unreasonable demand.</li>
+                                </h3>
+                                <a href="#" id="close04" data-rel="back" data-role="button" data-theme="e">Close</a>
+                            </div>
+                            <!-- /INFO BUTTON -->
+
+                        </div><!--/SURVIVOR-->
+                        <!--DATA THEME A-->
+                        <div  id="landmark-1" data-landmark-id="1" data-inset="false" data-role="collapsible" data-collapsed="false" data-theme="a" data-content-theme="a" class="cornered3">
+                            <h3 id="know">I want to know</h3>
+                            <form>
+                                <fieldset data-role="controlgroup" data-mini="true">
+                                    <legend id="genderVio"><strong>How did you find out about gender based violence?</strong></legend>
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_1" value="It happened to a friend">
+                                    <label for="group_1756293355_1" id="genderVio01">It happened to a friend</label>
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_2" value="It happened to a family member">
+                                    <label for="group_1756293355_2" id="genderVio02">It happened to a family member</label>
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_3" value="It happened to me">
+                                    <label for="group_1756293355_3" id="genderVio03">It happened to me</label>
+                                                
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_4" value="I was a witness to it">
+                                    <label for="group_1756293355_4" id="genderVio04">I was a witness to it</label>
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_5" value="I read about it">
+                                    <label for="group_1756293355_5" id="genderVio05">I read about it</label>
+                                    <input type="radio" name="entry.1756293355" id="group_1756293355_6" value="I attended a class/event about it">
+                                    <label for="group_1756293355_6" id="genderVio06">I attended a class/event about it</label>
+                                                            <!--label for="basic">* Other:</label>
+                                                             <input type="text" name="entry.1756293355" id="group_1756293355_7" value="other" data-mini="true" data-theme="d" data-content-theme="d" /-->
+                                </fieldset>
+                                &nbsp;
+                                <fieldset data-role="controlgroup" data-mini="true" name="myOption" id="myOption">
+                                    <legend id="whyReport"><strong>Why do you think it is not reported enough?</strong></legend>
+                                    <input type="radio" name="entry.802736113" id="group_802736113_1" value="Victims are too traumatized">
+                                    <label for="group_802736113_1" id="whyReport01">Victims are too traumatized</label>
+                                    <input type="radio" name="entry.802736113" id="group_802736113_2" value="I don&#39;t know where to report it">
+                                    <label for="group_802736113_2" id="whyReport02">I don’t know where to report it</label>
+                                    
+                                    <label for="group_802736113_3" id="whyReport03">* Other:</label>
+                                    <input type="text" name="entry.802736113" id="group_802736113_3" value="other" data-mini="true" data-theme="d" data-content-theme="d" />
+                                     
+                                </fieldset>
+                                <!--input type="submit" name="submit" value="Submit" id="submit" data-role="button"-->
+                                &nbsp;
+                                &nbsp;
+                                <input type="submit" onclick="showAlert()" id="submit02" value="Submit" data-role="button">
+                                </form>
+                                 
+                                 
+                                 
+                               <!-- INFO BUTTON -->
+                            <a href="#infoNested03" id="moreInfoBtn03" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="a" data-content-theme="a">More Info</a>
+                            <div id="infoNested03" data-role="popup" data-theme="d" data-overlay-theme="d" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
+                            <div>
+                             <a href="#" id="close05"data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                            </div>    
+                                <h1 id="moreInfo03"><strong> More Info: </strong></h1>
+                                <h3> 
+                                    <ul>
+                                        <li id="info03-01">In 1993, the United Nations adopted the Declaration on the Elimination of Violence against Women in which it defines“violence against women”, meaning “any gender-based violence which causes or is likely to cause physical, mental or sexual harms or pains to women, including threatening to impose such behaviors, coercing or willfully depriving women’s freedom, both in public life and in private life.</li>
+                                        <li id="info03-02">A survey conducted  by China Women’s College in 2011on domestic violence showed that 78.8% of respondents said domestic violence had happened around them.</li>
+                                        <li id="info03-03">The main victims of domestic violence are women and children, yet any family member may suffer from domestic violence.</li>
+                                        <li id="info03-04">Domestic violence not only infringes upon the victim’s physical health and life security, brings misfortunes to marriage and family, but also liable to trigger serious crimes and endanger the stability and harmony of our society.</li>
+                                </h3>
+                                <a href="#" id="close06" data-rel="back" data-role="button" data-theme="e">Close</a>
+                            </div>
+                            <!-- /INFO BUTTON -->
+                            <!--p>25% of Chinese women have experienced domestic violence.</p-->
+                        </div> <!-- /INFORMATION -->
+                     
+                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="a" data-content-theme="a">
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                        </div>
+                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="a" data-content-theme="a">
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                        </div>
+
+                           <!-- ABOUT -->
+                        <div data-role="collapsible" data-theme="e" data-content-theme="e" class="cornered4">
+                            <h3 id="about">About</h3>
+                            <div>
+                            <img src="img/unesco_logo_150.png" alt="" align="right" class="img-logo" />
+                            <h3 id="aboutCon">Eyereport is an educational initiative to raise awareness about domestic violence and where to seek help. While aiming to inform the public, incidentally Eyereport is an effort to collect data regarding domestic violence cases so we can all gain insight on how to progressively reduce domestic violence globally.</h3>
+                            </div>
+                            &nbsp;
+                            &nbsp;
+                            <h3 id="interested">Interested in EyeReport? Send us your feedback or inquiries:</h3>
+                            <a href="mailto:support@eye-report.org" id="email"data-role="button" data-inline="false" data-theme="e" data-content-theme="e" data-corners="false">Email</a>
+                            &nbsp;
+                            &nbsp;
+                            <img src="img/yide_logo_200.png" alt="" class="img-logo2" />
+                            &nbsp;
+                            <div id="yide" style="display:block; margin-left:auto; margin-right:auto;" class="caption-text">
+                                Powered by YiDe
+                            </div>
+                        </div>
+                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="e" data-content-theme="a">
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                        </div>
+                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="e" data-content-theme="a">
+                        <!-- /ABOUT -->
+                    </div>
+                    
+                    <!--script type="text/javascript">
+                        var ComposeSMS = function(){
+                            
+                            var contactno = document.test.phonenumber.value;
+                            var messagetext=document.test.message.value;
+                            
+                            //window.location.href = "sms:contactno?body=messagetext";
+                            window.location = "sms:"+contactno+"?body="+messagetext;
+                           // window.location = "sms:contactno?body=messagetext";
+                        }
+                    </script-->
+
+
+
+                     <!--ComposeSMS -->
+                     <script>
+                   /*
+                    //var ComposeSMS = function(){
+                    //alert('fail!');
+                    //}
+
+                     //var sms = cordova.require("cordova/plugin/smsComposer");
+                    var ComposeSMS  = function() { 
+                    window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');  }
+                    var fail = function() { alert('fail!'); }
+
+                    //sms.showSMSComposer(ComposeSMS, fail);
+                    //mp.bar(win, fail);
+                    //mp.baz(win, fail);
+            */
+            
+            var ComposeSMS = function(){
+                
+                window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
+               //smsComposer.showSMSComposer(success, failure, '3424221122', 'hello');
+            }
+        
+            var myCallback = function(result){
+                
+                if(result == 0)
+                alert("Cancelled");
+                else if(result == 1)
+                alert("Sent");
+                else if(result == 2)
+                alert("Failed.");
+                else if(result == 3)
+                alert("Not Sent.");
+            }
+            
+            
+        </script>
+
+            
+            <!--script type="text/javascript">
+            var ComposeSMS01 = function(){
+                
+                var contactno = document.test.phonenumber.value;
+                var messagetext=document.test.message.value;
+                
+                //window.location.href = "sms:contactno?body=messagetext";
+                window.location.href = "sms:"+contactno+"?body="+messagetext;
+            }
+            </script>
+            <form name="test">
+            <input type="text" name="phonenumber"  /></br>
+            <input type="text" name="message"/></br>
+            <input onclick="ComposeSMS01();" type="button" value="Compose SMS text with number and body" />
+            </form-->
+        
+
+                    
+                    
+                    <!-- CONTACTS -->
+                
+                <script type="text/javascript" charset="utf-8">
+                    
+                    function pickContact()
+                    {
+                        
+                        var options = {};
+                        navigator.contacts.chooseContact(onContactSelected, options);
+                    }
+                    
+                                        
+                    function onContactSelected(id)
+                    {
+                        console.log("Contact ID =" +id);
+                        console.log("Works! However only the contact's id is received, not the full contact object.");
+                        //console.log("Contact ID = " + id);  //ex. John Appleseed, ID=3
+                        
+                        /*
+                         alert("Contact ID =" +contacts[i].name.formatted);
+                         alert("a=" +contacts[i].name);
+                       */ 
+                //PUT BACK IN FOR DEBUG!!!!!!!!
+                   /////////////    alert(id);
+                        
+                        /*
+                        if (contacts[i].phoneNumbers){
+                        for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
+                            alert("Type: " + contacts[i].phoneNumbers[j].type + "\n" +
+                                  "Value: "  + contacts[i].phoneNumbers[j].value + "\n" +
+                                  "Preferred: "  + contacts[i].phoneNumbers[j].pref);
+                        }
+                        }
+                        */
+                        //TODO: How to look up the contact object by ID???
+                        var options = new ContactFindOptions();
+                        options.filter = "" +id;
+                       // var filter = ["id","phoneNumbers","name.formatted", "displayName"];
+                        var fields = ["id","displayName", "addresses"];//"name.formatted" "phoneNumbers"];
+                        //navigator.contacts.find(fields, onContactFound, onContactFailure, options);
+                        navigator.contacts.find(filter, onContactFound, onContactFailure, options);
+                    }
+                    
+                                    
+                    function onContactFound(contacts) {
+                        console.log(JSON.stringify(contacts));
+                        console.log(contacts.length + " contact(s) found");  //ex. 1 contact(s) found
+                        //console.log("ID = " + contacts[0].id + ", Name = " + contacts[0].displayName);
+                    }
+                    </script>
+                    <!--/CONTACTS -->
+                    
+                    <!--STORE CONTACTS -->
+                    <!--script>
+                     function testAsSeperateFunctionDB(contact)
+                     {
+                     
+                     
+                     for(i = 0; i < contactFullObjArray.length; i++) {
+                     transaction.executeSql();
+                     //Parse the ContactFull object
+                     var contact=ContactFull.parse(contactFullObjArray[i]);
+                     testAsSeperateFunctionDB(contact);
+                     
+                     }
+                     
+                     database.transaction(
+                     function( transaction ){
+                     alert("enteringIntoTransaction");
+                     transaction.executeSql(
+                     'INSERT INTO testTableThree (contactId, mrMrs, firstName,
+                     lastName, jobTitle, bActive, homePhone, contactType, accountId,
+                     workPhone, cellularPhone, workFax, contactEmail, owner,
+                     alternateCountry, alternateAddress1, alternateAddress2,
+                     alternateZipCode, alternateCity, alternateProvince)
+                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
+                     
+                     [contact.contactId, contact.mrMrs,
+                     contact.firstName, contact.lastName,
+                     contact.jobTitle, contact.bActive,
+                     contact.homePhone, contact.contactType,
+                     contact.accountId, contact.workPhone,
+                     contact.cellularPhone, contact.workFax,
+                     contact.contactEmail, contact.owner,
+                     contact.alternateCountry, contact.alternateAddress1,
+                     contact.alternateAddress2, contact.alternateZipCode,
+                     contact.alternateCity, contact.alternateProvince],
+                     
+                     //Callback after successful transaction
+                     function( transaction, results ) {
+                     alert("added");
+                     },
+                     
+                     //Callback after error in transaction
+                     function( transaction, error ) {
+                     alert("Error" + error.code);
+                     }
+                     );
+                     }
+                     );
+                     }
+                     </script>
+                     
+                     <script></script-->
+                    
+                    
+                    <!--/STORE CONTACTS -->
+                    
+                </div><!--content-->
+                
+            </div><!-- /page -->
+            
+            <!-- Track Info page -->
+            <!--div data-role="page" id="track_info">
+                <div data-role="header" data-position="inline">
+                    <h1><strong>EyeReport</strong></h1>
+                    <a href="#home" class="ui-btn-right">home</a>
+                    <a href="#mypanel" data-role="button" class="ui-btn-left">Reveal</a>
+                </div>
+                
+                <div data-role="content">
+                    <p id="track_info_info"></p>
+                    
+                    <div id="map_canvas" style="position:absolute;bottom:0;left:0;width:100%;height:300px;"></div>
+                    
+                </div>
+                
+                
+            </div-->
+            <!--/page -->
+
+             <!-- Track Info page -->
+        <div data-role="page" id="track_info">            
+            <div data-role="header" data-position="inline">
+                <h1><strong>EyeReport</strong></h1>
+                <a href="#home" class="ui-btn-right">home</a>
+                <a href="#mypanel" data-role="button" class="ui-btn-left">Reveal</a>
+            </div><!-- /header-->
+            
+            <div data-role="content">   
+                <p id="track_info_info"></p>
+                
+                <div id="map_canvas" style="position:absolute;bottom:0;left:0;width:100%;height:300px;">
+                </div>
+                
+            </div>
+            
+            
+        </div><!-- /page -->
+
+            
+        
+            <script type="text/javascript">
+                    app.initialize();
+            </script>
+            </body>
+</html>
