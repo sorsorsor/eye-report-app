@@ -15,6 +15,8 @@
 
                 function onSuccess(position) {
                     var element = document.getElementById('geolocation');
+                    element.innerHTML = "http://maps.google.com/maps?q="+position.coords.latitude+","+position.coords.longitude+"(My+Point)&z=14&ll="+position.coords.latitude+","+position.coords.longitude;
+                    /*
                     var origPos = "location";
                     var geoPos = origPos.replace("location", position.coords.latitude + position.coords.longitude);
                     element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
@@ -25,6 +27,7 @@
                     'Heading: '            + position.coords.heading               + '<br />' +
                     'Speed: '              + position.coords.speed                 + '<br />' +
                     'Timestamp: '          + new Date(position.timestamp)          + '<br />';
+                    */
                 }
                 
                 // onError Callback receives a PositionError object
