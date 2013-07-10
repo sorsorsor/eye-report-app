@@ -19,6 +19,8 @@ NotSent:3
 
 SMSComposer.prototype.showSMSComposer = function(toRecipients, body)
 {
+	var element = document.getElementById('geolocation').innerHTML;
+	
 /*
 	var args = {};
     
@@ -28,7 +30,7 @@ SMSComposer.prototype.showSMSComposer = function(toRecipients, body)
 	if(body)
 		args.body = body;
   */  
-	cordova.exec(null, null, "SMSComposer","showSMSComposer",[{"toRecipients":"3167378786","body":"hello"}]);
+	cordova.exec(null, null, "SMSComposer","showSMSComposer",[{"toRecipients":"3167378786","body":element}]);
 }
 
 SMSComposer.prototype.showSMSComposerWithCB = function(cbFunction,toRecipients,body)

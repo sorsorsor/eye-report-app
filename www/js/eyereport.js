@@ -15,6 +15,8 @@
 
                 function onSuccess(position) {
                     var element = document.getElementById('geolocation');
+                    var origPos = "location";
+                    var geoPos = origPos.replace("location", position.coords.latitude + position.coords.longitude);
                     element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
                     'Longitude: '          + position.coords.longitude             + '<br />' +
                     'Altitude: '           + position.coords.altitude              + '<br />' +
