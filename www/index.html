@@ -83,7 +83,7 @@
             </script> 
         <!-- END REQUEST LOCATION SERVICES -->
         <!-- GLOBALIZATION CHECK -->
-        <script type="text/javascript" charset="utf-8">
+        <!-- script type="text/javascript" charset="utf-8">
            
             
             function checkLanguage() {
@@ -107,7 +107,7 @@
                                                              );
             }
                         
-            </script>
+            </script-->
         <!-- END GLOBALIZATION CHECK -->
 
         <script>
@@ -116,6 +116,7 @@
               //  document.getElementById("witness").text="目击者";
             }
             </script>
+        <!-- LANGUAGE SELECT -->
         <script>
           
             $(document).bind("pageinit", function(){
@@ -301,6 +302,7 @@
                           
         
         </script>
+        <!-- END LANGUAGE SELECT -->
         <script>
             function alertDismissed() {
                 //null
@@ -597,6 +599,7 @@ $('#confirmDialog').on({
                         <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="e" data-content-theme="a">
                         <!-- /ABOUT -->
                     </div>
+                        <p id="geolocation">Finding geolocation...</p>
                     
                     <!--script type="text/javascript">
                         var ComposeSMS = function(){
@@ -614,61 +617,27 @@ $('#confirmDialog').on({
 
                      <!--ComposeSMS -->
                      <script>
-                   /*
-                    //var ComposeSMS = function(){
-                    //alert('fail!');
-                    //}
-
-                     //var sms = cordova.require("cordova/plugin/smsComposer");
-                    var ComposeSMS  = function() { 
-                    window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');  }
-                    var fail = function() { alert('fail!'); }
-
-                    //sms.showSMSComposer(ComposeSMS, fail);
-                    //mp.bar(win, fail);
-                    //mp.baz(win, fail);
-            */
-            
-            var ComposeSMS = function(){
+                              
+                        var ComposeSMS = function(){
                 
-                window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
-               //smsComposer.showSMSComposer(success, failure, '3424221122', 'hello');
-            }
+                            window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
+                            //smsComposer.showSMSComposer(success, failure, '3424221122', 'hello');
+                        }
         
-            var myCallback = function(result){
+                         var myCallback = function(result){
                 
-                if(result == 0)
-                alert("Cancelled");
-                else if(result == 1)
-                alert("Sent");
-                else if(result == 2)
-                alert("Failed.");
-                else if(result == 3)
-                alert("Not Sent.");
-            }
+                             if(result == 0)
+                             alert("Cancelled");
+                             else if(result == 1)
+                             alert("Sent");
+                             else if(result == 2)
+                             alert("Failed.");
+                             else if(result == 3)
+                             alert("Not Sent.");
+                         }
             
             
-        </script>
-
-            
-            <!--script type="text/javascript">
-            var ComposeSMS01 = function(){
-                
-                var contactno = document.test.phonenumber.value;
-                var messagetext=document.test.message.value;
-                
-                //window.location.href = "sms:contactno?body=messagetext";
-                window.location.href = "sms:"+contactno+"?body="+messagetext;
-            }
-            </script>
-            <form name="test">
-            <input type="text" name="phonenumber"  /></br>
-            <input type="text" name="message"/></br>
-            <input onclick="ComposeSMS01();" type="button" value="Compose SMS text with number and body" />
-            </form-->
-        
-
-                    
+                         </script>
                     
                     <!-- CONTACTS -->
                 
