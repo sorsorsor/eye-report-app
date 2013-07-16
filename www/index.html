@@ -179,6 +179,7 @@
 
                                    //$("#landmark-1 #know").text("I want to know");
                                     $("#know .ui-btn-text").text("I want to know");
+                                    /***********************************************************************
                                     $("#genderVio").text("How did you find out about gender based violence?");
                                     $("#genderVio01 .ui-btn-text").text("It happened to a friend");
                                     $("#genderVio02 .ui-btn-text").text("It happened to a family member");
@@ -193,7 +194,7 @@
                                     $("#whyReport02 .ui-btn-text").text("I don’t know where to report it");
                                     $("#whyReport03").text("*Other:");
                                     $('#submit02').prev('.ui-btn-inner').children('.ui-btn-text').html('Submit');
-
+                                    **********************************************************************/
                                     $("#moreInfoBtn03 .ui-btn-text").text("More Info");
                                     $("#close05 .ui-btn-text").text("Close");
                                     $("#moreInfo03").text("More Info");
@@ -271,6 +272,7 @@
 
                                    // $("#landmark-1 #know").text("我关注");
                                     $("#know .ui-btn-text").text("我关注");
+                                    /**********************************************************************
                                     $("#genderVio").text("你怎样了解到性别暴力？");
                                     $("#genderVio01 .ui-btn-text").text("有朋友遭受暴力");
                                     $("#genderVio02 .ui-btn-text").text("有家庭成员遭受暴力");
@@ -286,6 +288,7 @@
                                     $("#whyReport03 .ui-btn-text").text("* 其他:");
                                     //$("#submit02 span span").text("递交");
                                     $('#submit02').prev('.ui-btn-inner').children('.ui-btn-text').html('递交');
+                                    **********************************************************************/
                                     $("#moreInfoBtn03 .ui-btn-text").text("更多信息");
                                     $("#close05 .ui-btn-text").text("关闭");
                                     $("#moreInfo03").text("更多信息");
@@ -363,6 +366,10 @@ $('#confirmDialog').on({
                         <li id="pickContact" onclick="pickContact();"><a href="">Pick Contact</a></li>
                         <li id="share" onclick="share()"><a href="">Share</a></li>
                         <li id="aboutBtn"><a href="#about">About</a></li>
+
+                         <!--a href="http://aiflowers.org" onclick="window.open(this.href,'_system'); return false;" id="aiflowersWeb" target="_blank"  class="external" style="margin:auto;" data-role="button" data-inline="true" data-mini="true"> View online</a-->
+
+                        <li id="feedback"><a href="http://eye-report.org" onclick="window.open(this.href,'_system'); return false;" target="_blank">Feedback</a></li>
                             
                         <!--li onclick="pickContact();">Contacts</li>
                         
@@ -848,6 +855,18 @@ $('#confirmDialog').on({
         
             <script type="text/javascript">
                     app.initialize();
+                    var applaunchCount = window.localStorage.getItem('launchCount');
+
+                    //Check if it already exists or not
+                    if(applaunchCount){
+                     alert("THANK YOU CoMe AGAIN!");//This is a second time launch, and count = applaunchCount
+                    }
+                    else{
+                    //Local storage is not set, hence first time launch. set the local storage item
+                    window.localStorage.setItem('launchCount',1);
+                    alert("first launch!!!!");
+                    //Do the other stuff related to first time launch
+                    }
             </script>
             </body>
 </html>
