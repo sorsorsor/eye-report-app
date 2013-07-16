@@ -119,6 +119,10 @@
     <feature name="Social">
         <param name="ios-package" value="Social" />
     </feature>
+    
+    <feature name="EmailComposer">
+        <param name="ios-package" value="EmailComposer" />
+    </feature>
     <!-- Deprecated plugins element. REmove in 3.0 -->
     <plugins>
         <!--plugin name="SMSComposer" value="SMSComposer" />

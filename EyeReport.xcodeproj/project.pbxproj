@@ -49,6 +49,7 @@
 		9AAAB13D1794C8AD007005D9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAAB13C1794C8AD007005D9 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9AEDDF52178C9B24005E206B /* SMSComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDDF4E178C9B24005E206B /* SMSComposer.m */; };
 		9AEDDF57178C9B67005E206B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEDDF56178C9B67005E206B /* MessageUI.framework */; };
+		9AF89BFC1795EFD100DF4B7E /* EmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF89BFB1795EFD100DF4B7E /* EmailComposer.m */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
 /* End PBXBuildFile section */
@@ -121,6 +122,8 @@
 		9AEDDF4D178C9B24005E206B /* SMSComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSComposer.h; sourceTree = "<group>"; };
 		9AEDDF4E178C9B24005E206B /* SMSComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSComposer.m; sourceTree = "<group>"; };
 		9AEDDF56178C9B67005E206B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		9AF89BFA1795EFD100DF4B7E /* EmailComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailComposer.h; sourceTree = "<group>"; };
+		9AF89BFB1795EFD100DF4B7E /* EmailComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailComposer.m; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = EyeReport/config.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -274,6 +277,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				9AF89BFA1795EFD100DF4B7E /* EmailComposer.h */,
+				9AF89BFB1795EFD100DF4B7E /* EmailComposer.m */,
 				9AAAB1391794C845007005D9 /* Social.h */,
 				9AAAB13A1794C845007005D9 /* Social.m */,
 				9AEDDF4D178C9B24005E206B /* SMSComposer.h */,
@@ -448,6 +453,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				9AEDDF52178C9B24005E206B /* SMSComposer.m in Sources */,
 				9AAAB13B1794C845007005D9 /* Social.m in Sources */,
+				9AF89BFC1795EFD100DF4B7E /* EmailComposer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,8 +535,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = EyeReport;
-				PROVISIONING_PROFILE = "4C5249FB-57E7-475E-945D-97694A931108";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4C5249FB-57E7-475E-945D-97694A931108";
+				PROVISIONING_PROFILE = "130AF1D1-4783-4D24-BC74-2F29D836A736";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "130AF1D1-4783-4D24-BC74-2F29D836A736";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -565,8 +571,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = EyeReport;
-				PROVISIONING_PROFILE = "37F1520C-DB1F-4EC5-AB56-B7ADDC8560CD";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "37F1520C-DB1F-4EC5-AB56-B7ADDC8560CD";
+				PROVISIONING_PROFILE = "737BAF5F-6DB3-47B9-B3D5-7667A9339EF9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "737BAF5F-6DB3-47B9-B3D5-7667A9339EF9";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
