@@ -45,6 +45,8 @@
 		5AA0E66F1729F460000DC89A /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA0E66E1729F460000DC89A /* ImageIO.framework */; };
 		5AEE5B35173C68D80009041E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEE5B34173C68D80009041E /* CoreLocation.framework */; };
 		5B1594DD16A7569C00FEF299 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */; };
+		9AAAB13B1794C845007005D9 /* Social.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AAAB13A1794C845007005D9 /* Social.m */; };
+		9AAAB13D1794C8AD007005D9 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AAAB13C1794C8AD007005D9 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9AEDDF52178C9B24005E206B /* SMSComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDDF4E178C9B24005E206B /* SMSComposer.m */; };
 		9AEDDF57178C9B67005E206B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AEDDF56178C9B67005E206B /* MessageUI.framework */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
@@ -113,6 +115,9 @@
 		5AEE5B34173C68D80009041E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* EyeReport-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "EyeReport-Info.plist"; path = "../EyeReport-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		9AAAB1391794C845007005D9 /* Social.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Social.h; sourceTree = "<group>"; };
+		9AAAB13A1794C845007005D9 /* Social.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Social.m; sourceTree = "<group>"; };
+		9AAAB13C1794C8AD007005D9 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		9AEDDF4D178C9B24005E206B /* SMSComposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMSComposer.h; sourceTree = "<group>"; };
 		9AEDDF4E178C9B24005E206B /* SMSComposer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMSComposer.m; sourceTree = "<group>"; };
 		9AEDDF56178C9B67005E206B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -125,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AAAB13D1794C8AD007005D9 /* Social.framework in Frameworks */,
 				9AEDDF57178C9B67005E206B /* MessageUI.framework in Frameworks */,
 				301BF5BF109A6A2B0062928A /* CoreLocation.framework in Frameworks */,
 				5AA0E66F1729F460000DC89A /* ImageIO.framework in Frameworks */,
@@ -191,6 +197,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				9AAAB13C1794C8AD007005D9 /* Social.framework */,
 				9AEDDF56178C9B67005E206B /* MessageUI.framework */,
 				F840E1F0165FE0F500CFE078 /* config.xml */,
 				301BF56E109A69640062928A /* www */,
@@ -267,6 +274,8 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				9AAAB1391794C845007005D9 /* Social.h */,
+				9AAAB13A1794C845007005D9 /* Social.m */,
 				9AEDDF4D178C9B24005E206B /* SMSComposer.h */,
 				9AEDDF4E178C9B24005E206B /* SMSComposer.m */,
 			);
@@ -438,6 +447,7 @@
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				9AEDDF52178C9B24005E206B /* SMSComposer.m in Sources */,
+				9AAAB13B1794C845007005D9 /* Social.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,8 +529,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = EyeReport;
-				PROVISIONING_PROFILE = "CAFADD17-E0E1-4C8B-86A6-269D81217A3B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CAFADD17-E0E1-4C8B-86A6-269D81217A3B";
+				PROVISIONING_PROFILE = "4C5249FB-57E7-475E-945D-97694A931108";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4C5249FB-57E7-475E-945D-97694A931108";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -555,8 +565,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = EyeReport;
-				PROVISIONING_PROFILE = "873D041F-BE42-4263-AAD0-BA446ECF67CB";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "873D041F-BE42-4263-AAD0-BA446ECF67CB";
+				PROVISIONING_PROFILE = "37F1520C-DB1F-4EC5-AB56-B7ADDC8560CD";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "37F1520C-DB1F-4EC5-AB56-B7ADDC8560CD";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

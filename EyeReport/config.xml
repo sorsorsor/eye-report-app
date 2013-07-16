@@ -116,6 +116,9 @@
     <feature name="Contacts">
         <param name="ios-package" value="CDVContacts" />
     </feature>
+    <feature name="Social">
+        <param name="ios-package" value="Social" />
+    </feature>
     <!-- Deprecated plugins element. REmove in 3.0 -->
     <plugins>
         <!--plugin name="SMSComposer" value="SMSComposer" />
