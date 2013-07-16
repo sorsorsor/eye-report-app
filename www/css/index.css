@@ -130,8 +130,8 @@ h1 {
 .cornered1 .ui-collapsible-heading
 {
     height:0px;
-    border-bottom: 40px solid #44b5e4;
-    border-left: 40px solid transparent;
+    border-bottom: 40px solid #44b5e4; /*blue*/
+    border-left: 40px solid #eba91b;
 }
 
 .cornered2 {
@@ -144,8 +144,8 @@ h1 {
 .cornered2 .ui-collapsible-heading
 {
     height:0px;
-    border-bottom: 40px solid #c8382d;
-    border-left: 40px solid #44b5e4;
+    border-bottom: 40px solid #c8382d; /*red*/
+    border-left: 40px solid #44b5e4; /*blue*/
 }
 
 .cornered3 {
@@ -158,8 +158,8 @@ h1 {
 .cornered3 .ui-collapsible-heading
 {
     height:0px;
-    border-bottom: 40px solid #eba91b;
-    border-left: 40px solid #c8382d;
+    border-bottom: 40px solid #eba91b; /*yellow-orange*/
+    border-left: 40px solid transparent; /*red*/
 }
 
 .cornered4 {
@@ -172,8 +172,8 @@ h1 {
 .cornered4 .ui-collapsible-heading
 {
     height:0px;
-    border-bottom: 40px solid #262626;
-    border-left: 40px solid #eba91b;
+    border-bottom: 40px solid #262626; /*dark-grey*/
+    border-left: 40px solid #eba91b; /*yellow-orange*/
 }
 
 .main {
