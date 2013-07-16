@@ -188,7 +188,7 @@
 }
 .ui-body-b,
 .ui-overlay-b {
-	border: 1px solid #aaaaaa*/ /*{b-body-border}*/;
+	border: none /*{b-body-border}*/;
 	color: #ffffff /*{b-body-color}*/;
 	text-shadow: 0 /*{b-body-shadow-x}*/ 0px /*{b-body-shadow-y}*/ 0 /*{b-body-shadow-radius}*/ #ffffff /*{b-body-shadow-color}*/;
 	background: #c8382d /*{b-body-background-color}*/;
