@@ -307,12 +307,39 @@
                                     $("#yide").text("Powered by 懿德多媒体实验室");
                                     
                     });
+             
+                                    $('#know').click(function() {
+                                        if ($("#landmark-2").hasClass('cornered1')) {
+                                            $("#landmark-2").removeClass('cornered1');
+                                            $("#landmark-2").addClass('cornered1-alt');
+                                            }
+                                        else{
+                                            $("#landmark-2").removeClass('cornered1-alt');
+                                            $("#landmark-2").addClass('cornered1');
+                                             }
+                                            // $('div#tabs').listview('refresh');
+                                            $( "#tabs" ).collapsibleset( "refresh" );
+                                        });
+
+                                    $('#action').click(function() {
+                                        if ($("#helpTab").hasClass('cornered2')) {
+                                            $("#helpTab").removeClass('cornered2');
+                                            $("#helpTab").addClass('cornered2-alt');
+                                            }
+                                        else{
+                                            $("#helpTab").removeClass('cornered2-alt');
+                                            $("#helpTab").addClass('cornered2');
+                                             }
+                                            // $('div#tabs').listview('refresh');
+                                            $( "#tabs" ).collapsibleset( "refresh" );
+                                        });
+
                 });
         </script>
         <!-- END LANGUAGE SELECT -->
         
         <!-- STYLE SWITCH -->
-        <script>
+        <!--script>
             $('#action').click(function() {
                 if ($(#helpTab).children().hasClass('cornered2')) {
                      $(#helpTab).children().removeClass('cornered2');
@@ -321,9 +348,9 @@
                  else {
                      $(#helpTab).children().addClass('cornered2');
                  }
-                    $('div#tabs').listview('refresh');
+                   // $('div#tabs').listview('refresh');
                 });
-        </script>
+        </script-->
         <!-- /STYLE SWITCH -->
         <script>
             function alertDismissed() {

@@ -134,6 +134,20 @@ h1 {
     border-left: 40px solid #a745fe; /*purple*//*#ff52c5;*/ /*pink*/
 }
 
+.cornered1-alt {
+  /*  width: 176px;
+    height:0px;
+    border-bottom: 40px solid #44b5e4; blue
+    border-left: 40px solid transparent;*/
+}
+
+.cornered1-alt .ui-collapsible-heading
+{
+    height:0px;
+    border-bottom: 40px solid #1e56ef; /*blue*/
+    border-left: 40px solid #ff52c5;  /*pink*/
+}
+
 .cornered2 {
   /*  width: 176px;
     height:0px;
@@ -145,7 +159,21 @@ h1 {
 {
     height:0px;
     border-bottom: 40px solid #0dd41a; /*green*/
-    border-left: 40px solid #1e56ef; /*light-blue*/
+    border-left: 40px solid #1e56ef; /*blue*/
+}
+
+.cornered2-alt {
+  /*  width: 176px;
+    height:0px;
+    border-bottom: 40px solid #c8382d; red
+    border-left: 40px solid transparent;*/
+}
+
+.cornered2-alt .ui-collapsible-heading
+{
+    height:0px;
+    border-bottom: 40px solid #0dd41a; /*green*/
+    border-left: 40px solid #1ae3ff; /*light-blue*/
 }
 
 .cornered3 {
