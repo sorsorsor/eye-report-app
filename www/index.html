@@ -399,6 +399,21 @@ $('#confirmDialog').on({
 <!--DATA THEME A-->
                         <div  id="landmark-1" data-landmark-id="1" data-inset="false" data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a" class="cornered3">
                             <h3 id="know">I want to know</h3>
+                               <h3>
+                                <ol>
+                                    <li>
+                                Gender based violence: Acts of physical, mental or social abuse (including sexual violence) that is attempted or threatened, with some type of force (such us violence, threats, coercion, manipulation, deception, cultural expectations, weapons or economic circumstances) and is directed against a person because of his or her gender roles and expectations in a society or culture. 
+                                </li>
+                                <li>    
+                                Forms of Gender-based Violence include sexual violence, sexual abuse, sexual harassment, sexual exploitation, early marriage or forced marriage, gender discrimination, denial (such as education, food, freedom) and female genital mutilation.</li>
+                                <li>
+                                Interpersonal Violence: Defined to include violence between family members and intimate partners and violence between acquaintances and strangers that is not intended to further the aims of any formally defined group or cause. 
+                                </li>
+                                <li>    
+                                Intimate Partner Violence (IPV): A pattern of assaultive and coercive behaviors, including physical, sexual, and psychological attacks, as well as economic coercion, that adults or adolescents use against their intimate partners. It includes a range of sexually, psychologically and physically coercive acts used against adult or adolescent women by a current or former intimate partner, without her consent.
+                                </li>
+                                </ol>
+                                 </h3>
                             <!--form>
                                 <fieldset data-role="controlgroup" data-mini="true">
                                     <legend id="genderVio"><strong>How did you find out about gender based violence?</strong></legend>
@@ -601,32 +616,19 @@ $('#confirmDialog').on({
                                         <li id="info02-05">Speak out your opinions and say “No” bravely if you do not want or accept his unreasonable demand.</li>
                                 </h3>
                                 <a href="#" id="close04" data-rel="back" data-role="button" data-theme="b">Close</a>
+                             
                             </div>
                             <!-- /INFO BUTTON -->
-
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
                         </div>
                         <!--/SURVIVOR-->
-                         <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="b" data-content-theme="b">
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                        </div>
-                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="b" data-content-theme="b">
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                        </div>
-                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="b" data-content-theme="b">
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                        </div>
-                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="b" data-content-theme="b">
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                        </div>
-                        
+                         
 
                            <!-- ABOUT >
                         <div data-role="collapsible" data-theme="e" data-content-theme="e" class="cornered4">
@@ -686,7 +688,7 @@ $('#confirmDialog').on({
                     <!--EmailComposer -->
                     <script>
                         var ComposeEmail = function(){
-                            window.plugins.emailComposer.showEmailComposer("Feedback for EyeReport","Please Provide feedback for the EyeReport app in the space below:", "support@eye-report.org'", false);
+                            window.plugins.emailComposer.showEmailComposer("Feedback for EyeReport","Please Provide feedback for the EyeReport app in the space below:", "support@eye-report.org", false);
                             //window.plugins.emailComposer.showEmailComposer('Feedback for EyeReport', 'Please Provide feedback for the EyeReport app in the space below:', ['support@eye-report.org'],[],[],false);
                             //(subject,body,toRecipients,ccRecipients,bccRecipients,bIsHTML)
                         }
@@ -885,12 +887,12 @@ $('#confirmDialog').on({
 
                     //Check if it already exists or not
                     if(applaunchCount){
-                     alert("THANK YOU CoMe AGAIN!");//This is a second time launch, and count = applaunchCount
+                    // alert("EyeReport has been launched previously");//This is a second time launch, and count = applaunchCount
                     }
                     else{
                     //Local storage is not set, hence first time launch. set the local storage item
                     window.localStorage.setItem('launchCount',1);
-                    alert("first launch!!!!");
+                    alert("first launch! This is where and when the instruction screen will display.");
                     //Do the other stuff related to first time launch
                     }
                     var args = {};
