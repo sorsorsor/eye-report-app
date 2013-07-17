@@ -127,7 +127,7 @@
                               $('#english').click(function(){
                                     $("#eCall a.ui-link-inherit").text("Emergency Call");
                                    // $("#sms a.ui-link-inherit").text("SMS");
-                                    $("#chinese a.ui-link-inherit").text("Chinese");
+                                    $("#chinese a.ui-link-inherit").text("中文");
                                     $("#english a.ui-link-inherit").text("English");
                                     $("#pickContact a.ui-link-inherit").text("Pick Contact");
 
@@ -311,6 +311,20 @@
         </script>
         <!-- END LANGUAGE SELECT -->
         
+        <!-- STYLE SWITCH -->
+        <script>
+            $('#action').click(function() {
+                if ($(#helpTab).children().hasClass('cornered2')) {
+                     $(#helpTab).children().removeClass('cornered2');
+                     $(#helpTab).children().addClass('cornered2-alt');
+                }
+                 else {
+                     $(#helpTab).children().addClass('cornered2');
+                 }
+                    $('div#tabs').listview('refresh');
+                });
+        </script>
+        <!-- /STYLE SWITCH -->
         <script>
             function alertDismissed() {
                 //null
@@ -318,7 +332,7 @@
             
             function showAlert() {
                 navigator.notification.confirm(
-                                               'Your comment was successfully added.',  // message
+                                               'The information you submitted is confidential and anonymous. To know more about GBV, please click here.',  // message
                                                alertDismissed,         // callback
                                                'Success!',            // title
                                                'Dismiss'                  // buttonName
@@ -362,7 +376,7 @@ $('#confirmDialog').on({
                         <!--li><a href="sql.html">sql test</a></li-->
                         <li id="eCall"><a href="tel:110">Emergency Call</a></li>
                         <li id="sms" onclick="ComposeSMS()"><a href="">SMS</a></li>
-                        <li id="chinese"><a href="">Chinese</a></li>
+                        <li id="chinese"><a href="">中文</a></li>
                         <li id="english"><a href="">English</a></li>
                         <li id="pickContact" onclick="pickContact();"><a href="">Pick Contact</a></li>
                         <li id="share" onclick="share()"><a href="">Share</a></li>
@@ -395,7 +409,7 @@ $('#confirmDialog').on({
                 </div><!-- /header-->
                 <div id="qunit"></div>
                 <div data-role="content" id="one" class="ui-content" role="main" style="border:0;">
-                    <div data-role="collapsible-set" data-inset="false" data-corners="false" class="no-border">
+                    <div data-role="collapsible-set" id="tabs"data-inset="false" data-corners="false" class="no-border">
 <!--DATA THEME A-->
                         <div  id="landmark-1" data-landmark-id="1" data-inset="false" data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="a" class="cornered3">
                             <h3 id="know">I want to know</h3>
@@ -572,7 +586,7 @@ $('#confirmDialog').on({
                         </div>
                         
                         <!--DATA THEME B -->
-                        <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2" data-collapsed="false">
+                        <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2" data-collapsed="false" id="helpTab">
                             <h3 id="help">I need help</h3>
                             <h2 id="iVictim"><strong>I am a victim.</strong></h2>
                             <h2 id="iWant"><strong>I want to:</strong></h2>
@@ -585,7 +599,7 @@ $('#confirmDialog').on({
                              <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Call now</a>
                              </div-->
                               <input onclick="ComposeSMS();" id="friendAssist" type="button" data-role="button" data-theme="b" data-content="b" value="I need a friend's assistance" />
-                            <a href="tel:18710039964" id="reportHotline" data-role="button" data-inline="false" data-theme="b" data-content-theme="b">Report to hotline</a>
+                            <a href="tel:+861064073800" id="reportHotline" data-role="button" data-inline="false" data-theme="b" data-content-theme="b">Report to hotline</a>
                             <a href="tel:110" id="reportPolice" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" >Report to Police</a>
                             <!--a href="index.html" data-role="button" data-inline="false" data-theme="b" data-content-theme="b"data-corners="false"> I need a friend’s assistance</a-->
                             <!--input onclick="ComposeSMS();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="I need a friend's assistance" /-->
@@ -623,12 +637,22 @@ $('#confirmDialog').on({
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;
+                                
+                        </div>
+                        <!--/SURVIVOR-->
+                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%; height:200%; margin-right:100px; margin-left:-100px;"data-theme="b" data-content-theme="b" style="background-color:#8bfe73;">
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;
                         </div>
-                        <!--/SURVIVOR-->
-                         
+                        
+
 
                            <!-- ABOUT >
                         <div data-role="collapsible" data-theme="e" data-content-theme="e" class="cornered4">
@@ -712,7 +736,7 @@ $('#confirmDialog').on({
                      <script>
                         var ComposeSMS = function(){
                 
-                            window.plugins.smsComposer.showSMSComposer('3424221122', 'hello');
+                            window.plugins.smsComposer.showSMSComposer('3424221122', 'I need help, call me now!');
                             //smsComposer.showSMSComposer(success, failure, '3424221122', 'hello');
                         }
         

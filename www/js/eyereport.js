@@ -15,7 +15,7 @@
 
                 function onSuccess(position) {
                     var element = document.getElementById('geolocation');
-                    element.innerHTML = "http://maps.google.com/maps?q="+position.coords.latitude+","+position.coords.longitude+"(My+Point)&z=14&ll="+position.coords.latitude+","+position.coords.longitude;
+                    element.innerHTML = "I need help, call me now! "+"http://maps.google.com/maps?q="+position.coords.latitude+","+position.coords.longitude+"(My+Point)&z=14&ll="+position.coords.latitude+","+position.coords.longitude;
                     /*
                     var origPos = "location";
                     var geoPos = origPos.replace("location", position.coords.latitude + position.coords.longitude);

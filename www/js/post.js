@@ -4,8 +4,8 @@
             var landmarkID = $(this).parent().attr('data-landmark-id');
             var postData = $(this).serialize();
             //var spanValue  = $('#camera_status').text();
-            var input = document.getElementById('group_802736113_3'),//.value;
-                         input = group_802736113_3.value;
+            var input = document.getElementById('group_1406026652_13'),//.value; 
+                         input = group_1406026652_13.value;
                          
             $.ajax({
                 type: 'POST',

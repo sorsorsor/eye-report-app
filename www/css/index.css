@@ -131,7 +131,7 @@ h1 {
 {
     height:0px;
     border-bottom: 40px solid #1e56ef; /*blue*/
-    border-left: 40px solid #a745fe; /*purple*/
+    border-left: 40px solid #a745fe; /*purple*//*#ff52c5;*/ /*pink*/
 }
 
 .cornered2 {
@@ -145,7 +145,7 @@ h1 {
 {
     height:0px;
     border-bottom: 40px solid #0dd41a; /*green*/
-    border-left: 40px solid #1e56ef; /*blue*/
+    border-left: 40px solid #1e56ef; /*light-blue*/
 }
 
 .cornered3 {
@@ -243,6 +243,7 @@ border:0;
 
 .btm-fill {
 margin:0;
+
 }
 
 .custom-btn {
@@ -288,5 +289,12 @@ text-shadow:none;
 
 .caption-text {
     text-align:center;
+
+}
+
+.lt-green {
+
+margin:0;
+background-color:#8bfe73;
 
 }
