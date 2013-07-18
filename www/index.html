@@ -50,6 +50,7 @@
         <script type="text/javascript" charset="utf-8" src="js/social.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/EmailComposer.js"></script>
         <script src="js/post.js"></script>
+        <link rel="apple-touch-startup-image" href="img/instructions_04.jpg" />
         
         <!--BEGIN REQUEST LOCATION SERVICES-->
         <!--script type="text/javascript" charset="utf-8">
@@ -377,7 +378,16 @@
     </head>
         <!--body-->
         <body onload="initialize()"><!--onBodyLoad() initialize() checkLanguage()-->
-            
+            <div data-role="page" id="intro01" data-theme="d" data-content-theme="d" class="intro">
+               <a href="#intro02"> <img src="img/instructions_01.jpg" alt="" style="width:100%; height:100%;"/></a>
+               <h1> Tap to Continue</h1>
+               <!--a href="#intro02" id="introBtn01" data-rel="back" data-role="button" data-theme="d">Next</a-->
+            </div>
+            <div data-role="page" id="intro02" data-theme="d" data-content-theme="d" class="intro">
+                <a href="#homepage"><img src="img/instructions_02.jpg" alt="" style="width:100%; height:100%;"/></a>
+                <h1> Tap to Continue</h1>
+                <!--a href="#homepage" id="introBtn02" data-rel="back" data-role="button" data-theme="d">Next</a-->
+            </div>
                   <!--script> 
      // $(document).bind("pageinit", function(){
 
@@ -571,6 +581,7 @@ $('#confirmDialog').on({
                                     <input type="text" name="entry.1485650557.other_option_response" value="" id="entry_1485650557_other_option_response" dir="auto" aria-label="Other" data-mini="true" data-theme="d" data-content-theme="d">
                                     <div class="invisible">
                                     <input type="text" name="entry.423085064" value="" id="entry_423085064" dir="auto">
+                                    <input type="text" name="entry.916979227" value="" id="entry_916979227" dir="auto">
                                     </div>
 
                                     </fieldset>
@@ -613,7 +624,7 @@ $('#confirmDialog').on({
                         </div>
                         
                         <!--DATA THEME B -->
-                        <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2" data-collapsed="false" id="helpTab">
+                        <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2" data-collapsed="true" id="helpTab">
                             <h3 id="help">I need help</h3>
                             <h2 id="iVictim"><strong>I am a victim.</strong></h2>
                             <h2 id="iWant"><strong>I want to:</strong></h2>
@@ -678,6 +689,24 @@ $('#confirmDialog').on({
                                 &nbsp;
                                 &nbsp;
                         </div>
+
+                        <!--input id="viewButton" type="button" value="+" onclick="getContact();" />
+
+<script type="text/javascript">
+  function getContact() {
+    var options = new ContactFindOptions();
+    var fields = ["name", "emails"];
+    navigator.contacts.find(fields, onContactSuccess, onContactError, options);
+  }
+
+  function onContactSuccess() {
+    alert("Great");
+  }
+
+  function onContactError() {
+    alert("oops");
+  }
+</script-->
                         
 
 
@@ -782,6 +811,11 @@ $('#confirmDialog').on({
                     
                     <!-- CONTACTS -->
                 
+               
+
+
+
+
                 <script type="text/javascript" charset="utf-8">
                     
                     function pickContact()
@@ -803,7 +837,7 @@ $('#confirmDialog').on({
                          alert("a=" +contacts[i].name);
                        */ 
                 //PUT BACK IN FOR DEBUG!!!!!!!!
-                   /////////////    alert(id);
+                     alert(id);
                         
                         /*
                         if (contacts[i].phoneNumbers){
@@ -938,15 +972,22 @@ $('#confirmDialog').on({
 
                     //Check if it already exists or not
                     if(applaunchCount){
+                        var div = document.getElementById("intro01");
+                        div.parentNode.removeChild(div);
+                        var div = document.getElementById("intro02");
+                        div.parentNode.removeChild(div);
                     // alert("EyeReport has been launched previously");//This is a second time launch, and count = applaunchCount
                     }
                     else{
                     //Local storage is not set, hence first time launch. set the local storage item
                     window.localStorage.setItem('launchCount',1);
-                    alert("first launch! This is where and when the instruction screen will display.");
+                    
+                    //alert("first launch! This is where and when the instruction screen will display.");
                     //Do the other stuff related to first time launch
                     }
                     var args = {};
             </script>
+
+
             </body>
 </html>

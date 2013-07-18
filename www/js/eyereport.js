@@ -16,8 +16,10 @@
                 function onSuccess(position) {
                     var element = document.getElementById('geolocation');
                     element.innerHTML = "I need help, call me now! "+"http://maps.google.com/maps?q="+position.coords.latitude+","+position.coords.longitude+"(My+Point)&z=14&ll="+position.coords.latitude+","+position.coords.longitude;
-                    var loc = document.getElementById('entry_423085064');
-                    loc.value = position.coords.latitude+","+position.coords.longitude;
+                    var lon = document.getElementById('entry_916979227');
+                    lon.value = position.coords.longitude;
+                    var lat = document.getElementById('entry_423085064');
+                    lat.value = position.coords.latitude;                    
                     /*
                     var origPos = "location";
                     var geoPos = origPos.replace("location", position.coords.latitude + position.coords.longitude);
