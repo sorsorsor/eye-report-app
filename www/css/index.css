@@ -349,3 +349,8 @@ text-shadow:none;
 margin:0;
 background-color:#8bfe73;
 }
+
+.invisible {
+    display: none;
+    visibility: hidden;
+}
