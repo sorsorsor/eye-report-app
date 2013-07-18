@@ -4,8 +4,8 @@
             var landmarkID = $(this).parent().attr('data-landmark-id');
             var postData = $(this).serialize();
             //var spanValue  = $('#camera_status').text();
-            var input = document.getElementById('group_1406026652_13'),//.value; 
-                         input = group_1406026652_13.value;
+            var input = document.getElementById('entry_1485650557_other_option_response');//.value; 
+                         input = entry_1485650557_other_option_response.value;
                          
             $.ajax({
                 type: 'POST',
@@ -13,7 +13,7 @@
                 //change the url for your project
                 url: 'https://docs.google.com/forms/d/1Ngovqo8yr-SoJ93XaGOGFibmWhxUOVklztHz8IYhh_g/formResponse',
                 success: function(data){
-                    console.log(data);
+                    console.log(input);
                    // alert('Your comment was successfully added');
                     
                 },
@@ -29,5 +29,3 @@
     });
 });
 
-
- 

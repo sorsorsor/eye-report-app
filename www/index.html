@@ -333,43 +333,46 @@
                                             // $('div#tabs').listview('refresh');
                                             $( "#tabs" ).collapsibleset( "refresh" );
                                         });
-
+                                    /*
+                                    $('#help').click(function() {
+                                        if ($("#btmFill").hasClass('btm-fill')) {
+                                            $("#btmFill").removeClass('btm-fill');
+                                            $("#btmFill").addClass('btm-fill-alt');
+                                            }
+                                        else{
+                                            $("#btmFill").removeClass('btm-fill-alt');
+                                            $("#btmFill").addClass('btm-fill');
+                                             }
+                                            // $('div#tabs').listview('refresh');
+                                            $( "#one").content( "refresh" );
+                                        });
+                                    */
                 });
         </script>
         <!-- END LANGUAGE SELECT -->
         
-        <!-- STYLE SWITCH -->
-        <!--script>
-            $('#action').click(function() {
-                if ($(#helpTab).children().hasClass('cornered2')) {
-                     $(#helpTab).children().removeClass('cornered2');
-                     $(#helpTab).children().addClass('cornered2-alt');
-                }
-                 else {
-                     $(#helpTab).children().addClass('cornered2');
-                 }
-                   // $('div#tabs').listview('refresh');
-                });
-        </script-->
-        <!-- /STYLE SWITCH -->
         <script>
-            function alertDismissed() {
-                //null
+            function alertDismissed(button) {
+                if (button == 1) {
+                    //null
+                }
+                if (button == 2) {
+                   window.open('https://eye-report.org','_system'); return false;
+                }
+                else{
+                // do something
+                }
             }
             
             function showAlert() {
                 navigator.notification.confirm(
-                                               'The information you submitted is confidential and anonymous. To know more about GBV, please click here.',  // message
+                                               'The information you submitted is confidential and anonymous.',  // message
                                                alertDismissed,         // callback
                                                'Success!',            // title
-                                               'Dismiss'                  // buttonName
+                                               'Dismiss, Learn more'                  // buttonName
                                                );
             }
             </script>
-
-
-        
-
 
     </head>
         <!--body-->
@@ -425,7 +428,8 @@ $('#confirmDialog').on({
                 <!-- /panel -->
                 <div data-role="header" data-position="inline">
                     <img name="eye_report_logo" src="img/eye_report_logo02.png" style="float:left; height: 3em;  margin-top:5px; margin-left:5px;">
-                        <h4>Stop Violence</h4>
+                       <h3></h3>
+                       <!--h1 class="smaller"> Stop Violence</h1-->
                         
                         <a href="#rightpanel01" data-icon="bars" data-iconpos="notext" data-theme="d" data-position="right" class="ui-btn-right ui-icon-alt" style="margin-top:5px;"></a>
 
@@ -536,43 +540,62 @@ $('#confirmDialog').on({
                                         <label for="group_1406026652_3"id="physVio">physical violence</label>
                                         <input type="checkbox" name="entry.1406026652" id="group_1406026652_4"value="sexual violence" class="custom" />
                                         <label for="group_1406026652_4" id="sexVio">sexual violence</label>
-                                        <label for="group_1406026652_5"id="other01">* Other:</label>
+                                        <!--label for="group_1406026652_5"id="other01">* Other:</label>
                                         <span id="camera_status">
-                                        <input type="text" name="entry.1406026652" id="group_1406026652_5"value="other" data-mini="true" data-theme="d" data-content-theme="d" />
-                                        </span>
+                                        <input type="text" name="entry.1406026652.other_option_response" id="entry_1406026652_other_option_response"value="other" data-mini="true" data-theme="d" data-content-theme="d" />
+                                        </span-->
                                     </fieldset>
                                     <br>
                                     <br>
                                     <fieldset data-role="controlgroup" data-mini="true">
                                     <legend><strong><div id="checkHeader2">Where did you witness the violence?</div></strong></legend>
-                                    <input type="checkbox" name="entry.1406026652" id="group_1406026652_6" value="street" class="custom" />
-                                    <label for="group_1406026652_6" id="street">Street</label>
+                                    <ul class="ss-choices"><li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.1485650557" value="Street" id="group_1485650557_1" class="ss-q-checkbox"></span>
+                            <span class="ss-choice-label">Street</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.1485650557" value="Home" id="group_1485650557_2" class="ss-q-checkbox"></span>
+<span class="ss-choice-label">Home</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.1485650557" value="Work" id="group_1485650557_3" class="ss-q-checkbox"></span>
+<span class="ss-choice-label">Work</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.1485650557" value="Open Space" id="group_1485650557_4" class="ss-q-checkbox"></span>
+<span class="ss-choice-label">Open Space</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.1485650557" value="Closed Space" id="group_1485650557_5" class="ss-q-checkbox"></span>
+<span class="ss-choice-label">Closed Space</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.1485650557" value="Private Vehicle" id="group_1485650557_6" class="ss-q-checkbox"></span>
+<span class="ss-choice-label">Private Vehicle</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.1485650557" value="Public Transportation" id="group_1485650557_7" class="ss-q-checkbox"></span>
+<span class="ss-choice-label">Public Transportation</span>
+</label></li> <li class="ss-choice-item"><label><span class="ss-choice-item-control goog-inline-block"><input type="checkbox" name="entry.1485650557" value="__other_option__" id="group_1485650557_8" class="ss-q-checkbox ss-q-other-toggle"></span>
+Other:</label>
+<span class="ss-q-other-container goog-inline-block"><input type="text" name="entry.1485650557.other_option_response" value="" class="ss-q-other" id="entry_1485650557_other_option_response" dir="auto" aria-label="Other"></span>
+</li></ul>
 
-                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_7" value="home" class="custom" />
-                                    <label for="group_1406026652_7" id="home">Home</label>
+                                    <!--input type="checkbox" name="entry.1485650557" id="group_1485650557_1" value="street" class="custom" />
+                                    <label for="group_1485650557_1" id="street">Street</label>
 
-                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_8" value="work" class="custom" />
-                                    <label for="group_1406026652_8" id="work">Work</label>
+                                     <input type="checkbox" name="entry.1485650557" id="group_1485650557_2" value="home" class="custom" />
+                                    <label for="group_1485650557_2" id="home">Home</label>
 
-                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_9" value="openSpace" class="custom" />
-                                    <label for="group_1406026652_9" id="openSpace">Open Space</label>
+                                     <input type="checkbox" name="entry.1485650557" id="group_1485650557_3" value="work" class="custom" />
+                                    <label for="group_1485650557_3" id="work">Work</label>
 
-                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_10" value="closedSpace" class="custom" />
-                                    <label for="group_1406026652_10" id="closedSpace">Closed Space</label>
+                                     <input type="checkbox" name="entry.1485650557" id="group_1485650557_4" value="openSpace" class="custom" />
+                                    <label for="group_1485650557_4" id="openSpace">Open Space</label>
 
-                                     <input type="checkbox" name="entry.1406026652" id="group_1406026652_11" value="privateVehicle" class="custom" />
-                                    <label for="group_1406026652_11" id="privateVehicle">Private Vehicle</label>
+                                     <input type="checkbox" name="entry.1485650557" id="group_1485650557_5" value="closedSpace" class="custom" />
+                                    <label for="group_1485650557_5" id="closedSpace">Closed Space</label>
 
-                                    <input type="checkbox" name="entry.1406026652" id="group_1406026652_12" value="publicTransit" class="custom" />
-                                    <label for="group_1406026652_12" id="publicTransit">Public Transportation</label>
+                                     <input type="checkbox" name="entry.1485650557" id="group_1485650557_6" value="privateVehicle" class="custom" />
+                                    <label for="group_1485650557_6" id="privateVehicle">Private Vehicle</label>
 
-                                    <label for="group_1406026652_13"id="other03">* Other:</label>
-                                        <span id="camera_status">
-                                        <input type="text" name="entry.1406026652" id="group_1406026652_13"value="other" data-mini="true" data-theme="d" data-content-theme="d" />
-                                        </span>
-
+                                    <input type="checkbox" name="entry.1485650557" id="group_1485650557_7" value="publicTransit" class="custom" />
+                                    <label for="group_1485650557_7" id="publicTransit">Public Transportation</label>
+                                    
+                                    <label for="entry.1485650557.other_option_response"id="other03">* Other:</label>
+                                       
+                                        <input type="text" name="entry.1485650557.other_option_response" id="entry_1485650557_other_option_response" value="" data-mini="true" data-theme="d" data-content-theme="d" />
+                                   <input type="text" name="entry.1485650557.other_option_response" value="" class="ss-q-other" id="entry_1485650557_other_option_response" dir="auto" aria-label="Other"/-->
                                     </fieldset>
                                   
+
                                     
                                     <!--input type="submit" value="Save" data-role="button"-->
                                 </div>
@@ -582,6 +605,7 @@ $('#confirmDialog').on({
                                     <!--a href="index.html" data-theme="c" data-content-theme="c" data-role="button" class="ui-btn-right">Submit</a-->
                                 </div>
                             </form>
+
                             <!-- INFO BUTTON -->
                             <a href="#infoNested01" id="moreInfoBtn01" data-rel="popup" data-role="button"  data-transition="pop" data-position-to="window" data-theme="c" data-content-theme="c">More Info</a>
                             <div id="infoNested01" data-role="popup" data-theme="c" data-content-theme="c" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
@@ -667,7 +691,7 @@ $('#confirmDialog').on({
                                 
                         </div>
                         <!--/SURVIVOR-->
-                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%; height:200%; margin-right:100px; margin-left:-100px;"data-theme="b" data-content-theme="b" style="background-color:#8bfe73;">
+                        <div class="btm-fill" id="btmFill" data-inset="true" data-role="content" style="width:200%; height:200%; margin-right:100px; margin-left:-100px;"data-theme="b" data-content-theme="b">
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;

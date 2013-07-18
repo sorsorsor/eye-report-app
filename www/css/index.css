@@ -269,8 +269,33 @@ font-size: 18px;
 border:0;
 }
 
+.btm-fill-alt {
+margin:0;
+border:none /*{c-body-border}*/;
+    color: #ffffff /*{c-body-color}*/;
+    text-shadow: 0 /*{c-body-shadow-x}*/ 0px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #ffffff /*{c-body-shadow-color}*/;
+    background: #1e56ef /*{c-body-background-color}*/;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( #1e56ef /*{c-body-background-start}*/), to( #1ae3ff /*{c-body-background-end}*/)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( #1e56ef /*{c-body-background-start}*/, #1ae3ff /*{c-body-background-end}*/); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient( #1e56ef /*{c-body-background-start}*/, #1ae3ff /*{c-body-background-end}*/); /* FF3.6 */
+    background-image:     -ms-linear-gradient( #1e56ef /*{c-body-background-start}*/, #1ae3ff /*{c-body-background-end}*/); /* IE10 */
+    background-image:      -o-linear-gradient( #1e56ef /*{c-body-background-start}*/, #1ae3ff /*{c-body-background-end}*/); /* Opera 11.10+ */
+    background-image:         linear-gradient( #1e56ef /*{c-body-background-start}*/, #1ae3ff /*{c-body-background-end}*/);
+
+}
+
 .btm-fill {
 margin:0;
+border:none /*{c-body-border}*/;
+    color: #ffffff /*{c-body-color}*/;
+    text-shadow: 0 /*{c-body-shadow-x}*/ 0px /*{c-body-shadow-y}*/ 0 /*{c-body-shadow-radius}*/ #ffffff /*{c-body-shadow-color}*/;
+    background: #1ae3ff /*{c-body-background-color}*/;
+    background-image: -webkit-gradient(linear, left top, left bottom, from( #1ae3ff /*{c-body-background-start}*/), to( #1e56ef /*{c-body-background-end}*/)); /* Saf4+, Chrome */
+    background-image: -webkit-linear-gradient( #1ae3ff /*{c-body-background-start}*/, #1e56ef /*{c-body-background-end}*/); /* Chrome 10+, Saf5.1+ */
+    background-image:    -moz-linear-gradient( #1ae3ff /*{c-body-background-start}*/, #1e56ef /*{c-body-background-end}*/); /* FF3.6 */
+    background-image:     -ms-linear-gradient( #1ae3ff /*{c-body-background-start}*/, #1e56ef /*{c-body-background-end}*/); /* IE10 */
+    background-image:      -o-linear-gradient( #1ae3ff /*{c-body-background-start}*/, #1e56ef /*{c-body-background-end}*/); /* Opera 11.10+ */
+    background-image:         linear-gradient( #1ae3ff /*{c-body-background-start}*/, #1e56ef /*{c-body-background-end}*/);
 
 }
 
@@ -320,9 +345,7 @@ text-shadow:none;
 
 }
 
-.lt-green {
-
+.help-btm {
 margin:0;
 background-color:#8bfe73;
-
 }
