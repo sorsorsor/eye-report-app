@@ -196,7 +196,23 @@
                                     $("#yide").text("Powered by 懿德多媒体实验室");
                                     
                     });
-             
+                                  
+                                /*
+                                  if ($('#action').hasClass('ui-collapsible-collapsed')) {
+
+                                        $("#helpTab").removeClass('cornered2');
+                                        $("#helpTab").addClass('cornered2-alt');
+                                        $( "#tabs" ).collapsibleset( "refresh" );
+                                  }
+                                  else{
+                                        $("#helpTab").removeClass('cornered2-alt');
+                                        $("#helpTab").addClass('cornered2');
+                                        $( "#tabs" ).collapsibleset( "refresh" );
+                                        }
+                                            // $('div#tabs').listview('refresh');
+                                */ 
+                              
+
                                     $('#know').click(function() {
                                         if ($("#landmark-2").hasClass('cornered1')) {
                                             $("#landmark-2").removeClass('cornered1');
@@ -207,6 +223,17 @@
                                             $("#landmark-2").addClass('cornered1');
                                              }
                                             // $('div#tabs').listview('refresh');
+                                           // $( "#tabs" ).collapsibleset( "refresh" );
+
+                                        if ($("#helpTab").hasClass('cornered2-alt')) {
+                                            $("#helpTab").removeClass('cornered2-alt');
+                                            $("#helpTab").addClass('cornered2');
+                                            }
+                                        //else{
+                                        //  $("#helpTab").removeClass('cornered2-alt');
+                                        //    $("#helpTab").addClass('cornered2');
+                                        //     }
+                                            // $('div#tabs').listview('refresh');
                                             $( "#tabs" ).collapsibleset( "refresh" );
                                         });
 
@@ -215,13 +242,74 @@
                                             $("#helpTab").removeClass('cornered2');
                                             $("#helpTab").addClass('cornered2-alt');
                                             }
-                                        else{
+                                        
+                                            // $('div#tabs').listview('refresh');
+                                           //$( "#tabs" ).collapsibleset( "refresh" );
+
+                                       else if ($("#landmark-2").hasClass('cornered1-alt')) {
+                                            $("#landmark-2").removeClass('cornered1-alt');
+                                            $("#landmark-2").addClass('cornered1');
+                                            }
+
+                                        else {
+                                        //else if ($("#helpTab").hasClass('cornered2-alt')) {
                                             $("#helpTab").removeClass('cornered2-alt');
                                             $("#helpTab").addClass('cornered2');
                                              }
+                                       // else{
+                                       //     $("#landmark-2").removeClass('cornered1-alt');
+                                       //     $("#landmark-2").addClass('cornered1');
+                                       //      }
                                             // $('div#tabs').listview('refresh');
                                             $( "#tabs" ).collapsibleset( "refresh" );
                                         });
+
+                                    $('#helpTab').click(function() {
+                                            
+                                        if ($('#helpTab').hasClass('cornered2-alt')) {
+                                            $('#helpTab').removeClass('cornered2-alt');
+                                            $('#helpTab').addClass('cornered2');
+                                            }
+                                     //  else {
+                                     //       $(this).removeClass('cornered2-alt');
+                                     //       $(this).addClass('cornered2');
+                                     //       }
+
+                                       else if ($("#action").hasClass('cornered1-alt')) {
+                                            $("#action").removeClass('cornered1-alt');
+                                            $("#action").addClass('cornered1');
+                                            }
+                                       else if ($("#know").hasClass('cornered3-alt')) {
+                                            $("#know").removeClass('cornered3-alt');
+                                            $("#know").addClass('cornered3');
+                                            }
+
+                                        //else{
+                                         //   $("#landmark-2").removeClass('cornered1-alt');
+                                         //   $("#landmark-2").addClass('cornered1');
+                                          //   }
+
+                                        $( "#tabs" ).collapsibleset( "refresh" );
+                                        });
+                    
+                    /*********************
+                                        $("#action").click(function () {
+                                            
+                                            $("#helpTab").toggleClass("cornered2-alt");
+                                        
+                                        });
+
+                                        $("#helpTab").click(function () {
+                                           
+                                            if ($("#know").hasClass('cornered3-alt')) { 
+                                                $("#know").removeClass('cornered3-alt');
+                                                $("#know").addClass('cornered3');
+                                                }
+                                                $( "#tabs" ).collapsibleset( "refresh" );
+                                        
+                                        });
+                    *********************/
+                                  
                                     /*
                                     $('#help').click(function() {
                                         if ($("#btmFill").hasClass('btm-fill')) {
@@ -286,7 +374,7 @@
                         <li id="english"><a href="">English</a></li>
                         <li id="pickContact" onclick="pickContact();"><a href="">Pick Contact</a></li>
                         <li id="share" onclick="share()"><a href="">Share</a></li>
-                        <li id="aboutBtn"><a href="#about">About</a></li>
+                        <li id="aboutBtn"><a href="#aboutPopup" data-rel="popup"  data-transition="pop" data-position-to="window" >About</a></li>
                         <li id="feedback"><a href="" onclick="ComposeEmail(); return false;">Feedback</a></li>
                         
                     </ul>
@@ -439,7 +527,7 @@
                         </div>
                         
                         <!--DATA THEME B -->
-                        <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2" data-collapsed="true" id="helpTab">
+                        <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2" data-collapsed="false" id="helpTab">
                             <h3 id="help">I need help</h3>
                             <h2 id="iVictim"><strong>I am a victim.</strong></h2>
                             <h2 id="iWant"><strong>I want to:</strong></h2>
@@ -490,6 +578,11 @@
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
                                 
                         </div>
                         <!--/SURVIVOR-->
@@ -497,43 +590,48 @@
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;
-                                &nbsp;
-                                &nbsp;
-                                &nbsp;
-                                &nbsp;
-                                &nbsp;
-                                &nbsp;
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <br></br>
                         </div>
 
-                        <!--input id="viewButton" type="button" value="+" onclick="getContact();" />
+                        <!-- INFO BUTTON -->
+                           
+                            <div id="aboutPopup" data-role="popup" data-theme="e" data-overlay-theme="e" class="ui-content" style="text-transform: none; overflow-y: scroll; max-height:400px;">
+                                <div>
+                                    <a href="#" id="close03" data-rel="back" data-role="button" data-theme="e" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+                                </div>
+                                    <h1 id="about"><strong>About</strong></h1>
+                                <div>
+                                    <img src="img/unesco_eyereport_logo.png" alt=""  class="img-logo" />
+                                    <h3 id="aboutCon">Eyereport is an educational initiative to raise awareness about domestic violence and where to seek help. While aiming to inform the public, incidentally Eyereport is an effort to collect data regarding domestic violence cases so we can all gain insight on how to progressively reduce domestic violence globally.</h3>
+                                </div>
+                                    &nbsp;
+                                    &nbsp;
+                                <h3 id="interested">Interested in EyeReport? Send us your feedback or inquiries:</h3>
+                                <a href="mailto:support@eye-report.org" id="email"data-role="button" data-inline="true" data-theme="e" data-content-theme="e" data-corners="false">Email</a>
+                                    &nbsp;
+                                    &nbsp;
+                                <img src="img/yide_logo_200.png" alt="" class="img-logo2" />
+                                    &nbsp;
+                                <div id="yide" style="display:block; margin-left:auto; margin-right:auto;" class="caption-text">
+                                    Powered by YiDe
+                                </div>
+                                
 
-                           <!-- ABOUT >
-                        <div data-role="collapsible" data-theme="e" data-content-theme="e" class="cornered4">
-                            <h3 id="about">About</h3>
-                            <div>
-                            <img src="img/unesco_eyereport_logo.png" alt=""  class="img-logo" />
-                            <h3 id="aboutCon">Eyereport is an educational initiative to raise awareness about domestic violence and where to seek help. While aiming to inform the public, incidentally Eyereport is an effort to collect data regarding domestic violence cases so we can all gain insight on how to progressively reduce domestic violence globally.</h3>
+                            <div class="btm-fill" data-inset="true" data-role="content" data-theme="f" data-content-theme="f">
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                            </div>   
+                           
+                                <a href="#" id="close05" data-rel="back" data-role="button" data-theme="f">Close</a>
+                            
                             </div>
-                            &nbsp;
-                            &nbsp;
-                            <h3 id="interested">Interested in EyeReport? Send us your feedback or inquiries:</h3>
-                            <a href="mailto:support@eye-report.org" id="email"data-role="button" data-inline="false" data-theme="e" data-content-theme="e" data-corners="false">Email</a>
-                            &nbsp;
-                            &nbsp;
-                            <img src="img/yide_logo_200.png" alt="" class="img-logo2" />
-                            &nbsp;
-                            <div id="yide" style="display:block; margin-left:auto; margin-right:auto;" class="caption-text">
-                                Powered by YiDe
-                            </div>
-                        </div>
-                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="e" data-content-theme="a">
-                            &nbsp;
-                            &nbsp;
-                            &nbsp;
-                        </div>
-                        <div class="btm-fill" data-inset="true" data-role="content" style="width:200%;margin-right:100px; margin-left:-100px;"data-theme="e" data-content-theme="a">
-                        </div>
-                        </ABOUT -->          
+                            <!-- /INFO BUTTON -->
+                                 
                         <p id="geolocation" style="display: none;">Finding geolocation...</p>
                     
                     <!--script type="text/javascript">
@@ -612,6 +710,8 @@
                     {
                         console.log("Contact ID =" +id);
                         console.log("Works! However only the contact's id is received, not the full contact object.");
+                        // alert(id);
+
                         //console.log("Contact ID = " + id);  //ex. John Appleseed, ID=3
                         
                         /*
@@ -619,7 +719,7 @@
                          alert("a=" +contacts[i].name);
                        */ 
                 //PUT BACK IN FOR DEBUG!!!!!!!!
-                     alert(id);
+                    
                         
                         /*
                         if (contacts[i].phoneNumbers){
@@ -632,7 +732,7 @@
                         */
                         //TODO: How to look up the contact object by ID???
                         var options = new ContactFindOptions();
-                        options.filter = "" +id;
+                        options.filter = phoneNumbers +id;
                        // var filter = ["id","phoneNumbers","name.formatted", "displayName"];
                         var fields = ["id","displayName", "addresses"];//"name.formatted" "phoneNumbers"];
                         //navigator.contacts.find(fields, onContactFound, onContactFailure, options);

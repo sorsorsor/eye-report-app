@@ -162,6 +162,13 @@ h1 {
     border-left: 40px solid #1e56ef; /*blue*/
 }
 
+.cornered2 .ui-collapsible-heading .ui-collapsible-heading-collapsed
+{
+    height:0px;
+    border-bottom: 40px solid #0dd41a; /*green*/
+    border-left: 40px solid #1e56ef; /*blue*/
+}
+
 .cornered2-alt {
   /*  width: 176px;
     height:0px;
@@ -176,6 +183,13 @@ h1 {
     border-left: 40px solid #1ae3ff; /*light-blue*/
 }
 
+.cornered2-alt .ui-collapsible-heading .ui-collapsible-heading-collapsed
+{
+    height:0px;
+    border-bottom: 40px solid #0dd41a; /*green*/
+    border-left: 40px solid #1ae3ff; /*light-blue*/
+}
+
 .cornered3 {
   /*  width: 176px;
     height:0px;
@@ -184,6 +198,13 @@ h1 {
 }
 
 .cornered3 .ui-collapsible-heading
+{
+    height:0px;
+    border-bottom: 40px solid #a745fe; /*purple*/
+    border-left: 40px solid transparent; /**/
+}
+
+.cornered3 .ui-collapsible-heading .ui-collapsible-heading-collapsed
 {
     height:0px;
     border-bottom: 40px solid #a745fe; /*purple*/
@@ -325,8 +346,8 @@ text-shadow:none;
     top:50%;
     margin: 10px 5px 10px 10px;
   */
-    width:100%;
-    height:100%;
+    width:50%;
+    height:50%;
     margin-left: auto;
     margin-right: auto;
     display:block;
