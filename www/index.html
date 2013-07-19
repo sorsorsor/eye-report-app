@@ -55,10 +55,13 @@
             $(document).bind("pageinit", function(){
                               $('#english').click(function(){
                                     $("#eCall a.ui-link-inherit").text("Emergency Call");
-                                   // $("#sms a.ui-link-inherit").text("SMS");
+                                    $("#sms a.ui-link-inherit").text("SMS");
                                     $("#chinese a.ui-link-inherit").text("中文");
                                     $("#english a.ui-link-inherit").text("English");
                                     $("#pickContact a.ui-link-inherit").text("Pick Contact");
+                                    $("#share a.ui-link-inherit").text("Share");
+                                    $("#aboutBtn a.ui-link-inherit").text("About");
+                                    $("#feedback a.ui-link-inherit").text("Feedback");
 
                                     $("#stopVio .ui-btn-text").text("Stop Violence");                     
                                     $("#action .ui-btn-text").text("I take action"); 
@@ -106,6 +109,20 @@
                                     $("#close04 .ui-btn-text").text("Close");
 
                                     $("#know .ui-btn-text").text("I want to know");
+                                    $("#know-01").text("Gender based violence: Acts of physical, mental or social abuse (including sexual violence) that is attempted or threatened, with some type of force (such us violence, threats, coercion, manipulation, deception, cultural expectations, weapons or economic circumstances) and is directed against a person because of his or her gender roles and expectations in a society or culture.");
+                                    $("#know-02").text(" Forms of Gender-based Violence include sexual violence, sexual abuse, sexual harassment, sexual exploitation, early marriage or forced marriage, gender discrimination, denial (such as education, food, freedom) and female genital mutilation.");
+                                    $("#know-03").text("Interpersonal Violence: Defined to include violence between family members and intimate partners and violence between acquaintances and strangers that is not intended to further the aims of any formally defined group or cause. ");
+                                    $("#know-04").text("Intimate Partner Violence (IPV): A pattern of assaultive and coercive behaviors, including physical, sexual, and psychological attacks, as well as economic coercion, that adults or adolescents use against their intimate partners. It includes a range of sexually, psychologically and physically coercive acts used against adult or adolescent women by a current or former intimate partner, without her consent.");
+                                    $("#know-05").text("Physical violence: Intentional use of physical force with the potential for causing death, injury or harm. It includes, but is not limited to, scratching, pushing, shoving, throwing, grabbing, biting, choking, shaking, poking, hair pulling, slapping, punching hitting, burning, the use of restraints or one’s body size or strength against another person, and the use, or threat to use, a weapon");
+                                    $("#know-06").text("sychological violence: Behavior that is intended to intimidate and persecute, and takes the form of threats of abandonment or abuse, confinement to the home, surveillance, threats to take away custody of the children, destruction of objects, isolation, verbal aggression and constant humiliation.");
+                                    $("#know-07").text("Psychological Abuse: Any act or omission that damages the self-esteem, identity, or development of the individual. It includes, but is not limited to, humiliation, threatening loss of custody of children, forced isolation from family or friends, threatening to harm the individual or someone they care about, repeated yelling or degradation, inducing fear through intimidating word or gestures, controlling behavior, and the destruction of possessions. ");
+                                    $("#know-08").text("Rape: Physically forced or otherwise coerced penetration of the vulva or anus, using a penis, other body parts or an object.");
+                                    /*
+                                    $("#know-09").text("Sexual Harassment: Harassment of a person because of her or his sex, as by making unwelcome sexual advances or otherwise engaging in sexist practices that cause the victim loss of income, mental anguish and the like.");
+                                    $("#know-010").text("Sexual Violence: Any sexual act, attempt to obtain a sexual act, unwanted sexual comments or advances, or acts to traffic, or otherwise directed, against a person’s sexuality using coercion, by any person regardless of their relationship to the victim, in any setting, including but not limited to home and work.");
+                                    $("#know-011").text("Stalking: A pattern of behaviors, which are repetitive and unsolicited such as, unwanted attention, communication, or contact (e.g. following and spying on the victim, damaging property, threats, intrusive attempts for communication, etc.).");
+                                    */
+
                                     $("#moreInfoBtn03 .ui-btn-text").text("More Info");
                                     $("#close05 .ui-btn-text").text("Close");
                                     $("#moreInfo03").text("More Info");
@@ -117,7 +134,8 @@
 
 
                                     $("#about .ui-btn-text").text("About");
-                                    $("#aboutCon").text("Eyereport is an educational initiative to raise awareness about domestic violence and where to seek help. While aiming to inform the public, incidentally Eyereport is an effort to collect data regarding domestic violence cases so we can all gain insight on how to progressively reduce domestic violence globally.");
+                                    $("#about01").text("Eye Report is a UNESCO pilot project aimed at raising awareness and contributing to ending gender based violence.  It is currently being implemented in China and Mongolia.");
+                                    $("#about02").text("This pilot project is developed in collaboration with specialized partners working to end gender based violence, and with technical support from YiDe.  It is based on UNESCO’s adherence to promoting Free and Open Source Software (FOSS), Open Access (OA) and Open Educational Resources (OER), which means that it would eventually be available to all, free of charge, for replication and adaptation to your community needs.");
                                     $("#interested").text("Interested in EyeReport? Send us your feedback or inquiries:");
                                     $("#email .ui-btn-text").text("Email");
                                     $("#yide").text("Powered by Yi De Media");
@@ -125,11 +143,14 @@
                             });
 
                             $('#chinese').click(function(){
-                                    $("#eCall a.ui-link-inherit").text("急诊");
-                                   // $("#sms a.ui-link-inherit").text("SMS");
-                                    $("#chinese a.ui-link-inherit").text("中国的");
+                                    $("#eCall a.ui-link-inherit").text("报警");
+                                    $("#sms a.ui-link-inherit").text("短信");
+                                    $("#chinese a.ui-link-inherit").text("中文");
                                     $("#english a.ui-link-inherit").text("英语");
-                                    $("#pickContact a.ui-link-inherit").text("选择联系");
+                                    $("#pickContact a.ui-link-inherit").text("选择联系人");
+                                    $("#share a.ui-link-inherit").text("分享");
+                                    $("#aboutBtn a.ui-link-inherit").text("关于");
+                                    $("#feedback a.ui-link-inherit").text("反馈");
 
                                     $("#stopVio .ui-btn-text").text("停止暴力");
                                     $("#action .ui-btn-text").text("我行动");
@@ -179,6 +200,20 @@
 
                                    // $("#landmark-1 #know").text("我关注");
                                     $("#know .ui-btn-text").text("我关注");
+                                    $("#know-01").text("什么是基于性别的暴力？");
+                                    $("#know-02").text("基于性别的暴力，是以性别为基础的暴力，即“因为女人是女人而对之施加暴力，或女人受害比例特大。它包括施加身体的、心理的或性的伤害或痛苦、威胁施加这类行动、压制和其他剥夺自由行动。");
+                                    $("#know-03").text("肢体暴力：包括所有施暴者对受害者身体各部位的种种攻击行为，如殴打、推搡、打耳光、抓头发、脚踢、使用攻击等，其程度从打巴掌到谋杀。");
+                                    $("#know-04").text("性暴力：包括攻击受害者胸部、阴部，用物或身体暴力强迫发生性行为、性接触；强迫与他人发生性关系等。");
+                                    $("#know-05").text("限制人身自由和精神摧残：包括以语言威胁恫吓、诽谤、辱骂，直接影响受害者的自我和自我价值；使用武力、自杀等行为威胁受害者；强迫受害者做其不想做的事情；控制受害者的行动自由，如干扰睡眠、禁止工作及与外界接触等。");
+                                    $("#know-06").text("经济控制：包括控制时间、食品、衣服、住房、钱等，对没有收入的妇女，经济控制是使其不能脱离暴力环境、处于受虐地位的主要原因。");
+                                    $("#know-07").text("性别暴力的实质是什么？暴力的实质是权力的运用与控制。 ");
+                                    $("#know-08").text("什么是亲密关系的暴力？亲密关系的暴力是发生在私人领域的基于性别的暴力，包括现有家庭成员之间（配偶之间、父母与子女之间、兄弟姐妹和亲戚之间）”、前配偶、恋人、同居伴侣、前同居伴侣等之间的暴力。");
+                                    /*
+                                    $("#know-09").text("");
+                                    $("#know-010").text("");
+                                    $("#know-011").text("");
+                                    */
+
                                     $("#moreInfoBtn03 .ui-btn-text").text("更多信息");
                                     $("#close05 .ui-btn-text").text("关闭");
                                     $("#moreInfo03").text("更多信息");
@@ -190,7 +225,8 @@
 
 
                                     $("#about .ui-btn-text").text("关于");
-                                    $("#aboutCon").text("Eyereport是一个教育的主动性，以提高人们对家庭暴力和到哪里寻求帮助。虽然旨在告知公众，顺带Eyereport的努力，收集有关家庭暴力案件的数据，所以我们都可以了解如何逐步在全球范围内减少家庭暴力。");
+                                    $("#about01").text("Eye Report 是联合国教科文组织正在中国和蒙古执行的一个试点项目。该项目旨在提高年轻人关于消除基于性别的暴力的意识。此项目的合作伙伴致力于消除性别暴力的专业机构北京帆葆/反家暴网络，也有提供技术开发和技术支持的北京斯智懿德信息咨询有限公司和国际传播促进中心.");
+                                    $("#about02").text("");
                                     $("#interested").text("感兴趣EyeReport？向我们发送您的意见或查询：");
                                     $("#email .ui-btn-text").text("电子邮件");
                                     $("#yide").text("Powered by 懿德多媒体实验室");
@@ -396,17 +432,38 @@
                             <h3 id="know">I want to know</h3>
                                <h3>
                                 <ol>
-                                    <li>
-                                Gender based violence: Acts of physical, mental or social abuse (including sexual violence) that is attempted or threatened, with some type of force (such us violence, threats, coercion, manipulation, deception, cultural expectations, weapons or economic circumstances) and is directed against a person because of his or her gender roles and expectations in a society or culture. 
-                                </li>
-                                <li>    
-                                Forms of Gender-based Violence include sexual violence, sexual abuse, sexual harassment, sexual exploitation, early marriage or forced marriage, gender discrimination, denial (such as education, food, freedom) and female genital mutilation.</li>
-                                <li>
-                                Interpersonal Violence: Defined to include violence between family members and intimate partners and violence between acquaintances and strangers that is not intended to further the aims of any formally defined group or cause. 
-                                </li>
-                                <li>    
-                                Intimate Partner Violence (IPV): A pattern of assaultive and coercive behaviors, including physical, sexual, and psychological attacks, as well as economic coercion, that adults or adolescents use against their intimate partners. It includes a range of sexually, psychologically and physically coercive acts used against adult or adolescent women by a current or former intimate partner, without her consent.
-                                </li>
+                                    <li id="know-01">
+                                        <strong>Gender based violence:</strong> Acts of physical, mental or social abuse (including sexual violence) that is attempted or threatened, with some type of force (such us violence, threats, coercion, manipulation, deception, cultural expectations, weapons or economic circumstances) and is directed against a person because of his or her gender roles and expectations in a society or culture. 
+                                    </li>
+                                    <li id="know-02">    
+                                        <strong>Forms of Gender-based Violence</strong> include sexual violence, sexual abuse, sexual harassment, sexual exploitation, early marriage or forced marriage, gender discrimination, denial (such as education, food, freedom) and female genital mutilation.    </li>
+                                    <li id="know-03">
+                                        <strong>Interpersonal Violence:<strong> Defined to include violence between family members and intimate partners and violence between acquaintances and strangers that is not intended to further the aims of any formally defined group or cause. 
+                                    </li>
+                                    <li id="know-04">    
+                                        <strong>Intimate Partner Violence (IPV):<strong> A pattern of assaultive and coercive behaviors, including physical, sexual, and psychological attacks, as well as economic coercion, that adults or adolescents use against their intimate partners. It includes a range of sexually, psychologically and physically coercive acts used against adult or adolescent women by a current or former intimate partner, without her consent.
+                                    </li>
+                                    <li id="know-05">
+                                        <strong>Physical violence:</strong> Intentional use of physical force with the potential for causing death, injury or harm. It includes, but is not limited to, scratching, pushing, shoving, throwing, grabbing, biting, choking, shaking, poking, hair pulling, slapping, punching hitting, burning, the use of restraints or one’s body size or strength against another person, and the use, or threat to use, a weapon
+                                    </li>
+                                    <li id="know-06">
+                                        <strong>Psychological violence:</strong> Behavior that is intended to intimidate and persecute, and takes the form of threats of abandonment or abuse, confinement to the home, surveillance, threats to take away custody of the children, destruction of objects, isolation, verbal aggression and constant humiliation.
+                                    </li>
+                                    <li id="know-07">
+                                        <strong>Psychological Abuse:</strong> Any act or omission that damages the self-esteem, identity, or development of the individual. It includes, but is not limited to, humiliation, threatening loss of custody of children, forced isolation from family or friends, threatening to harm the individual or someone they care about, repeated yelling or degradation, inducing fear through intimidating word or gestures, controlling behavior, and the destruction of possessions. 
+                                    </li>
+                                    <li id="know-08">
+                                        <strong>Rape:</strong> Physically forced or otherwise coerced penetration of the vulva or anus, using a penis, other body parts or an object.
+                                    </li>
+                                    <!--li id="know-09">
+                                        <strong>Sexual Harassment:</strong> Harassment of a person because of her or his sex, as by making unwelcome sexual advances or otherwise engaging in sexist practices that cause the victim loss of income, mental anguish and the like.
+                                    </li>
+                                    <li id="know-010">
+                                        <strong>Sexual Violence:</strong>  Any sexual act, attempt to obtain a sexual act, unwanted sexual comments or advances, or acts to traffic, or otherwise directed, against a person’s sexuality using coercion, by any person regardless of their relationship to the victim, in any setting, including but not limited to home and work.
+                                    </li>
+                                    <li id="know-011">
+                                        <strong>Stalking:</strong> A pattern of behaviors, which are repetitive and unsolicited such as, unwanted attention, communication, or contact (e.g. following and spying on the victim, damaging property, threats, intrusive attempts for communication, etc.).
+                                    </li-->
                                 </ol>
                                  </h3>
                                <!-- INFO BUTTON -->
@@ -606,7 +663,8 @@
                                     <h1 id="about"><strong>About</strong></h1>
                                 <div>
                                     <img src="img/unesco_eyereport_logo.png" alt=""  class="img-logo" />
-                                    <h3 id="aboutCon">Eyereport is an educational initiative to raise awareness about domestic violence and where to seek help. While aiming to inform the public, incidentally Eyereport is an effort to collect data regarding domestic violence cases so we can all gain insight on how to progressively reduce domestic violence globally.</h3>
+                                    <p id="about01">Eye Report is a UNESCO pilot project aimed at raising awareness and contributing to ending gender based violence.  It is currently being implemented in China and Mongolia. </p>
+                                    <p id="about02">This pilot project is developed in collaboration with specialized partners working to end gender based violence, and with technical support from YiDe.  It is based on UNESCO’s adherence to promoting Free and Open Source Software (FOSS), Open Access (OA) and Open Educational Resources (OER), which means that it would eventually be available to all, free of charge, for replication and adaptation to your community needs.</p>  
                                 </div>
                                     &nbsp;
                                     &nbsp;
@@ -747,89 +805,8 @@
                     }
                     </script>
                     <!--/CONTACTS -->
-                    
-                    <!--STORE CONTACTS -->
-                    <!--script>
-                     function testAsSeperateFunctionDB(contact)
-                     {
-                     
-                     
-                     for(i = 0; i < contactFullObjArray.length; i++) {
-                     transaction.executeSql();
-                     //Parse the ContactFull object
-                     var contact=ContactFull.parse(contactFullObjArray[i]);
-                     testAsSeperateFunctionDB(contact);
-                     
-                     }
-                     
-                     database.transaction(
-                     function( transaction ){
-                     alert("enteringIntoTransaction");
-                     transaction.executeSql(
-                     'INSERT INTO testTableThree (contactId, mrMrs, firstName,
-                     lastName, jobTitle, bActive, homePhone, contactType, accountId,
-                     workPhone, cellularPhone, workFax, contactEmail, owner,
-                     alternateCountry, alternateAddress1, alternateAddress2,
-                     alternateZipCode, alternateCity, alternateProvince)
-                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);',
-                     
-                     [contact.contactId, contact.mrMrs,
-                     contact.firstName, contact.lastName,
-                     contact.jobTitle, contact.bActive,
-                     contact.homePhone, contact.contactType,
-                     contact.accountId, contact.workPhone,
-                     contact.cellularPhone, contact.workFax,
-                     contact.contactEmail, contact.owner,
-                     contact.alternateCountry, contact.alternateAddress1,
-                     contact.alternateAddress2, contact.alternateZipCode,
-                     contact.alternateCity, contact.alternateProvince],
-                     
-                     //Callback after successful transaction
-                     function( transaction, results ) {
-                     alert("added");
-                     },
-                     
-                     //Callback after error in transaction
-                     function( transaction, error ) {
-                     alert("Error" + error.code);
-                     }
-                     );
-                     }
-                     );
-                     }
-                     </script>
-                     
-                     <script></script-->
-                    
-                    
-                    <!--/STORE CONTACTS -->
-                    
-                </div><!--content-->
-                
+                </div><!--content--> 
             </div><!-- /page -->
-            
-
-
-             <!-- ABOUT PAGE -->
-        <div data-role="page" id="track_info">            
-           <!-- /header-->
-           <div data-role="header" data-position="inline">
-                    <img name="eye_report_logo" src="img/eye_report_logo02.png" style="float:left; height: 3em;  margin-top:5px; margin-left:5px;">
-                       <h3></h3>
-                       <!--h1 class="smaller"> Stop Violence</h1-->
-                        
-                        <a href="#rightpanel01" data-icon="bars" data-iconpos="notext" data-theme="d" data-position="right" class="ui-btn-right ui-icon-alt" style="margin-top:5px;"></a>
-                </div>
-                <!-- /header-->
-            <div data-role="content">   
-                <p id="track_info_info"></p>
-                <div id="map_canvas" style="position:absolute;bottom:0;left:0;width:100%;height:300px;">
-                </div>
-            </div>    
-        </div>
-        <!-- /ABOUT PAGE -->
-
-            
         
             <script type="text/javascript">
                     app.initialize();
