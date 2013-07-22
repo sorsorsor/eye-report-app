@@ -91,10 +91,10 @@
                                     $("#info01-05").text("A woman who suffers sexual harassment has the right to complain to her own employer, the perpetrator’s employer, women’s federation and other related authorities, or directly file a lawsuit to the People’s Court.");
                                     $("#close02 .ui-btn-text").text("Close");
                                     $("#help .ui-btn-text").text("I need help");
-                                    $("#iVictim").text("I am a victim.");
+                                    $("#iVictim").text("I am a survivor.");
                                     $("#iWant").text("I want to:");
-                                    $('#friendAssist').prev('.ui-btn-inner').children('.ui-btn-text').html('I need a friends assistance');
-                                    $("#reportHotline .ui-btn-text").text("Report to hotline");
+                                    $('#friendAssist').prev('.ui-btn-inner').children('.ui-btn-text').html('Text a Friend');
+                                    $("#reportHotline .ui-btn-text").text("Call a Hotline");
                                     $("#reportPolice .ui-btn-text").text("Report to Police");
                                     
 
@@ -102,7 +102,7 @@
                                     $("#close03 .ui-btn-text").text("Close");
                                     $("#moreInfo02").text("More Info");
                                     $("#info02-01").text("A woman who suffers domestic violence has the right to appeal for rescue from public security organ, civil administration, judicial or administrative department, women’s federation, neighborhood committee, villagers’ committee and her employer, and these related departments and organizations should provide rescue, and when necessary, provide legal assistance.");
-                                    $("#info02-02").text("A victim of domestic violence can make 110 police hotline. Police officers will make a timely solution to the complaints according to laws and regulations.");
+                                    $("#info02-02").text("A survivor of domestic violence can make 110 police hotline. Police officers will make a timely solution to the complaints according to laws and regulations.");
                                     $("#info02-03").text("Young women should try not go the plaices where rape is more likely to happen.");
                                     $("#info02-04").text("Try to tell your family member or your friend the man you are going to date with, the time, place and the time you are scheduled to get back home.");
                                     $("#info02-05").text("Speak out your opinions and say “No” bravely if you do not want or accept his unreasonable demand.");
@@ -327,6 +327,10 @@
 
                                         $( "#tabs" ).collapsibleset( "refresh" );
                                         });
+
+//if ($('#helpTab').hasClass('ui-collapsible-collapsed')) {
+    // Do whatever you want to do here.
+//}
                     
                     /*********************
                                         $("#action").click(function () {
@@ -379,9 +383,9 @@
             
             function showAlert() {
                 navigator.notification.confirm(
-                                               'The information you submitted is confidential and anonymous.',  // message
+                                               'The information you submitted is confidential and anonymous. Tap the Learn more button for more information on Gender Based Violence.',  // message
                                                alertDismissed,         // callback
-                                               'Success!',            // title
+                                               'Congrats!',            // title
                                                'Dismiss, Learn more'                  // buttonName
                                                );
             }
@@ -409,6 +413,7 @@
                         <li id="chinese"><a href="">中文</a></li>
                         <li id="english"><a href="">English</a></li>
                         <li id="pickContact" onclick="pickContact();"><a href="">Pick Contact</a></li>
+                        <li id="pickContact"><a href="contact.html">Contact</a></li>
                         <li id="share" onclick="share()"><a href="">Share</a></li>
                         <li id="aboutBtn"><a href="#aboutPopup" data-rel="popup"  data-transition="pop" data-position-to="window" >About</a></li>
                         <li id="feedback"><a href="" onclick="ComposeEmail(); return false;">Feedback</a></li>
@@ -433,10 +438,10 @@
                                <h3>
                                 <ol>
                                     <li id="know-01">
-                                        <strong>Gender based violence:</strong> Acts of physical, mental or social abuse (including sexual violence) that is attempted or threatened, with some type of force (such us violence, threats, coercion, manipulation, deception, cultural expectations, weapons or economic circumstances) and is directed against a person because of his or her gender roles and expectations in a society or culture. 
+                                        <strong>Gender Based Violence:</strong> Acts of physical, mental or social abuse (including sexual violence) that is attempted or threatened, with some type of force (such as violence, threats, coercion, manipulation, deception, cultural expectations, weapons or economic circumstances) and is directed against a person because of his or her gender roles and expectations in a society or culture. 
                                     </li>
                                     <li id="know-02">    
-                                        <strong>Forms of Gender-based Violence</strong> include sexual violence, sexual abuse, sexual harassment, sexual exploitation, early marriage or forced marriage, gender discrimination, denial (such as education, food, freedom) and female genital mutilation.    </li>
+                                        <strong>Forms of Gender Based Violence</strong> include sexual violence, sexual abuse, sexual harassment, sexual exploitation, early marriage or forced marriage, gender discrimination, denial (such as education, food, freedom) and female genital mutilation.    </li>
                                     <li id="know-03">
                                         <strong>Interpersonal Violence:<strong> Defined to include violence between family members and intimate partners and violence between acquaintances and strangers that is not intended to further the aims of any formally defined group or cause. 
                                     </li>
@@ -477,7 +482,7 @@
                                     <ul>
                                         </br>
                                         <h1><strong>1.</strong></h1>
-                                        <li id="info03-01">In 1993, the United Nations adopted the Declaration on the Elimination of Violence against Women in which it defines“violence against women”, meaning “any gender-based violence which causes or is likely to cause physical, mental or sexual harms or pains to women, including threatening to impose such behaviors, coercing or willfully depriving women’s freedom, both in public life and in private life.</li>
+                                        <li id="info03-01">In 1993, the United Nations adopted the Declaration on the Elimination of Violence against Women in which it defines“violence against women”, as (not including) “any gender-based violence which causes or is likely to cause physical, mental or sexual harms or pains to women, including threatening to impose such behaviors, coercing or willfully depriving women’s freedom, both in public life and in private life.</li>
                                         </br>
                                         <h1><strong>2.</strong></h1>
                                         <li id="info03-02">A survey conducted  by China Women’s College in 2011on domestic violence showed that 78.8% of respondents said domestic violence had happened around them.</li>
@@ -586,7 +591,7 @@
                         <!--DATA THEME B -->
                         <div data-role="collapsible" data-theme="b" data-content-theme="b" class="cornered2" data-collapsed="false" id="helpTab">
                             <h3 id="help">I need help</h3>
-                            <h2 id="iVictim"><strong>I am a victim.</strong></h2>
+                            <h2 id="iVictim"><strong>I am a survivor.</strong></h2>
                             <h2 id="iWant"><strong>I want to:</strong></h2>
                           
                             <!--div data-role="collapsible" data-theme="b" data-content-theme="b">
@@ -596,8 +601,8 @@
                              <h2>110</h2>
                              <a href="tel:110" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" data-corners="false">Call now</a>
                              </div-->
-                              <input onclick="ComposeSMS();" id="friendAssist" type="button" data-role="button" data-theme="b" data-content="b" value="I need a friend's assistance" />
-                            <a href="tel:+861064073800" id="reportHotline" data-role="button" data-inline="false" data-theme="b" data-content-theme="b">Report to hotline</a>
+                              <input onclick="ComposeSMS();" id="friendAssist" type="button" data-role="button" data-theme="b" data-content="b" value="Text a Friend" />
+                            <a href="tel:+861064073800" id="reportHotline" data-role="button" data-inline="false" data-theme="b" data-content-theme="b">Call a Hotline</a>
                             <a href="tel:110" id="reportPolice" data-role="button" data-inline="false" data-theme="b" data-content-theme="b" >Report to Police</a>
                             <!--a href="index.html" data-role="button" data-inline="false" data-theme="b" data-content-theme="b"data-corners="false"> I need a friend’s assistance</a-->
                             <!--input onclick="ComposeSMS();" type="button" data-role="button" data-theme="b" data-content="b" data-corners="false" value="I need a friend's assistance" /-->
@@ -616,7 +621,7 @@
                                         <li id="info02-01">A woman who suffers domestic violence has the right to appeal for rescue from public security organ, civil administration, judicial or administrative department, women’s federation, neighborhood committee, villagers’ committee and her employer, and these related departments and organizations should provide rescue, and when necessary, provide legal assistance.</li>
                                         </br>
                                         <h1><strong>2.</strong></h1>
-                                        <li id="info02-02">A victim of domestic violence can make 110 police hotline. Police officers will make a timely solution to the complaints according to laws and regulations.</li>
+                                        <li id="info02-02">A survivor of domestic violence can make 110 police hotline. Police officers will make a timely solution to the complaints according to laws and regulations.</li>
                                         </br>
                                         <h1><strong>3.</strong></h1>
                                         <li id="info02-03">Young women should try not go the plaices where rape is more likely to happen.</li>
@@ -768,7 +773,8 @@
                     {
                         console.log("Contact ID =" +id);
                         console.log("Works! However only the contact's id is received, not the full contact object.");
-                        // alert(id);
+                        contact.rawId = contact.id; 
+                        alert(id);
 
                         //console.log("Contact ID = " + id);  //ex. John Appleseed, ID=3
                         
